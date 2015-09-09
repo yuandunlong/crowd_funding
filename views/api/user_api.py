@@ -29,10 +29,14 @@ def get_access_token(result):
         result['code']=1
         result['msg']="password is not correct"
         return
-    access_token=user_service.get_access_token()
-    token=Token(challenge=challenge,user_id=user.id,token=access_token,expires=-1)
-    db.session.add(token)
-    db.session.commit()
+    token=Token.query.filter_by(user_id=user.id).first()
+    if token:
+        access_token=token.token
+    else:
+        access_token=user_service.get_access_token()
+        token=Token(challenge=challenge,user_id=user.id,token=access_token,expires=-1)
+        db.session.add(token)
+        db.session.commit()
     result['access_token']=access_token
 @user_api.route('/public/user/send_sms_code')
 @json_response

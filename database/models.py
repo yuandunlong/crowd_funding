@@ -7,8 +7,8 @@ db = SQLAlchemy()
 class BaseModel(db.Model):
     __abstract__=True
     id = db.Column('id', db.Integer, primary_key=True)
-    created_time = db.Column('created_time', db.DateTime,server_default=func.now())
-    updated_time = db.Column('updated_time', db.DateTime,server_default=func.now())
+    created_time = db.Column('created_time', db.TIMESTAMP,server_default=func.CURRENT_TIMESTAMP)
+    updated_time = db.Column('updated_time', db.TIMESTAMP,server_default=func.CURRENT_TIMESTAMP)
     def as_map(self):
         fields={}
         for field in [x for x in dir(self) if not x.startswith('_') and x!='metadata' and x!='query' and x!='query_class']:

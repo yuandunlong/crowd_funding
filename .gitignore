@@ -1,3 +1,4 @@
 *.pyc
 /docs/
 /app.cfg
+__init__.pyc
