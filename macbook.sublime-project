@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+    "settings":{
+        "python_interpreter" : "/Users/yuandunlong/.virtualenvs/crowd_funding/bin/python",
+        "python_package_paths": ["$project_path"]
+
+    }
+    
+}

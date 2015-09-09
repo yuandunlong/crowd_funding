@@ -1,0 +1,740 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pay",
+				"payback_id"
+			],
+			[
+				"proj",
+				"project_id"
+			],
+			[
+				"pr",
+				"primary_key"
+			],
+			[
+				"ex",
+				"expire_at"
+			],
+			[
+				"st",
+				"struct"
+			],
+			[
+				"as",
+				"aes_key"
+			],
+			[
+				"aes",
+				"aes_encoder"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "flask-web.py",
+			"settings":
+			{
+				"buffer_size": 44,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "database/__init__.py",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "database/models.py",
+			"settings":
+			{
+				"buffer_size": 3054,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "services/__init__.py",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "services/user_service.py",
+			"settings":
+			{
+				"buffer_size": 158,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "macbook.sublime-project",
+			"settings":
+			{
+				"buffer_size": 204,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 786,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "旧数据库 https://leancloud.cn/ 账号 honggu 密码 IS6js9r0leP\n公共邮箱 账号 honggukj@126.com 密码 IS6js9r0leP 用于注册各种第三方信息\n代码库 https://git.oschina.net / http://git.oschina.net/dashboard/projects 账号 honggu 密码IS6js9r0leP\n微信开放平台账号：3099602275@qq.com   密码：liuchen3\n阿里云、企业支付宝账号  ：3125369916@qq.com密码：liuchen3\n支付宝开放平台  ：3125369916@qq.com\n密码：liuchen3\n两个申请相关QQ号：Qq3125369916    密码liuchen3\nQq3099602275    密码liuchen3\n \n阿里云 3125369916@qq.com  liuchen3 ECS主机 administrator administratorLCH3",
+			"file": "docs/帐号.txt",
+			"file_size": 655,
+			"file_write_time": 130860155720000000,
+			"settings":
+			{
+				"buffer_size": 459,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "__init__.py",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app.cfg",
+			"settings":
+			{
+				"buffer_size": 360,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 227.0,
+		"last_filter": "pacins",
+		"selected_items":
+		[
+			[
+				"pacins",
+				"Package Control: Install Package"
+			],
+			[
+				"pacin ",
+				"Package Control: Install Package"
+			],
+			[
+				"pacin",
+				"Package Control: Install Package"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript (Rails)"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/yuandunlong/workspace/project/crowd_funding",
+		"/Users/yuandunlong/workspace/project/crowd_funding/services",
+		"/Users/yuandunlong/workspace/project/crowd_funding/utils",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views"
+	],
+	"file_history":
+	[
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+		"/Users/yuandunlong/workspace/project/crowd_funding/macbook.sublime-project",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/AutoPEP8/AutoPep8.sublime-settings",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/User/AutoPep8.sublime-settings",
+		"/Users/yuandunlong/workspace/project/crowd_funding/docs/帐号.txt",
+		"/Users/yuandunlong/workspace/project/crowd_funding/flask-web.py",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/UserManager.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/UserCenterManage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/models/UserCenterDao.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/OrderManage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/models/OrderManageDao.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/models/ShopManageDao.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/Display.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/models/UserManagerDao.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/ShopList.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/Content/swfobject.js",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/user_guide/userguide.css",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/MessageManage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/models/MessageManageDao.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/OrderSubmitManage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/models/ShopGoodsManageDao.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/Content/css/ybcss.css",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/ShopCenterManage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/ShopActivities.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/ShoppingCart.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/Content/syntaxhighlighter/scripts/shAutoloader.js",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/ShopSaleCountManage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/user_guide/tutorial/hard_coded_pages.html",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/Content/ueditor/dialogs/map/show.html",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/ShopThrowListPage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/ShopForgetPassword.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/ShopPasswordReset.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/libraries/PHPExcel/Shared/ZipStreamWrapper.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/libraries/PHPExcel/Worksheet/PageMargins.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/ShopOrderList.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/libraries/PHPExcel/Shared/trend/powerBestFitClass.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/models/BaseGoodsManageDao.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/models/GoodsPriceCountManageDao.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/models/GoodsCountManageDao.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/models/GoodsTypeDao.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/LeftGoodsDisplayMenu.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/Content/js/leftGoodsDisplaymenu.js",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/GoodsDisplayPage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/GoodsDisplayList.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/GoodsDisplay.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/GoodsCountManage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/GoodsManage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/BaseGoodsManage/AddBaseGoodsInfo.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/GoodsTypeManage/GoodsTypePage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/GoodsCountManage/GoodsCountQuery.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/GoodsPriceCountManage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/GoodsTypeManage.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/user_guide/overview/goals.html",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/Content/globalvar.js",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/OrderDetail.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/system/database/drivers/oci8/oci8_result.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/system/core/Output.php",
+		"/Users/yuandunlong/workspace/project/diigo-web/app/helpers/mobile_helper.rb",
+		"/Users/yuandunlong/workspace/project/diigo-web/public/modalbox1.6.0/modalbox.css",
+		"/Users/yuandunlong/workspace/project/diigo-web/daemon/mykill.rb",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/UserSafety.php",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/Content/js/shopgoods.js",
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/system/helpers/security_helper.php",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/yuandunlong/workspace/project/diigo-web/app/controllers,/Users/yuandunlong/workspace/project/diigo-web",
+			"/Users/yuandunlong/workspace/project/diigo-web/app/controllers"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ShopGoodsListPage",
+			"setprice",
+			"GetGoodsListFromCart",
+			"订单",
+			"order",
+			"GetShopGoodForDiscount",
+			"CODE_PARAMS_INVALID",
+			"TRANSACTOIN_NAMES",
+			"uploadAnnotations",
+			"GetShopGoodStypeParent"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "flask-web.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 44,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								43,
+								43
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "database/__init__.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "database/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3054,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								24
+							]
+						],
+						"settings":
+						{
+							"autopep8_view_autosave": true,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "services/__init__.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"autopep8_view_autosave": true,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "services/user_service.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								38
+							]
+						],
+						"settings":
+						{
+							"autopep8_view_autosave": true,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "macbook.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								187,
+								187
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 786,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								234,
+								267
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "docs/帐号.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 459,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								413,
+								421
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "__init__.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app.cfg",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12,
+								12
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.autopep8":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "macbook.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"model",
+				"database/models.py"
+			],
+			[
+				"usercenterma",
+				"application/controllers/UserCenterManage.php"
+			],
+			[
+				"orderma",
+				"application/models/OrderManageDao.php"
+			],
+			[
+				"shopma",
+				"application/models/ShopManageDao.php"
+			],
+			[
+				"usercen",
+				"application/models/UserCenterDao.php"
+			],
+			[
+				"userma",
+				"application/models/UserManagerDao.php"
+			],
+			[
+				"usercent",
+				"application/models/UserCenterDao.php"
+			],
+			[
+				"shopman",
+				"application/models/ShopManageDao.php"
+			],
+			[
+				"ordermanagedao",
+				"application/models/OrderManageDao.php"
+			],
+			[
+				"shopgoodsma",
+				"application/models/ShopGoodsManageDao.php"
+			],
+			[
+				"shop",
+				"application/views/Web/ShopList.php"
+			],
+			[
+				"goodsda",
+				"application/models/ShopGoodsManageDao.php"
+			],
+			[
+				"order",
+				"application/models/OrderManageDao.php"
+			],
+			[
+				"mess",
+				"application/models/MessageManageDao.php"
+			],
+			[
+				"mob",
+				"app/controllers/mobile_server_controller.rb"
+			],
+			[
+				"messagemanagedao",
+				"application/models/MessageManageDao.php"
+			],
+			[
+				"shopgoodsmanagedao",
+				"application/models/ShopGoodsManageDao.php"
+			],
+			[
+				"shopmanagedao",
+				"application/models/ShopManageDao.php"
+			],
+			[
+				"shopp",
+				"application/views/Web/ShoppingCart.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 371.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
