@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-10 22:16:29
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-10 22:50:17
+# @Last Modified time: 2015-09-10 23:08:01
 from flask import request, Blueprint,json,Response,current_app
 from utils.decorator import json_response,require_token
 from database.models import Token,User,db
@@ -92,7 +92,7 @@ def sign_up(result):
             db.session.add(user)
             db.session.commit()
             access_token=user_service.get_access_token()
-            token=Token(challenge=challenge,user_id=user.id,token=access_token,expires=-1)
+            token=Token(challenge=user_service.get_access_token(),user_id=user.id,token=access_token,expires=-1)
             db.session.add(token)
             db.session.commit()
             result['access_token']=access_token

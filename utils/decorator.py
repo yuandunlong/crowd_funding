@@ -22,15 +22,15 @@ def require_token(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
         access_token=request.args.get('token','')
-        result={'code':1,'msg':'ok'}
+        result={'code':0,'msg':'ok'}
         if access_token=='':
-            result['code']=0
+            result['code']=1
             result['msg']='please provide a valid token'
             return Response(json.dumps(result),content_type='application/json')
         else:
             token=Token.query.filter_by(token=access_token).first()
             if not token:
-                result['code']=0
+                result['code']=1
                 result['msg']='please provide a valid token'
                 return Response(json.dumps(result),content_type='application/json')
         user=User.query.get(token.user_id)
