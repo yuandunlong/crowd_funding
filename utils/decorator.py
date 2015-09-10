@@ -1,5 +1,5 @@
 from functools import wraps
-from flask import json,current_app,Response,request
+from flask import json,current_app,Response,request,g,redirect,url_for,session
 from database.models import User,Token
 def json_response(func):
     @wraps(func)
@@ -37,5 +37,6 @@ def require_token(func):
         return func(user=user)
 
     return wrapper
+
 
 

@@ -1,0 +1,132 @@
+.logo b{
+    font-size: 21px;
+    background: rgb(240, 137, 0);
+    border-radius: 50%;
+    padding: 5px 7px;
+    margin-right: 3px;
+}
+
+div.alert{
+    margin: 0 auto;
+    left: 0;
+    position: fixed;
+    width: 500px;
+    top: 0;
+    z-index: 100000;
+    right: 0;
+    display: none;
+    box-shadow: 0 0 30px #999;
+}
+div.alert span.message{
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: bold;
+    line-height: 1.875;
+    font-size: 1em;
+}
+button.btn{
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -ms-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    transition-duration: .2s;
+}
+a.btn-link,button.btn-link{
+    text-decoration: none !important;
+}
+
+#article_title{
+    font-weight: bold;
+    margin:15px 0 20px 0;
+    text-align: center;
+}
+#article_content{
+    padding:0 10px;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+#article_content p{
+    margin-bottom: 1em;
+}
+#article_content blockquote p{
+    margin:0.5em 0;
+}
+
+#questions .question{
+    font-size: 13px;
+    margin: 3px 0 12px 0px;
+    background-color: #EDEDED;
+    padding: 12px 15px 3px 13px;
+    line-height: 1.75;
+}
+#questions .question p.option {
+    margin-left: .5em;
+}
+blockquote{
+    line-height: 1.875;
+    font-size: 14px;
+    border-left: 6px solid #A5A5A5;
+    padding: 5px 0 5px 10px;
+    margin: 15px 0 15px 0;
+    background-color: #F0F0F0;
+}
+p>img,div>img{
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    height: auto;
+}
+.modal-dialog{
+    margin-top:80px;
+}
+.modal-dialog.modal-lg{
+    margin-top:40px;
+}
+.modal-dialog .modal-body{
+    padding:15px 25px;
+}
+.modal-dialog .form-group{
+    margin-bottom:10px;
+}
+#add_category_modal .modal-dialog{
+    width:420px;
+}
+.time{
+    font-size:13px;
+}
+.categories_names{
+    max-width: 280px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+span.category_name{
+    font-size:13px;
+    padding:0 3px;
+}
+span.tag {
+    background-color: #eeeeee;
+    color: #555555;
+    padding: 4px 6px 2px 6px;
+    margin: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-block;
+}
+span.tag.checked {
+    color: white;
+    background-color: #7f7f7f;
+}
+.paginate {
+    padding: 5px;
+    font-size: 12px;
+}
+.paginate .pull-left strong {
+    padding: 0 3px;
+}
+
+.paginate .pull-right a {
+    padding: 0 10px;
+}

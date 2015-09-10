@@ -13,7 +13,7 @@ accountToken= '78e0086b5382483896991e1031a5c874';
 appId='aaf98f894edd4c1e014edfb9e6210466';
 
 #请求地址，格式如下，不需要写http://
-serverIP='app.cloopen.com:8883';
+serverIP='app.cloopen.com';
 
 #请求端口 
 serverPort='8883';
@@ -33,15 +33,20 @@ def sendTemplateSMS(to,datas,tempId):
     rest = REST(serverIP,serverPort,softVersion)
     rest.setAccount(accountSid,accountToken)
     rest.setAppId(appId)
-    
+    ret='1111'
     result = rest.sendTemplateSMS(to,datas,tempId)
     for k,v in result.iteritems(): 
         
         if k=='templateSMS' :
                 for k,s in v.iteritems(): 
-                    print '%s:%s' % (k, s)
+                    print '%s:%s====' % (k, s)
         else:
-            print '%s:%s' % (k, v)
+            print '%s:%s+++' % (k, v)
+        if k=='statusCode':
+          ret=v
+    return ret
     
    
 #sendTemplateSMS(手机号码,内容数据,模板Id)
+
+
