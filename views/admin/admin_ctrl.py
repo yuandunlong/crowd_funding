@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+
 from flask import request,Blueprint,render_template,redirect,url_for,session,current_app
-from services import admin_service
+from services import admin_service,category_service
 admin_ctrl=Blueprint('admin_ctrl', __name__)
 
-@admin_ctrl.before_request
+#@admin_ctrl.before_request
 def before_request():
     if request.path !='/admin/login' and request.path!='/admin/do_login' and session.get('admin_id',None) is None:
         return redirect('/admin/login')
@@ -25,6 +27,15 @@ def do_admin_login():
         return redirect(url_for('.admin_index'))
     else:
         return redirect(url_for('.admin_login'))
+
+@admin_ctrl.route('/category/list',methods=['GET'])
+def category_list():
+
+    cats=category_service.get_all_categories()
+
+    return render_template('admin/category/list.html',cats=cats,title=u'分类管理')
+
+
 
 
     

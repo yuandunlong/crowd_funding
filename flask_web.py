@@ -2,6 +2,7 @@ from flask import Flask
 from database.models import db
 from views.user_ctrl import user_ctrl
 from views.api.user_api import user_api
+from views.api.category_api import category_api
 from views.admin.admin_ctrl import admin_ctrl
 from logging.handlers import RotatingFileHandler
 from logging import Formatter
@@ -23,7 +24,7 @@ app.register_blueprint(user_ctrl)
 app.register_blueprint(admin_ctrl,url_prefix='/admin')
 
 app.register_blueprint(user_api,url_prefix='/api')
-
+app.register_blueprint(category_api,url_prefix='/api')
 def create_app(config=None):
     app = Flask(__name__)
     db.init_app(app)

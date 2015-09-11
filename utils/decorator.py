@@ -5,14 +5,14 @@ def json_response(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
         try:
-            result={'code':1,'msg':'ok'}
+            result={'code':0,'msg':'ok'}
             if kwargs.has_key('user'):
                 func(result,kwargs['user'])
             else:
                 func(result)
         except Exception, e:
             current_app.logger.exception(e)
-            result['code']=0
+            result['code']=1
             result['msg']=e.message
         return Response(json.dumps(result),content_type='application/json')
     return wrapper
