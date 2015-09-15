@@ -2,6 +2,7 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 import inspect
+import datetime
 db = SQLAlchemy()
 
 
@@ -19,7 +20,10 @@ class BaseModel(db.Model):
             data = self.__getattribute__(field)
             if inspect.ismethod(data):
                 continue
-            fields[field] = data
+            elif isinstance(data, datetime.datetime):
+                fields[field]=str(data)
+            else:
+                fields[field] = data
         print fields
         return fields
 
@@ -32,7 +36,7 @@ class Admin(BaseModel):
     passwd = db.Column('passwd', db.String(32))
     admin_type = db.Column('admin_type',db.Integer)
 
-    
+
 
 
 class User(BaseModel):
