@@ -5,6 +5,8 @@ from views.api.user_api import user_api
 from views.api.category_api import category_api
 from views.api.project_api import project_api
 from views.admin.admin_ctrl import admin_ctrl
+from views.admin.admin_project_ctrl import admin_project_ctrl
+from views.admin.admin_user_ctrl import admin_user_ctrl
 from logging.handlers import RotatingFileHandler
 from logging import Formatter
 import logging
@@ -23,6 +25,8 @@ app.logger.addHandler(log_roll_handler)
 app.register_blueprint(user_ctrl)
 
 app.register_blueprint(admin_ctrl,url_prefix='/admin')
+app.register_blueprint(admin_project_ctrl,url_prefix='/admin')
+app.register_blueprint(admin_user_ctrl,url_prefix='/admin')
 
 app.register_blueprint(user_api,url_prefix='/api')
 app.register_blueprint(category_api,url_prefix='/api')
