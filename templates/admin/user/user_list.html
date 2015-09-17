@@ -26,7 +26,10 @@
                                 <td>{{user.name}}</td>
                                 <td>{{user.mobile}}</td>
                                 <td>{{user.email}}</td>
-                                <td>{{user.sex}}</td>
+                                <td>{% if user.sex==1 %}男性
+                                {% elif user.sex==2 %}女性 {% else %}未知{% endif %}
+                                </td>
+                                <td>{{user.status}}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
