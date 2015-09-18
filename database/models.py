@@ -71,6 +71,8 @@ class Project(BaseModel):
     category_id = db.Column('category_id', db.Integer)
     # status 1：进行中 2：已完成 3：失败 4：删除
     status = db.Column('status', db.Integer, default=1)
+    # 1表示推荐 0表示未推荐
+    is_recommend = db.Column('is_recommend',db.Integer,default=0)
 
 
 class Payback(BaseModel):

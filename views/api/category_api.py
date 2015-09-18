@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-11 16:38:41
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-11 16:49:53
+# @Last Modified time: 2015-09-18 09:56:50
 
 from flask import request,Blueprint
 from utils.decorator import json_response
@@ -13,7 +13,6 @@ category_api=Blueprint('category_api',__name__)
 @json_response
 def get_all_categories(result):
     cats=category_service.get_all_categories()
-
     cats_arr=[]
     for cat in cats:
         cats_arr.append(cat.as_map())

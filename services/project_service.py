@@ -1,10 +1,20 @@
 # -*- coding: utf-8 -*-
 
 from database.models import Project
-def get_projects_by_page(page=1,page_size=20,order_by='updated_time desc'):
-
-    projects=Project.query.order_by(order_by).limit(int(page_size)).offset((int(page)-1)*int(page_size)).all()
-    return projects
+def query_projects_by_page(titlelike=None,page=1,page_size=20,order_by='updated_time desc',querys=None):
+    query=Project.query
+    if querys:
+        if querys.has_key('status') and querys['status'] != None:
+            query=query.filter_by(status=querys['status'])
+            print "++++++"
+        if querys.has_key('is_recommend') and querys['is_recommend'] !=None:
+            query=query.filter_by(is_recommend=querys['is_recommend'])
+            print "------"
+    if titlelike:
+        paginate=query.filter(Project.title.like(u"%{}%".format(titlelike))).order_by(order_by).paginate(page,page_size)
+    else:
+        paginate=query.order_by(order_by).paginate(page,page_size)
+    return paginate.items,paginate
 
 
 

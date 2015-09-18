@@ -10,8 +10,14 @@ def get_projects_by_page(result):
 
     page=data.get('page',1)
     page_size=data.get('page_size',20)
-
-    projects=project_service.get_projects_by_page(page,page_size)
+    is_recommend=data.get('is_recommend',None)
+    status=data.get('status',None)
+    order_by=data.get('order_by')
+    if order_by=="update":
+        order_by='updated_time desc'
+    elif order_by=="create":
+        order_by="created_time desc"
+    (projects,paginate)=project_service.query_projects_by_page(page=page,page_size=page_size,order_by=order_by,querys={"status":status,'is_recommend':is_recommend})
 
     arr=[]
     for project in projects:
