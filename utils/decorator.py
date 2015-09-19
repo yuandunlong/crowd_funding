@@ -2,6 +2,7 @@ from functools import wraps
 from flask import current_app,Response,request,g,redirect,url_for,session
 from database.models import User,Token
 from utils.json_encode import DateTimeEncoder
+import traceback
 import simplejson as json
 def json_response(func):
     @wraps(func)
@@ -15,7 +16,7 @@ def json_response(func):
         except Exception, e:
             current_app.logger.exception(e)
             result['code']=1
-            result['msg']=e.message
+            result['msg']=traceback.format_exc()
         return Response(json.dumps(result),content_type='application/json')
     return wrapper
 
