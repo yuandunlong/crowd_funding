@@ -1,0 +1,28 @@
+a{
+    color: @color-black;
+    &:hover,
+    &:focus{
+        color: @color-green;
+        text-decoration: none;
+    }
+}
+
+.layout{
+    margin: 0 @page-margin;
+}
+
+.logo{
+    width:  @logo-width;
+    height: @logo-height;
+    background-image: url('/static/images/logo.png');
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+    display: block;
+    top:0;
+    left:0;
+    .transition-bg(.5s);
+}

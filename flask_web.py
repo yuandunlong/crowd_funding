@@ -4,9 +4,12 @@ from views.user_ctrl import user_ctrl
 from views.api.user_api import user_api
 from views.api.category_api import category_api
 from views.admin.admin_ctrl import admin_ctrl
+from views.app.projects_ctrl import projects_ctrl
 from logging.handlers import RotatingFileHandler
 from logging import Formatter
+from flask.ext.assets import Environment, Bundle
 import logging
+
 log_roll_handler=RotatingFileHandler('roll.log',maxBytes=1024*1000*10)
 
 log_roll_handler.setFormatter(Formatter(
@@ -19,12 +22,29 @@ db.init_app(app)
 app.config.from_pyfile('app.cfg')
 log_roll_handler.setLevel(logging.INFO)
 app.logger.addHandler(log_roll_handler)
+
 app.register_blueprint(user_ctrl)
-
 app.register_blueprint(admin_ctrl,url_prefix='/admin')
-
 app.register_blueprint(user_api,url_prefix='/api')
 app.register_blueprint(category_api,url_prefix='/api')
+app.register_blueprint(projects_ctrl,url_prefix='/projects')
+
+#generate css by less
+assets = Environment(app)
+css_all = Bundle(
+    'less/style.less',
+    filters = 'less',
+    output = 'css/style.css',
+    depends="less/site/*.less"
+)
+js_all = Bundle(
+    'js/dropdown.js',
+    'js/projects_list.js'
+)
+assets.register('css_all', css_all)
+assets.register('js_all', js_all)
+app.config['ASSETS_DEBUG'] = True
+
 def create_app(config=None):
     app = Flask(__name__)
     db.init_app(app)

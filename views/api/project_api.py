@@ -3,7 +3,7 @@ from database.models import Project
 from utils.decorator import json_response,require_token
 
 project_api=Blueprint('project_api', __name__)
-@project_api.route('/public/get_projects_by_page',mothods=['GET'])
+@project_api.route('/public/get_projects_by_page',methods=['GET'])
 @json_response
 def get_projects_by_page(result):
     data=request.get_json()

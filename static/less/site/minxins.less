@@ -1,0 +1,17 @@
+.triangle(@color, @size, @position-x, @position-y){
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-style: solid;
+    top: @position-y;
+    left: @position-x;
+    border-width: 0 (@size / 2) (@size * sqrt(3) / 2)  (@size / 2);
+    border-color: transparent transparent @color transparent;
+}
+.transition-bg(@seconds){
+    transition: background-color @seconds;
+    -moz-transition: background-color @seconds; /* Firefox 4 */
+    -webkit-transition: background-color @seconds; /* Safari 和 Chrome */
+    -o-transition: background-color @seconds; /* Opera */
+}
+

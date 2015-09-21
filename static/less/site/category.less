@@ -1,0 +1,73 @@
+.category-button(@border-color, @radius){
+    border: 1px solid @border-color;
+    border-radius: @radius;
+    margin: 5px 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+.category{
+    .category-button(@color-border-dark-grey, @category-radius);
+    padding: @category-padding;
+    .icon{
+        color: @color-red;
+        margin-right: 4px;
+        position: relative;
+    }
+    &:hover{
+        .icon{
+            animation:rollAnimation .3s;
+            -moz-animation:rollAnimation .3s; /* Firefox */
+            -webkit-animation:rollAnimation .3s; /* Safari and Chrome */
+            -o-animation:rollAnimation .3s; /* Opera */
+        }
+    }
+    &:hover,
+    &:focus,
+    &:active,
+    &.selected{
+        background-color: @color-red;
+        color: @color-white;
+        border: 1px solid @color-red;
+        .icon{
+            color: @color-white;
+        }
+    }
+}
+
+
+@keyframes rollAnimation
+{
+0%   {top:28px;}
+25%  {top:21px;}
+50%  {top:14px;}
+75%  {top:7px;}
+100% {top:0px;}
+}
+
+@-moz-keyframes rollAnimation /* Firefox */
+{
+0%   {top:28px;}
+25%  {top:21px;}
+50%  {top:14px;}
+75%  {top:7px;}
+100% {top:0px;}
+}
+
+@-webkit-keyframes rollAnimation /* Safari 和 Chrome */
+{
+0%   {top:28px;}
+25%  {top:21px;}
+50%  {top:14px;}
+75%  {top:7px;}
+100% {top:0px;}
+}
+
+@-o-keyframes rollAnimation /* Opera */
+{
+0%   {top:28px;}
+25%  {top:21px;}
+50%  {top:14px;}
+75%  {top:7px;}
+100% {top:0px;}
+}
+
