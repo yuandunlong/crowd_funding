@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-22 17:15:48
+# @Last Modified time: 2015-09-22 17:47:04
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session
@@ -77,6 +77,7 @@ admin = Admin(app, name=u'乐事电影管理平台',template_mode='bootstrap3')
 admin.add_view(UserModelView(db.session))
 admin.add_view(CategoryModelView(db.session))
 admin.add_view(ProjectModelView(db.session))
+admin.add_view(PaybackModelView(db.session))
 admin.add_view(TokenModelView(db.session))
 
 path = op.join(op.dirname(__file__), 'static/upload')
