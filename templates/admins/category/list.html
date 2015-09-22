@@ -1,0 +1,35 @@
+{% extends "admins/layout.html" %}
+
+{% block main %}
+    <section class="content-header">
+
+    <h1>{{title}}</h1>
+    </section>
+    <section class="content">
+        <div class="box box-info">
+            <div class='box-body'>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>分类名称</th>
+                            <th>创建时间</th>
+                            <th>更新时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cat in cats %}
+                            <tr>
+                                <td>{{cat.id}}</td>
+                                <td>{{cat.name}}</td>
+                                <td>{{cat.created_time}}</td>
+                                <td>{{cat.updated_time}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </section>
+{% endblock %}

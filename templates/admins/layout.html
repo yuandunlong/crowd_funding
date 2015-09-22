@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/static/images/logo-icon.png" />
+    <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link href="/static/vendor/AdminLTE/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/vendor/AdminLTE/css/skins/all-skins.min.css" rel="stylesheet" type="text/css"/>
+    {% block css %}{% endblock %}
+    <script type="text/javascript" src="/static/js/jquery-2.0.3.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        function showFailAlert(message, duration) {
+            message = message.replace(/\n/g,"<br/>");
+            duration = duration || 3000;
+            $('#flash-success').hide();
+            $('#flash-fail span.message').html(message);
+            $('#flash-fail').show();
+            $("#flash-fail").delay(duration).fadeTo(1000, 500).fadeOut(500)
+        }
+
+        function showSuccessAlert(message, duration) {
+            duration = duration || 1000;
+            $('#flash-fail').hide();
+            $('#flash-success span.message').html(message);
+            $('#flash-success').show();
+            $("#flash-success").delay(duration).fadeTo(1000, 500).slideUp(200);
+        }
+
+        function showWarnAlert(message, duration) {
+            duration = duration || 2000;
+            $('#flash-warn').hide();
+            $('#flash-warn span.message').html(message);
+            $('#flash-warn').show();
+            $("#flash-warn").delay(duration).slideUp(200)
+        }
+
+        function hideAlerts() {
+            $('.alert').hide();
+        }
+        var AdminLTEOptions = {
+            enableBSToppltip: true
+        };
+    </script>
+    <script src="/static/vendor/AdminLTE/js/app.min.js"></script>
+    {% block script %}{% endblock %}
+    <title>{{ title }} - 全民众酬后台管理</title>
+</head>
+<body class="skin-blue">
+<div class="wrapper">
+    <!-- Main Header -->
+    <header class="main-header">
+        <a href="#">
+            <a href="/" class="logo">
+                <!-- logo for regular state and mobile devices -->
+                <span><b>丁</b>乐影管理</span>
+            </a>
+        </a>
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- User Account Menu -->
+                    <li class="dropdown">
+                        <a href="/logout"><i class="fa fa-sign-out"></i> 退出</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header">功能菜单</li>
+                <li class="{% if menu_categories %}active{% endif %}"><a href="/admin2/category/list"> 分类管理 </a></li>
+                <li class="{% if menu_project %}active{% endif %}"><a href="/admin2/project/list">项目管理 </a></li>
+                <li class="{% if menu_user %} active {% endif %}"><a href="/admin2/user/list">会员管理 </a></li>
+                <li class="{% if menu_points %}active{% endif %}"><a href="/point/list">订单管理 </a></li>
+                <li class="{% if menu_points %}active{% endif %}"><a href="/point/list">回报管理 </a></li>
+                <li class="{% if menu_books %}active{% endif %}"><a href="/book/all">设置</a></li>
+            </ul>
+            <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div id="alerts">
+            <div class="alert alert-danger   alert-dismissable" id="flash-fail">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p><i class="icon fa-exclamation-circle fa"></i> <span class="message"></span></p>
+            </div>
+            <div class="alert alert-success  alert-dismissable" id="flash-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p><i class="icon fa fa-check"></i><span class="message"></span></p>
+            </div>
+            <div class="alert alert-warning  alert-dismissable" id="flash-warn">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p><i class="icon fa-exclamation-circle fa"></i> <span class="message"></span></p>
+            </div>
+        </div>
+        <!-- Content Header (Page header) -->
+        {% block main %}{% endblock %}
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+        </div>
+        <strong>Copyright &copy; 乐影</a>.</strong> &emsp;All rights reserved.
+    </footer>
+</div>
+<!-- ./wrapper -->
+</body>
+</html>
