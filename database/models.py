@@ -2,6 +2,7 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 import inspect
+import datetime
 db = SQLAlchemy()
 
 
@@ -19,7 +20,10 @@ class BaseModel(db.Model):
             data = self.__getattribute__(field)
             if inspect.ismethod(data):
                 continue
-            fields[field] = data
+            elif isinstance(data, datetime.datetime):
+                fields[field]=str(data)
+            else:
+                fields[field] = data
         print fields
         return fields
 
@@ -32,7 +36,7 @@ class Admin(BaseModel):
     passwd = db.Column('passwd', db.String(32))
     admin_type = db.Column('admin_type',db.Integer)
 
-    
+
 
 
 class User(BaseModel):
@@ -44,16 +48,25 @@ class User(BaseModel):
     name = db.Column('name', db.String(64))
     email = db.Column('email', db.String(64))
     sex = db.Column('sex', db.Integer, default=0)  # 1 男性 2：女性
-
+    def __unicode__(self):
+        return self.mobile
+   # access_token=db.relationship('token',backref=db.backref('token', lazy='dynamic'))
 
 class Token(BaseModel):
     __tablename__ = 'token'
-    user_id = db.Column('user_id', db.Integer)
+    user_id = db.Column('user_id', db.Integer,db.ForeignKey('user.id'))
+    user=db.relationship('User',backref=db.backref('token',lazy='dynamic'))
     token = db.Column('token', db.String(32), unique=True)
     challenge = db.Column('challenge', db.String(16))  # 16位 挑战码
     # 验证码失效时间
     expires = db.Column('expires', db.Integer)
 
+
+class Category(BaseModel):
+    __tablename__ = 'catgory'
+    name = db.Column('name', db.String(32))
+    def __unicode__(self):
+        return self.name
 
 class Project(BaseModel):
     __tablename__ = 'project'
@@ -64,14 +77,24 @@ class Project(BaseModel):
     total_money = db.Column('total_money', db.DECIMAL)
     current_money = db.Column('current_money', db.DECIMAL)
     support_times = db.Column('support_times', db.Integer)
-    category_id = db.Column('category_id', db.Integer)
+
+    category_id = db.Column('category_id', db.Integer,db.ForeignKey('catgory.id'))
+    category=db.relationship('Category',backref=db.backref('projects',lazy='dynamic'))
     # status 1：进行中 2：已完成 3：失败 4：删除
     status = db.Column('status', db.Integer, default=1)
+    # 1表示推荐 0表示未推荐
+    is_recommend = db.Column('is_recommend',db.Integer,default=0)
+    status = db.Column('status', db.Integer, default=1)  # 1为支付，2支付成功，3发货，4完成
+    cover_image=db.Column('cover_image',db.String(512))
+
+    def __unicode__(self):
+        return self.title
 
 
 class Payback(BaseModel):
     __tablename__ = 'payback'
-    project_id = db.Column('project_id', db.Integer)
+    project_id = db.Column('project_id', db.Integer,db.ForeignKey('project.id'))
+    project=db.relationship('Project',backref=db.backref('paybacks',lazy='dynamic'))
     money = db.Column('money', db.DECIMAL)
     title = db.Column('title', db.String(32))
     detail = db.Column('detail', db.String(128))
@@ -82,7 +105,7 @@ class Payback(BaseModel):
     # 0 表示不限制 大于0表示具体的限制数量
     limit = db.Column('limit', db.Integer, default=0)
     status = db.Column('status', db.Integer, default=1)  # 1为支付，2支付成功，3发货，4完成
-
+    cover_image=db.Column('cover_image',db.String(512))
 
 class Attention(BaseModel):
     __tablename__ = 'attention'
@@ -96,7 +119,3 @@ class UserSupportProject(BaseModel):
     project_id = db.Column('project_id', db.Integer)
     payback_id = db.Column('payback_id', db.Integer)
 
-
-class Category(BaseModel):
-    __tablename__ = 'catgory'
-    name = db.Column('name', db.String(32))

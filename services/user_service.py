@@ -21,3 +21,9 @@ def get_user_by_id(user_id):
     return user
 
 
+def query_users_by_page(namelike=None,page=1,page_size=20,order_by='id asc'):
+    if namelike:
+        paginate=User.query.filter(User.name.like("%{}%".format(namelike))).order_by(order_by).paginate(page,page_size)
+    else:
+        paginate=User.query.order_by(order_by).paginate(page,page_size)
+    return paginate.items,paginate
