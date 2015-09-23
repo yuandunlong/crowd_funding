@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+        {% assets "css_from_less" %}
+          <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {% endassets %}
         {% assets "css_all" %}
           <link rel="stylesheet" href="{{ ASSET_URL }}">
         {% endassets %}
@@ -17,10 +20,12 @@
             {% block content %}
             {% endblock  content %}
         </div>
-        <script type="text/javascript" src="/static/js/jquery-2.0.3.min.js"></script>
+        <script src="/static/js/jquery-2.0.3.min.js"></script>
         <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
         {% assets "js_all" %}
             <script src="{{ ASSET_URL }}"></script>
         {% endassets %}
+        {% block js_define %}
+        {% endblock  js_define %}
     </body>
 </html>

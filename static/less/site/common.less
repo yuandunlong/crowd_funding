@@ -10,6 +10,9 @@ a{
 .layout{
     margin: 0 @page-margin;
 }
+.layout-2x{
+    margin: 0 @page-margin * 2;
+}
 
 .logo{
     width:  @logo-width;
@@ -25,4 +28,42 @@ a{
     top:0;
     left:0;
     .transition-bg(.5s);
+}
+
+.box{
+    background-color: @color-white;
+    border: 1px solid @color-border-grey;
+    padding: @box-padding-v @box-padding-h;
+    box-shadow: 0px 0px 2px 0px rgba(204,204,204,.5);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(204,204,204,.5); /* 老的 Firefox */
+}
+/*form overwrite*/
+label.control-label{
+    &.required:after{
+        content: "*";
+        color: red;
+        margin-left: 5px;
+    }
+}
+.text-control{
+    height: 34px;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    display: block;
+}
+
+.btn-site{
+    border: 1px solid @color-green;
+    background-color: transparent;
+    color: @color-green;
+    &:hover,
+    &:focus,
+    &:active{
+        background-color: @color-green;
+        color: @color-white;
+    }
+}
+
+.desc-text{
+    color: @color-desc;
 }

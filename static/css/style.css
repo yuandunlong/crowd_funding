@@ -5,11 +5,14 @@
 /*font size*/
 /*=========basic definition========*/
 /*layout*/
+/*box*/
 /*header*/
 /*navbar*/
 /*logo*/
 /*category*/
 /*dropdown*/
+/*steps*/
+/*payback preview*/
 a {
   color: #000000;
 }
@@ -20,6 +23,9 @@ a:focus {
 }
 .layout {
   margin: 0 50px;
+}
+.layout-2x {
+  margin: 0 100px;
 }
 .logo {
   width: 130px;
@@ -41,6 +47,40 @@ a:focus {
   /* Safari 和 Chrome */
   -o-transition: background-color 0.5s;
   /* Opera */
+}
+.box {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 15px 15px;
+  box-shadow: 0px 0px 2px 0px rgba(204, 204, 204, 0.5);
+  -moz-box-shadow: 0px 0px 2px 0px rgba(204, 204, 204, 0.5);
+  /* 老的 Firefox */
+}
+/*form overwrite*/
+label.control-label.required:after {
+  content: "*";
+  color: red;
+  margin-left: 5px;
+}
+.text-control {
+  height: 34px;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  display: block;
+}
+.btn-site {
+  border: 1px solid #00ccce;
+  background-color: transparent;
+  color: #00ccce;
+}
+.btn-site:hover,
+.btn-site:focus,
+.btn-site:active {
+  background-color: #00ccce;
+  color: #ffffff;
+}
+.desc-text {
+  color: #cccccc;
 }
 header {
   height: 80px;
@@ -266,6 +306,14 @@ header {
 .project .cover-wrapper img.cover {
   width: 100%;
 }
+.project .cover-wrapper div.cover {
+  /*used in publish project, the preview of a project*/
+  width: 220px;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  color: #999999;
+}
 .project .cover-wrapper .status-tag {
   height: 20px;
   padding: 0 10px;
@@ -298,4 +346,169 @@ header {
 .project .preview .info .name {
   color: #999999;
   font-size: 12px;
+}
+.steps-nav {
+  margin: 20px auto;
+}
+.steps-nav .steps-nav-item {
+  text-align: center;
+}
+.steps-nav .steps-nav-item .connect-line {
+  width: 90%;
+  height: 10px;
+  background-color: #cbcbcb;
+  position: absolute;
+  top: 22.5px;
+  left: -45%;
+  z-index: 1;
+  box-shadow: 0px 0px 3px 1px #bebebe inset;
+}
+.steps-nav .steps-nav-item .item-icon {
+  width: 55px;
+  height: 55px;
+  margin: auto;
+  line-height: 55px;
+  background-color: #cbcbcb;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0px 0px 3px 1px #bebebe inset;
+}
+.steps-nav .steps-nav-item .item-icon .fa {
+  line-height: 55px;
+}
+.steps-nav .steps-nav-item .step-name {
+  color: #cbcbcb;
+}
+.steps-nav .steps-nav-item.finished .connect-line,
+.steps-nav .steps-nav-item.finished .item-icon {
+  background-color: #00ccce;
+  box-shadow: 0px 0px 3px 1px #00b3b5 inset;
+}
+.steps-nav .steps-nav-item.finished .step-name {
+  color: #000000;
+}
+/*basic info*/
+.step-content .step-buttons {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.step-content .step-buttons button {
+  margin: 15px;
+}
+#publish_step_1 .form-horizontal,
+#payback_info .form-horizontal,
+#publish_step_3 .form-horizontal {
+  width: 90%;
+  padding-top: 20px;
+}
+#publish_step_1 .left-column {
+  margin-right: 250px;
+}
+#publish_step_1 #publish-category {
+  padding: 0;
+  list-style: none;
+}
+#publish_step_1 #publish-category > li {
+  float: left;
+  margin: 5px;
+  cursor: pointer;
+}
+#publish_step_1 #publish-category > li:hover,
+#publish_step_1 #publish-category > li:focus,
+#publish_step_1 #publish-category > li:active,
+#publish_step_1 #publish-category > li.active {
+  background-color: #00ccce;
+  color: #ffffff;
+  border-color: #00ccce;
+}
+#publish_step_1 .cover-preview {
+  margin-right: 10px;
+}
+#publish_step_1 .cover-mobile-* {
+  display: inline;
+}
+/*payback*/
+.pay-back {
+  width: 290px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  color: #999999;
+  margin: 15px;
+}
+.pay-back .header,
+.pay-back .detail {
+  padding: 15px;
+}
+.pay-back .header {
+  background-color: #dcdcdc;
+}
+.pay-back .detail {
+  position: relative;
+}
+.pay-back .detail .support {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.pay-back .detail > * {
+  margin-bottom: 15px;
+}
+.pay-back .detail .amt {
+  color: #00ccce;
+  margin-bottom: 30px;
+}
+.pay-back .detail .amt span {
+  font-size: 24px;
+}
+.pay-back .detail .title,
+.pay-back .detail .description {
+  color: #000000;
+}
+.pay-back .detail .image-preview {
+  width: 60px;
+  height: 60px;
+}
+#add_payback {
+  margin: 0 15px;
+}
+#add_payback_modal .modal-dialog {
+  width: 90%;
+}
+#add_payback_modal .modal-content {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  border: none;
+  border-radius: 0;
+  background-color: #f6f6f6;
+}
+#payback_info {
+  margin: 15px;
+  margin-right: 310px;
+}
+#payback_info .buttons {
+  clear: both;
+  text-align: center;
+}
+#payback_info .buttons button {
+  margin: 20px;
+}
+/*payback end*/
+#publish_step_3 .owner-preview {
+  width: 300px;
+}
+#publish_step_3 .owner-preview .avatar {
+  width: 65px;
+  height: 65px;
+  border: 1px solid #ccc;
+  margin: 5px;
+}
+#publish_step_3 .left-column {
+  margin-right: 310px;
+}
+#publish_step_3 .left-column p {
+  margin-left: 20px;
+  margin-bottom: 30px;
 }

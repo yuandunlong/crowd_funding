@@ -9,5 +9,12 @@ def projects_list():
         'title': u"项目列表",
         'active': 'projects'
     }
-    return render_template("app/projects/list.html",data = data)
+    return render_template("app/project/list.html",data = data)
 
+@project_ctrl.route('/', methods=['GET'])
+def publish_project():
+    data = {
+        'title': u"发布项目",
+        'active': 'publish'
+    }
+    return render_template("app/project/publish.html", data = data)

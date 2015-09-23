@@ -13,7 +13,7 @@ from views.api.user_api import user_api
 from views.api.category_api import category_api
 from views.api.project_api import project_api
 from views.admin.admin_ctrl import admin_ctrl
-from views.app.projects_ctrl import projects_ctrl
+from views.app.project_ctrl import project_ctrl
 from views.admin.admin_project_ctrl import admin_project_ctrl
 from views.admin.admin_user_ctrl import admin_user_ctrl
 from logging.handlers import RotatingFileHandler
@@ -23,7 +23,7 @@ from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from views.admin.admin_view_models import UserModelView,ProjectModelView,CategoryModelView,TokenModelView,PaybackModelView
 import logging
-from flask.ext.babelex import Babel
+from flask.ext.babel import Babel
 from flask_admin.contrib.fileadmin import FileAdmin
 
 import os.path as op
@@ -50,26 +50,38 @@ app.register_blueprint(admin_user_ctrl,url_prefix='/admin2')
 
 app.register_blueprint(user_api,url_prefix='/api')
 app.register_blueprint(category_api,url_prefix='/api')
-app.register_blueprint(projects_ctrl,url_prefix='/projects')
+app.register_blueprint(project_ctrl,url_prefix='/project')
+app.register_blueprint(project_api,url_prefix='/api')
 
-#generate css by less
+#define static res.
 assets = Environment(app)
-css_all = Bundle(
+css_from_less = Bundle(
     'less/style.less',
     filters = 'less',
     output = 'css/style.css',
     depends="less/site/*.less"
 )
+css_all = Bundle(
+    'vendor/simditor/styles/simditor.css'
+)
 js_all = Bundle(
     'js/dropdown.js',
-    'js/projects_list.js'
+    'js/projects_list.js',
+
 )
+js_publish_project = Bundle(
+    'vendor/simditor/scripts/module.min.js',
+    'vendor/simditor/scripts/hotkeys.min.js',
+    'vendor/simditor/scripts/uploader.min.js',
+    'vendor/simditor/scripts/simditor.min.js',
+    'js/project_publish.js'
+)
+assets.register('css_from_less', css_from_less)
 assets.register('css_all', css_all)
 assets.register('js_all', js_all)
+assets.register('js_publish_project', js_publish_project)
+
 app.config['ASSETS_DEBUG'] = True
-
-app.register_blueprint(project_api,url_prefix='/api')
-
 
 babel = Babel(app)
 @babel.localeselector

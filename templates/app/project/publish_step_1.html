@@ -1,0 +1,162 @@
+<!--preview-->
+<div class="pull-right">
+    <div class="project">
+        <div class="cover-wrapper">
+            <div class="cover">缩略图</div>
+            <span class="status-tag">筹款中</span>
+        </div>
+        <div class="title">项目名称</div>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                <span class="sr-only">60% Complete</span>
+            </div>
+        </div>
+        <div class="preview">
+            <div class="infos row">
+                                    <span class="info percentage col-xs-4">
+                                        <span class="value">0%</span>
+                                        <span class="name">达成率</span>
+                                    </span>
+                                    <span class="info amount col-xs-4">
+                                        <span class="value">0</span>
+                                        <span class="name">已筹金额</span>
+                                    </span>
+                                    <span class="info people col-xs-4">
+                                        <span class="value">0</span>
+                                        <span class="name">支持人数</span>
+                                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--content to fill-->
+<div class="left-column box clearfix">
+    <div class="form-horizontal pull-left">
+        <!--发布类别-->
+        <div class="form-group">
+            <label for="publish-category" class="col-sm-2 control-label required">发布类别:</label>
+            <div class="col-sm-10">
+                <ul id="publish-category">
+                    <li class="box" data-category-id="1">影音</li>
+                    <li class="box" data-category-id="1">公益</li>
+                    <li class="box" data-category-id="1">书籍</li>
+                    <li class="box" data-category-id="1">娱乐</li>
+                    <li class="box" data-category-id="1">科技</li>
+                    <li class="box" data-category-id="1">设计</li>
+                    <li class="box" data-category-id="1">动漫</li>
+                </ul>
+            </div>
+        </div>
+        <!--项目名称-->
+        <div class="form-group">
+            <label for="project-name" class="col-sm-2 control-label required">项目名称:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="project-name" placeholder="项目名称不超过25个字">
+            </div>
+        </div>
+        <!--tag-->
+        <div class="form-group">
+            <label for="project-tags" class="col-sm-2 control-label required">项目标签:</label>
+            <div class="col-sm-10">
+                <span id="project-tags" class="text-control">
+                    <i class="fa fa-tag  fa-flip-horizontal"></i>
+                    <a href="javascript:void(0)">点击添加热门标签</a>
+                </span>
+            </div>
+        </div>
+        <!--cover-->
+        <div class="form-group">
+            <label for="project-cover" class="col-sm-2 control-label required">项目图片:</label>
+            <div class="col-sm-10">
+                <div id="project-cover">
+                    <div class="clearfix">
+                        <img class="cover-preview pull-left" src="/static/images/pro1.jpg">
+                        <div class="pull-left">
+                            <p class="desc-text">建议图片尺寸760*510,格式支持jpg, 图片大小不得超过1M</p>
+                            <button class="btn btn-site">上传图片</button>
+                        </div>
+                    </div>
+                    <p class="desc-text">请确保您的项目图片在手机上的可视效果,效果预览如下:</p>
+                    <div>
+                        <img class="cover-mobile-3x " src="/static/images/pro2.jpg"/>
+                        <img class="cover-mobile-2x " src="/static/images/pro3.jpg"/>
+                        <img class="cover-mobile-1x " src="/static/images/pro4.jpg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--city-->
+        <div class="form-group">
+            <label for="project-city" class="col-sm-2 control-label required">发起城市:</label>
+            <div class="col-sm-10">
+                <div id="project-city" class="text-control">
+                    <select id="province" class="">
+                        <option value="1">浙江</option>
+                    </select>
+                    <select id="city" class="">
+                        <option value="1">杭州</option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+        <!--video-->
+        <div class="form-group">
+            <label for="project-video" class="col-sm-2 control-label">项目视频:</label>
+            <div class="col-sm-10">
+                <button id="project-video" class="btn btn-site">上传</button>
+                <span>通过视频介绍你的项目</span>
+            </div>
+        </div>
+        <!--abstract-->
+        <div class="form-group">
+            <label for="project-abstract" class="col-sm-2 control-label required">项目概述:</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="project-abstract" placeholder="简单介绍一下你的项目，不超过50字"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="project-description" class="col-sm-2 control-label required">项目概述:</label>
+            <div class="col-sm-10">
+                <textarea id="project-description" placeholder="关于你的项目" autofocus></textarea>
+            </div>
+        </div>
+        <!--days-->
+        <div class="form-group">
+            <label for="project-days" class="col-sm-2 control-label required">筹款天数:</label>
+            <div class="col-sm-10">
+                <input type="text" class="" id="project-days" placeholder="">&nbsp;天 <span class="desc-text">(10-90天，建议30天)</span>
+            </div>
+        </div>
+        <!--amt-->
+        <div class="form-group">
+            <label for="project-amt" class="col-sm-2 control-label required">目标金额:</label>
+            <div class="col-sm-10">
+                <input type="text" class="" id="project-amt" placeholder="">&nbsp;元 <span class="desc-text">目前金额不能低于1000元，不能高于1000000000元</span>
+            </div>
+        </div>
+        <!--prepay-->
+        <div class="form-group">
+            <label for="project-prepay" class="col-sm-2 control-label required">定金占比:</label>
+            <div class="col-sm-10">
+                <input type="text" class="" id="project-prepay" placeholder="">&nbsp;%
+                <span class="">
+                    筹款成功时， 您可以收到的定金为货款的<span id="prepay-preview"></span>%,当买家确认收货后，您将可以收到全部货款
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> 我确认已理解并遵守<a href="#">《众筹平台服务协议》</a>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="left-column row step-buttons">
+    <button type="button" class="btn btn-default btn-lg pull-left">保存</button>
+    <button type="button" class="btn btn-info btn-lg pull-right">下一步</button>
+</div>
