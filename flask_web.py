@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-24 10:03:17
+# @Last Modified time: 2015-09-24 22:50:05
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session
@@ -25,6 +25,7 @@ import logging
 from flask.ext.babelex import Babel
 from flask_admin.contrib.fileadmin import FileAdmin
 from views.admin import admin_view_models
+from views.common.upload_ctrl import upload_ctrl
 import os.path as op
 
 log_roll_handler=RotatingFileHandler('roll.log',maxBytes=1024*1000*10)
@@ -50,6 +51,7 @@ app.register_blueprint(category_api,url_prefix='/api')
 app.register_blueprint(project_api,url_prefix='/api')
 app.register_blueprint(payback_api,url_prefix='/api')
 
+app.register_blueprint(upload_ctrl)
 
 babel = Babel(app)
 @babel.localeselector

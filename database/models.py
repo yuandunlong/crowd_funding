@@ -138,9 +138,16 @@ class Payback(BaseModel):
 
 class Attention(BaseModel):
     __tablename__ = 'attention'
-    id = db.Column('id', db.Integer, primary_key=True)
     project_id = db.Column('project_id', db.Integer)
     user_id = db.Column('user_id', db.Integer)
+
+
+
+class Address(BaseModel):
+    __tablename__='address'
+    province_id=db.Column('province_id',db.Integer)
+    city_id=db.Column('city_id',db.Integer)
+
 
 
 class UserSupportProject(BaseModel):

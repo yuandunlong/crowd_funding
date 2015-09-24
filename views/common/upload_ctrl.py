@@ -3,10 +3,10 @@
 # @Author: yuandunlong
 # @Date:   2015-09-22 13:48:15
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-23 22:17:57
+# @Last Modified time: 2015-09-24 23:03:39
 
 
-from flask import request,Blueprint,make_response
+from flask import request,Blueprint,make_response,current_app,url_for
 import os
 import datetime
 import random
@@ -28,7 +28,9 @@ def ckupload():
         fileobj = request.files['upload']
         fname, fext = os.path.splitext(fileobj.filename)
         rnd_name = '%s%s' % (gen_rnd_filename(), fext)
-        filepath = os.path.join(upload_ctrl.static_folder, 'upload', rnd_name)
+        print rnd_name,current_app.static_folder
+        filepath = os.path.join(current_app.static_folder, 'upload', rnd_name)
+        print "============="
         # 检查路径是否存在，不存在则创建
         dirname = os.path.dirname(filepath)
         if not os.path.exists(dirname):
