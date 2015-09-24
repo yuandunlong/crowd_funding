@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-21 22:50:38
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-24 11:19:19
+# @Last Modified time: 2015-09-24 19:08:48
 from flask_admin.contrib.sqla import ModelView
 
 from database.models import Token,Project,db,User,Category,Payback
@@ -13,6 +13,7 @@ from flask_admin import form
 import os.path as op
 from werkzeug import secure_filename
 from datetime import datetime
+from jinja2 import Markup
 def prefix_name(obj, file_data):
     parts = op.splitext(file_data.filename)
     return secure_filename('file-'+str(datetime.now())+'-%s%s' % parts)
@@ -56,10 +57,26 @@ class UserModelView(ModelView):
     create_modal=True
     column_list = ('id', 'mobile', 'email','sex','status')
     column_labels = dict(name=u'姓名', mobile=u'手机号码',email=u'邮件',sex=u'性别',status=u'状态',updated_time=u'更新时间',created_time=u'创建时间',passwd=u'密码',token=u'token')
-    column_formatters=dict(sex=l)
     column_searchable_list = ('mobile', User.mobile)
     column_filters = ('name', 'mobile', 'status')
     column_descriptions=dict(sex=u'1为男 2为女，其他数字代表未设置')
+    form_choices={
+        "sex":[('1','男'),('2','女')]
+    }
+    # 1 注册未激活 2激活 3 封号，4 删除
+    def status_f(v,c,m,p):
+        content=""
+        if m.status==1:
+            content=u'未激活'
+        if m.status==2:
+            content=u'激活'
+        if m.status==3:
+            content=u'封号'
+        if m.status==4:
+            content=u'删除'
+        return content
+
+    column_formatters=dict(status=status_f,sex=l)
 
     def __init__(self, session):
         super(UserModelView,self).__init__(User, db.session,name=u'用户')
@@ -73,7 +90,8 @@ class ProjectModelView(ModelView):
                                       base_path=file_path,
                                       thumbnail_size=(222, 150, True),url_relative_path="upload/")
     }
-
+    #form_columns=()
+    can_view_details=True
     page_size=20
     inline_models=(Payback,)
     column_list=('id','title','total_money','current_money','support_times','deadline_time','status')
@@ -81,8 +99,20 @@ class ProjectModelView(ModelView):
     column_labels=dict(category=u'分类',id=u'序号',title=u'标题',total_money=u'总金额',current_money=u'当前金额',status=u"状态",deadline_time=u'截至日期',support_times=u'支持数',updated_time=u'更新时间',created_time=u'创建时间',description=u'详情',cover_image=u"封面")
     column_searchable_list=('title',Project.title)
     column_filters=("title","total_money","current_money","support_times","deadline_time","status")
+        #1：进行中 2：已完成 3：失败 4：删除
+    def status_f(v,c,m,p):
+        if m.status==1:
+            return Markup(u'<font color="blue">进行中 </font>')
+        if m.status==2:
+            return Markup(u'<font color="yellow">进行中 </font>')
+        if m.status==3:
+            return Markup(u'<font color="blue">失败 </font>')
+        return u'未知'
+    column_formatters=dict(status=status_f)
     create_template = 'admin/create.html'
     edit_template = 'admin/edit.html'
+
+
     def __init__(self, session):
         super(ProjectModelView, self).__init__(Project, db.session,name=u'项目')
 
@@ -90,6 +120,7 @@ class ProjectModelView(ModelView):
 class PaybackModelView(ModelView):
 
     page_size=20
+    can_view_details=True
     column_list=('id','project','title','payback_after_days','money','created_time','updated_time')
     column_labels=dict(id=u'序号',project=u'项目',title=u'标题',money=u'价格',payback_after_days=u'截至日期后',created_time=u'创建时间',updated_time=u'更新时间')
     column_searchable_list = ('title', Payback.title)
