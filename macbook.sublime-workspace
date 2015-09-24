@@ -4,12 +4,224 @@
 		"selected_items":
 		[
 			[
-				"pay",
-				"payback_id"
+				"Pay",
+				"PaybackModelView	class"
+			],
+			[
+				"Image",
+				"ImageUploadField	class"
+			],
+			[
+				"prj",
+				"Project	class"
+			],
+			[
+				"Proj",
+				"Project	class"
+			],
+			[
+				"Proje",
+				"ProjectModelView	class"
+			],
+			[
+				"ad",
+				"admin_view_models	module"
+			],
+			[
+				"flask",
+				"flask_admin	module"
+			],
+			[
+				"Base",
+				"BaseModelView	class"
+			],
+			[
+				"add",
+				"add_view	function"
+			],
+			[
+				"user",
+				"user_id	statement"
+			],
+			[
+				"jso",
+				"json.dumps	Flask"
+			],
+			[
+				"end",
+				"endblock"
+			],
+			[
+				"m",
+				"make_response	function"
+			],
+			[
+				"ord",
+				"order_by	statement"
+			],
+			[
+				"el",
+				"elif	keyword"
+			],
+			[
+				"qu",
+				"querys	param"
+			],
+			[
+				"query",
+				"querys	param"
+			],
+			[
+				"que",
+				"querys	param"
+			],
+			[
+				"pa",
+				"paginate	statement"
+			],
+			[
+				"page",
+				"page_size	param"
+			],
+			[
+				"admin",
+				"admin_project_ctrl	import"
+			],
+			[
+				"fie",
+				"field	forstmt"
+			],
+			[
+				"pro",
+				"project_api	instance"
 			],
 			[
 				"proj",
-				"project_id"
+				"projects	statement"
+			],
+			[
+				"proje",
+				"project_service	module"
+			],
+			[
+				"cat",
+				"category_api	statement"
+			],
+			[
+				"cate",
+				"categroy_service	import"
+			],
+			[
+				"re",
+				"require_token	function"
+			],
+			[
+				"ca",
+				"category_service	module"
+			],
+			[
+				"th",
+				"th	Tag"
+			],
+			[
+				"se",
+				"section	Tag"
+			],
+			[
+				"h",
+				"h1	Tag"
+			],
+			[
+				"cache",
+				"sms_code_cache"
+			],
+			[
+				"pass",
+				"passwd	statement"
+			],
+			[
+				"fi",
+				"filter_by"
+			],
+			[
+				"len",
+				"length	param"
+			],
+			[
+				"sen",
+				"sendTemplateSMS	function"
+			],
+			[
+				"adm",
+				"admin_service	module"
+			],
+			[
+				"wra",
+				"wraps"
+			],
+			[
+				"serv",
+				"services	module"
+			],
+			[
+				"projec",
+				"project_api"
+			],
+			[
+				"pas",
+				"passwd"
+			],
+			[
+				"f",
+				"field	forstmt"
+			],
+			[
+				"file",
+				"fields	statement"
+			],
+			[
+				"json",
+				"json_response"
+			],
+			[
+				"wa",
+				"wraps	function"
+			],
+			[
+				"s",
+				"sqlalchemy	module"
+			],
+			[
+				"Mia",
+				"MigrateCommand	instance"
+			],
+			[
+				"fla",
+				"flask_web	module"
+			],
+			[
+				"con",
+				"content_type	param"
+			],
+			[
+				"cont",
+				"content_type	None"
+			],
+			[
+				"dum",
+				"dumps	function"
+			],
+			[
+				"try",
+				"try	Try/Except"
+			],
+			[
+				"res",
+				"register_blueprint	function"
+			],
+			[
+				"pay",
+				"payback_id"
 			],
 			[
 				"pr",
@@ -36,85 +248,10 @@
 	"buffers":
 	[
 		{
-			"file": "flask-web.py",
-			"settings":
-			{
-				"buffer_size": 44,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "database/__init__.py",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "database/models.py",
-			"settings":
-			{
-				"buffer_size": 3054,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "services/__init__.py",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "services/user_service.py",
-			"settings":
-			{
-				"buffer_size": 158,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "macbook.sublime-project",
 			"settings":
 			{
-				"buffer_size": 204,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 786,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "旧数据库 https://leancloud.cn/ 账号 honggu 密码 IS6js9r0leP\n公共邮箱 账号 honggukj@126.com 密码 IS6js9r0leP 用于注册各种第三方信息\n代码库 https://git.oschina.net / http://git.oschina.net/dashboard/projects 账号 honggu 密码IS6js9r0leP\n微信开放平台账号：3099602275@qq.com   密码：liuchen3\n阿里云、企业支付宝账号  ：3125369916@qq.com密码：liuchen3\n支付宝开放平台  ：3125369916@qq.com\n密码：liuchen3\n两个申请相关QQ号：Qq3125369916    密码liuchen3\nQq3099602275    密码liuchen3\n \n阿里云 3125369916@qq.com  liuchen3 ECS主机 administrator administratorLCH3",
-			"file": "docs/帐号.txt",
-			"file_size": 655,
-			"file_write_time": 130860155720000000,
-			"settings":
-			{
-				"buffer_size": 459,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "__init__.py",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app.cfg",
-			"settings":
-			{
-				"buffer_size": 360,
+				"buffer_size": 194,
 				"line_ending": "Unix"
 			}
 		}
@@ -126,20 +263,44 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 227.0,
-		"last_filter": "pacins",
+		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"Build With: Python"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML (Jinja2)"
+			],
+			[
+				"set",
+				"Set Syntax: Jinja2"
+			],
 			[
 				"pacins",
 				"Package Control: Install Package"
 			],
 			[
-				"pacin ",
+				"pacinst",
 				"Package Control: Install Package"
 			],
 			[
+				"pe8",
+				"AutoPEP8: Format Code"
+			],
+			[
 				"pacin",
+				"Package Control: Disable Package"
+			],
+			[
+				"pacin ",
 				"Package Control: Install Package"
 			],
 			[
@@ -168,17 +329,76 @@
 	"expanded_folders":
 	[
 		"/Users/yuandunlong/workspace/project/crowd_funding",
-		"/Users/yuandunlong/workspace/project/crowd_funding/services",
-		"/Users/yuandunlong/workspace/project/crowd_funding/utils",
-		"/Users/yuandunlong/workspace/project/crowd_funding/views"
+		"/Users/yuandunlong/workspace/project/crowd_funding/views",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/admin",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/common"
 	],
 	"file_history":
 	[
-		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/admin/admin_ctrl.py",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
 		"/Users/yuandunlong/workspace/project/crowd_funding/macbook.sublime-project",
-		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/AutoPEP8/AutoPep8.sublime-settings",
-		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/User/AutoPep8.sublime-settings",
+		"/Users/yuandunlong/workspace/project/crowd_funding/utils/sms.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/utils/stringutil.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/api/user_api.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/services/project_service.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/api/project_api.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/utils/json_encode.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/services/category_service.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/api/category_api.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/services/admin_service.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admins/login.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admins/index.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admins/project/project_list.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admins/category/list.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admins/user/user_list.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/flask_web.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/common/upload_ctrl.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/common/__init__.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/static/ckeditor/config.js",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/ckeditor.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admin/edit.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admin/create.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admin/index.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/admin/__init__.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/utils/decorator.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/admin/admin_project_ctrl.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admins/layout.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/admin/admin_user_ctrl.py",
 		"/Users/yuandunlong/workspace/project/crowd_funding/docs/帐号.txt",
+		"/Users/yuandunlong/workspace/project/crowd_funding/app.cfg",
+		"/Users/yuandunlong/workspace/project/crowd_funding/services/user_service.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/database/models.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/admin/admin_view_models.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admin/project/project_list.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admin/category/list.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admin/user/user_detail.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admin/user/user_list.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/static/upload",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admin/login.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admin/layout.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/admin",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/admin/admin_project_ctrl",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/__init__.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/database/__init__.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/services/__init__.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/server.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/manager.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/user_ctrl.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/api/__init__.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/utils/__init__.py",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/User/AutoPep8.sublime-settings",
+		"/Users/yuandunlong/workspace/project/crowd_funding/third/__init__.py",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/yuandunlong/workspace/project/crowd_funding/__init__.py",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/Users/yuandunlong/workspace/project/crowd_funding/views/admin_ctrl.py",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/index.html",
+		"/Users/yuandunlong/workspace/project/crowd_funding/templates/login.html",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/AutoPEP8/AutoPep8.sublime-settings",
 		"/Users/yuandunlong/workspace/project/crowd_funding/flask-web.py",
 		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/UserManager.php",
 		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/controllers/UserCenterManage.php",
@@ -236,12 +456,11 @@
 		"/Users/yuandunlong/workspace/project/diigo-web/daemon/mykill.rb",
 		"/Users/yuandunlong/workspace/project/yuanbangshop-web/application/views/Web/UserSafety.php",
 		"/Users/yuandunlong/workspace/project/yuanbangshop-web/Content/js/shopgoods.js",
-		"/Users/yuandunlong/workspace/project/yuanbangshop-web/system/helpers/security_helper.php",
-		"/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+		"/Users/yuandunlong/workspace/project/yuanbangshop-web/system/helpers/security_helper.php"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -257,6 +476,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"book_name",
+			"delete_user",
+			"delete_book",
+			"query_projects_by_page",
+			"json_response",
+			"user",
+			":\n",
+			"tab",
+			"tap",
 			"ShopGoodsListPage",
 			"setprice",
 			"GetGoodsListFromCart",
@@ -284,292 +512,83 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "flask-web.py",
+					"file": "macbook.sublime-project",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 44,
+						"buffer_size": 194,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								43,
-								43
+								3,
+								3
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "database/__init__.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
+							"c_time":
 							[
+								128,
+								3,
+								99,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								113,
 								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "database/models.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3054,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
+								67,
+								10,
+								7,
+								223,
+								9,
+								23,
+								20,
+								27,
+								41,
 								0,
-								24
-							]
-						],
-						"settings":
-						{
-							"autopep8_view_autosave": true,
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "services/__init__.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
 								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"autopep8_view_autosave": true,
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "services/user_service.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 158,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								38,
-								38
-							]
-						],
-						"settings":
-						{
-							"autopep8_view_autosave": true,
-							"syntax": "Packages/Python/Python.tmLanguage"
+								0,
+								113,
+								1,
+								133,
+								113,
+								2,
+								82,
+								113,
+								3,
+								46
+							],
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "macbook.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 204,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								187,
-								187
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/Users/yuandunlong/Library/Application Support/Sublime Text 3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 786,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								234,
-								267
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "docs/帐号.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 459,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								413,
-								421
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "__init__.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app.cfg",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 360,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12,
-								12
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -610,6 +629,10 @@
 	{
 		"height": 100.0
 	},
+	"output.exec":
+	{
+		"height": 100.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -628,8 +651,212 @@
 		"selected_items":
 		[
 			[
+				"",
+				"views/admin/admin_view_models.py"
+			],
+			[
+				"fla",
+				"flask_web.py"
+			],
+			[
+				"mo",
+				"database/models.py"
+			],
+			[
+				"flak",
+				"flask_web.py"
+			],
+			[
+				"adminv",
+				"views/admin/admin_view_models.py"
+			],
+			[
+				"m",
+				"database/models.py"
+			],
+			[
+				"mode",
+				"database/models.py"
+			],
+			[
+				"mod",
+				"database/models.py"
+			],
+			[
+				"fka",
+				"flask_web.py"
+			],
+			[
+				"flas",
+				"flask_web.py"
+			],
+			[
+				"adminm",
+				"views/admin/admin_view_models.py"
+			],
+			[
+				"admin",
+				"views/admin/admin_ctrl.py"
+			],
+			[
+				"lo",
+				"templates/admin/login.html"
+			],
+			[
+				"lay",
+				"templates/admins/layout.html"
+			],
+			[
+				"log",
+				"templates/admin/login.html"
+			],
+			[
+				"fl",
+				"flask_web.py"
+			],
+			[
+				"f",
+				"flask_web.py"
+			],
+			[
+				"flask",
+				"flask_web.py"
+			],
+			[
 				"model",
 				"database/models.py"
+			],
+			[
+				"user",
+				"views/admin/admin_user_ctrl.py"
+			],
+			[
+				"de",
+				"utils/decorator.py"
+			],
+			[
+				"a",
+				"app.cfg"
+			],
+			[
+				"userc",
+				"views/admin/admin_user_ctrl.py"
+			],
+			[
+				"admus",
+				"views/admin/admin_user_ctrl.py"
+			],
+			[
+				"userlis",
+				"templates/admin/user/user_list.html"
+			],
+			[
+				"userli",
+				"templates/admin/user/user_list.html"
+			],
+			[
+				"proj",
+				"services/project_service.py"
+			],
+			[
+				"pro",
+				"services/project_service.py"
+			],
+			[
+				"pros",
+				"services/project_service.py"
+			],
+			[
+				"projec",
+				"services/project_service.py"
+			],
+			[
+				"userhtm",
+				"templates/admin/user/user_list.html"
+			],
+			[
+				"use",
+				"services/user_service.py"
+			],
+			[
+				"adminp",
+				"views/admin/admin_project_ctrl.py"
+			],
+			[
+				"admipr",
+				"views/admin/admin_project_ctrl.py"
+			],
+			[
+				"prose",
+				"services/project_service.py"
+			],
+			[
+				"users",
+				"services/user_service.py"
+			],
+			[
+				"admon",
+				"views/admin/admin_project_ctrl.py"
+			],
+			[
+				"ind",
+				"templates/admin/index.html"
+			],
+			[
+				"proje",
+				"views/admin/admin_project_ctrl.py"
+			],
+			[
+				"do",
+				"docs/帐号.txt"
+			],
+			[
+				"dec",
+				"utils/decorator.py"
+			],
+			[
+				"ca",
+				"views/api/category_api.py"
+			],
+			[
+				"l",
+				"templates/admin/category/list.html"
+			],
+			[
+				"lsit",
+				"templates/admin/category/list.html"
+			],
+			[
+				"sms",
+				"utils/sms.py"
+			],
+			[
+				"userap",
+				"views/api/user_api.py"
+			],
+			[
+				"user_ap",
+				"views/api/user_api.py"
+			],
+			[
+				"adminc",
+				"views/admin/admin_ctrl.py"
+			],
+			[
+				"app",
+				"app.cfg"
+			],
+			[
+				"usea",
+				"views/api/user_api.py"
+			],
+			[
+				"usera",
+				"views/api/user_api.py"
+			],
+			[
+				"user_a",
+				"views/api/user_api.py"
 			],
 			[
 				"usercenterma",
@@ -708,12 +935,12 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
@@ -732,7 +959,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 371.0,
+	"side_bar_width": 263.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

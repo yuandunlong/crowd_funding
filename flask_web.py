@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-22 17:47:04
+# @Last Modified time: 2015-09-23 21:05:35
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session
@@ -23,7 +23,7 @@ from views.admin.admin_view_models import UserModelView,ProjectModelView,Categor
 import logging
 from flask.ext.babelex import Babel
 from flask_admin.contrib.fileadmin import FileAdmin
-
+from views.admin import admin_view_models
 import os.path as op
 
 log_roll_handler=RotatingFileHandler('roll.log',maxBytes=1024*1000*10)
@@ -73,6 +73,9 @@ def site_map():
     
     return Response(result)
 
+path = op.join(op.dirname(__file__), 'static/upload')
+admin_view_models.file_path=path
+
 admin = Admin(app, name=u'乐事电影管理平台',template_mode='bootstrap3')
 admin.add_view(UserModelView(db.session))
 admin.add_view(CategoryModelView(db.session))
@@ -80,7 +83,6 @@ admin.add_view(ProjectModelView(db.session))
 admin.add_view(PaybackModelView(db.session))
 admin.add_view(TokenModelView(db.session))
 
-path = op.join(op.dirname(__file__), 'static/upload')
 admin.add_view(FileAdmin(path, '/static/upload/', name='上传文件管理'))
 def create_app(config=None):
     app = Flask(__name__)
