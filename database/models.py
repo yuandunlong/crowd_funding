@@ -3,6 +3,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 import inspect
 import datetime
+import os
 db = SQLAlchemy()
 
 
@@ -14,7 +15,7 @@ class BaseModel(db.Model):
     updated_time = db.Column(
         'updated_time', db.TIMESTAMP, server_default=func.now())
 
-    def as_map(self):
+    def as_map2(self):
         fields = {}
         for field in [x for x in dir(self) if not x.startswith('_') and x != 'metadata' and x != 'query' and x != 'query_class']:
             data = self.__getattribute__(field)
@@ -25,6 +26,17 @@ class BaseModel(db.Model):
             else:
                 fields[field] = data
         print fields
+        return fields
+    def as_map(self):
+
+        fields={}
+        for (key,value) in self.__dict__.items():
+            if key.startswith('_'):
+                continue
+            elif isinstance(value,datetime.datetime):
+                fields[key]=str(value)
+            else:
+                fields[key]=value
         return fields
 
 
@@ -87,6 +99,16 @@ class Project(BaseModel):
     status = db.Column('status', db.Integer, default=1)  # 1为支付，2支付成功，3发货，4完成
     cover_image=db.Column('cover_image',db.String(512))
 
+    def as_map(self):
+        fields=super(Project,self).as_map()
+        fields['category']=self.category.as_map()
+        if fields['cover_image']:
+            (name,ext)=os.path.splitext(fields['cover_image'])
+            fields['cover_image_thumbnail']=name+'_thumbnail'+ext
+        else:
+            fields['cover_image_thumbnail']=None
+        return fields
+
     def __unicode__(self):
         return self.title
 
@@ -99,13 +121,20 @@ class Payback(BaseModel):
     title = db.Column('title', db.String(32))
     detail = db.Column('detail', db.String(128))
     payback_after_days = db.Column('payback_after_days', db.Integer)
-    image_url = db.Column('image_url', db.String(128))
     # 1无需物流 2 全国包邮（含港澳台）3 全国包邮不含港澳台
     delivery_mode = db.Column('delivery_mode', db.Integer, default=1)
     # 0 表示不限制 大于0表示具体的限制数量
     limit = db.Column('limit', db.Integer, default=0)
     status = db.Column('status', db.Integer, default=1)  # 1为支付，2支付成功，3发货，4完成
     cover_image=db.Column('cover_image',db.String(512))
+    def as_map(self):
+        fields=super(Payback,self).as_map()
+        if fields['cover_image']:
+            (name,ext)=os.path.splitext(fields['cover_image'])
+            fields['cover_image_thumbnail']=name+'_thumbnail'+ext
+        else:
+            fields['cover_image_thumbnail']=None
+        return fields
 
 class Attention(BaseModel):
     __tablename__ = 'attention'

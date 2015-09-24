@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-21 22:50:38
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-23 23:39:54
+# @Last Modified time: 2015-09-24 11:19:19
 from flask_admin.contrib.sqla import ModelView
 
 from database.models import Token,Project,db,User,Category,Payback
@@ -11,6 +11,12 @@ from flask.ext.admin.form.upload import ImageUploadField
 from wtforms import fields, widgets
 from flask_admin import form
 import os.path as op
+from werkzeug import secure_filename
+from datetime import datetime
+def prefix_name(obj, file_data):
+    parts = op.splitext(file_data.filename)
+    return secure_filename('file-'+str(datetime.now())+'-%s%s' % parts)
+
 
 file_path="static/upload"
 class CKTextAreaWidget(widgets.TextArea):
@@ -82,10 +88,16 @@ class ProjectModelView(ModelView):
 
 
 class PaybackModelView(ModelView):
+
     page_size=20
     column_list=('id','project','title','payback_after_days','money','created_time','updated_time')
     column_labels=dict(id=u'序号',project=u'项目',title=u'标题',money=u'价格',payback_after_days=u'截至日期后',created_time=u'创建时间',updated_time=u'更新时间')
     column_searchable_list = ('title', Payback.title)
+    form_extra_fields = {
+        'cover_image': form.ImageUploadField(u'封面',
+                                      base_path=file_path,
+                                      thumbnail_size=(100, 100, True),namegen=prefix_name,url_relative_path="upload/")
+    }
     def __init__(self, session):
         super(PaybackModelView,self).__init__(Payback, db.session,name=u'回报')
 

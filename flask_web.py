@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-23 21:05:35
+# @Last Modified time: 2015-09-24 10:03:17
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session
@@ -12,6 +12,7 @@ from views.user_ctrl import user_ctrl
 from views.api.user_api import user_api
 from views.api.category_api import category_api
 from views.api.project_api import project_api
+from views.api.payback_api import payback_api
 from views.admin.admin_ctrl import admin_ctrl
 from views.admin.admin_project_ctrl import admin_project_ctrl
 from views.admin.admin_user_ctrl import admin_user_ctrl
@@ -47,6 +48,7 @@ app.register_blueprint(admin_user_ctrl,url_prefix='/admin2')
 app.register_blueprint(user_api,url_prefix='/api')
 app.register_blueprint(category_api,url_prefix='/api')
 app.register_blueprint(project_api,url_prefix='/api')
+app.register_blueprint(payback_api,url_prefix='/api')
 
 
 babel = Babel(app)
