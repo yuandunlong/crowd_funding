@@ -19,7 +19,7 @@
         margin-right: 220px + 30;
     }
 
-    #publish-category{
+    #publish-categories{
         padding: 0;
         list-style: none;
         >li{
@@ -38,11 +38,25 @@
     }
     .cover-preview{
         margin-right: 10px;
+        width: 140px;
+        height: 95px;
     }
     .cover-mobile-*{
         display: inline;
     }
-
+    #project-video{
+        .current-file{
+            display: inline-block;
+        }
+    }
+    #project-days, #project-amt,#project-prepay{
+        width: 150px;
+        float: left;
+        +span{
+            display: block;
+            margin-left: 160px;
+        }
+    }
 }
 /*payback*/
 .pay-back {
@@ -80,6 +94,10 @@
         .image-preview{
             width: @payback-preview-image-size;
             height: @payback-preview-image-size;
+            img{
+                width: @payback-preview-image-size;
+                height: @payback-preview-image-size;
+            }
         }
     }
 }

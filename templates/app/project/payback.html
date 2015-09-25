@@ -1,0 +1,32 @@
+<div class="pay-back pull-left">
+    <div class="header">
+        <span class="name">回报1</span>
+        <div class="op pull-right">
+            <a class="delete" href="javascript:void(0)">删除</a>
+            <a class="edit" href="javascript:void(0)">编辑</a>
+        </div>
+    </div>
+    <div class="detail">
+        <button class="btn btn-info btn-lg support">支持</button>
+        <div class="amt">
+            <i class="fa fa-jpy fa-lg"></i>
+            <span>{{data.amt}}</span>
+        </div>
+        <h4 class="title">
+            {{data.title}}
+        </h4>
+        <div class="description">
+            {{data.desc}}
+        </div>
+        <div>
+            已有<span class="support-num text-danger">0</span>位支持
+        </div>
+        <img class="image-preview" src="/static/images/test_project.jpg"/>
+        <div class="transport">
+            无需物流
+        </div>
+        <div class="payback-time">
+            预计回报发放时间: 项目筹款成功后的<span>{{data.sendTime}}</span>天内
+        </div>
+    </div>
+</div>

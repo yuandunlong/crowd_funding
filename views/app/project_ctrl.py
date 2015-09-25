@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 project_ctrl = Blueprint('project_ctrl', __name__)
 
@@ -18,3 +18,11 @@ def publish_project():
         'active': 'publish'
     }
     return render_template("app/project/publish.html", data = data)
+
+@project_ctrl.route('/payback', methods=['POST'])
+def createPayBack():
+    #todo
+    print request.form
+    data=request.form
+    return render_template("app/project/payback.html", data = data)
+

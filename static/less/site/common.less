@@ -45,13 +45,14 @@ label.control-label{
         margin-left: 5px;
     }
 }
+/*todo here should be optimize*/
 .text-control{
     height: 34px;
     padding: 6px 12px;
     line-height: 1.42857143;
     display: block;
 }
-
+/*main btn style*/
 .btn-site{
     border: 1px solid @color-green;
     background-color: transparent;
@@ -66,4 +67,26 @@ label.control-label{
 
 .desc-text{
     color: @color-desc;
+}
+
+.textarea-group.limitText{
+    position: relative;
+    .limit-info{
+        position: absolute;
+        bottom: 2px;
+        right: 30px;
+        color: @color-text-grey;
+    }
+}
+//upload button beautify
+.input-file{
+    position: relative;
+    input[type=file]{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        .set-opacity(0);
+    }
 }

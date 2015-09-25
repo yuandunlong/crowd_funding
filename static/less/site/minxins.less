@@ -15,3 +15,9 @@
     -o-transition: background-color @seconds; /* Opera */
 }
 
+
+.set-opacity(@opacity){
+    opacity: @opacity;
+    -moz-opacity: @opacity;  /* 兼容老式浏览器 */
+    filter: alpha(opacity=@opacity); /* 兼容IE */
+}

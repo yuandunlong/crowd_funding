@@ -16,7 +16,7 @@
                     这里是回报内容
                 </div>
                 <div class="image-preview">
-
+                    <img />
                 </div>
                 <div>
                     已有<span class="support-num text-danger">99</span>位支持
@@ -36,8 +36,8 @@
                   <!--金额-->
                   <div class="form-group">
                       <label for="payback_amt" class="col-sm-2 control-label required">金额:</label>
-                      <div class="col-sm-10">
-                          <input id="payback_amt" type="text"/>
+                      <div class="col-sm-10 form-inline">
+                          <input id="payback_amt" class="form-control" type="text"/>
                           <span>元</span>
                       </div>
                   </div>
@@ -45,13 +45,13 @@
                   <div class="form-group">
                       <label for="payback_title" class="col-sm-2 control-label required">标题:</label>
                       <div class="col-sm-10">
-                          <input id="payback_title" class="form-control" type="text" placeholder="请用简短文字写明此回报"/>
+                          <input id="payback_title" maxlength="25" class="form-control" type="text" placeholder="请用简短文字写明此回报"/>
                       </div>
                   </div>
                   <!--详情-->
                   <div class="form-group">
                       <label for="payback_desc" class="col-sm-2 control-label required">回报详情:</label>
-                      <div class="col-sm-10">
+                      <div class="col-sm-10 textarea-group limitText" data-max-number="100">
                           <textarea id="payback_desc" class="form-control" placeholder="描述一下此内容"></textarea>
                       </div>
                   </div>
@@ -83,7 +83,15 @@
                   <div class="form-group">
                       <label class="col-sm-2 control-label required">回报图片:</label>
                       <div class="col-sm-10">
-                            <button class="btn btn-site upload-image">上传图片</button>
+                          <div id="pay_back_image">
+                            <form action="" method=post enctype=multipart/form-data>
+                                 <a class="btn btn-site input-file">
+                                     <input accept="image/png,image/gif,image/jpeg" type=file name=file>上传图片
+                                 </a>
+                                 <input class="btn btn-site hide" type=submit value="确定上传">
+                             </form>
+                          </div>
+                            <!--<button class="btn btn-site upload-image">上传图片</button>-->
                       </div>
                   </div>
                   <!--shipping-->
@@ -104,9 +112,9 @@
                   <!--send time-->
                   <div class="form-group">
                       <label class="col-sm-2 control-label required">发放时间:</label>
-                      <div class="col-sm-10">
+                      <div class="col-sm-10 form-inline">
                           <span>项目预计成功后</span>
-                          <input id="send_time" type="text" />
+                          <input id="send_time" class="form-control" type="text" />
                           <span>天发放回报</span>
                       </div>
                   </div>
