@@ -24,3 +24,5 @@ def get_projects_by_page(result):
         arr.append(project.as_map())
     result['projects']=arr
 
+
+

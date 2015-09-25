@@ -138,8 +138,9 @@ class Payback(BaseModel):
 
 class Attention(BaseModel):
     __tablename__ = 'attention'
-    project_id = db.Column('project_id', db.Integer)
-    user_id = db.Column('user_id', db.Integer)
+    project_id = db.Column('project_id', db.Integer,db.ForeignKey('project.id'))
+    user_id = db.Column('user_id', db.Integer,db.ForeignKey('user.id'))
+
 
 
 

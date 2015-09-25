@@ -3,15 +3,15 @@
 # @Author: yuandunlong
 # @Date:   2015-09-10 22:16:29
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-10 23:08:01
+# @Last Modified time: 2015-09-25 23:35:11
 from flask import request, Blueprint,json,Response,current_app
 from utils.decorator import json_response,require_token
-from database.models import Token,User,db
+from database.models import Token,User,db,Attention,Project
 from services import user_service
 from hashlib import md5
 from werkzeug.contrib.cache import SimpleCache
 from utils.sms import sendTemplateSMS
-from utils import stringutil
+from utils import stringutil,result_set_convert
 user_api=Blueprint("user_api",__name__ )
 sms_code_cache = SimpleCache(threshold=5000, default_timeout=300)
 @user_api.route("/private/user/get_challenge",methods=['POST'])
@@ -49,6 +49,7 @@ def get_access_token(result):
         db.session.add(token)
         db.session.commit()
     result['access_token']=access_token
+    result['expires']=-1
 @user_api.route('/public/user/send_sms_code',methods=['GET'])
 @json_response
 def send_sms_code(result):
@@ -108,3 +109,26 @@ def get_user_info(result,user):
     ret=user.as_map()
     ret.pop('passwd')
     result['user']=ret
+
+@user_api.route('/private/user/get_attention_projects',methods=['GET'])
+@require_token
+@json_response
+def get_attention_projects(result,user):
+
+    projects=Project.query.outerjoin(Attention).outerjoin(User).filter(Attention.user_id==user.id).all()
+
+    result['projects']=result_set_convert.models_2_arr(projects)
+
+@user_api.route('/private/user/attention_project',methods=['POST'])
+@require_token
+@json_response
+def attention_project(result,user):
+    data=request.get_json()
+    attention=Attention(user_id=user.id,project_id=data['project_id'])
+    db.session.add(attention)
+    db.session.commit()
+
+
+
+
+
