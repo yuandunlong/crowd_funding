@@ -1,0 +1,152 @@
+/*basic info*/
+.step-content{
+    .step-buttons{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        button{
+            margin: 15px;
+        }
+    }
+}
+#publish_step_1,#payback_info, #publish_step_3{
+    .form-horizontal{
+        width: 90%;
+        padding-top: 20px;
+    }
+}
+#publish_step_1{
+    .left-column{
+        margin-right: 220px + 30;
+    }
+
+    #publish-categories{
+        padding: 0;
+        list-style: none;
+        >li{
+            float:  left;
+            margin: 5px;
+            cursor: pointer;
+            &:hover,
+            &:focus,
+            &:active,
+            &.active{
+                background-color: @color-green;
+                color: @color-white;
+                border-color: @color-green;
+            }
+        }
+    }
+    .cover-preview{
+        margin-right: 10px;
+        width: 140px;
+        height: 95px;
+    }
+    .cover-mobile-*{
+        display: inline;
+    }
+    #project-video{
+        .current-file{
+            display: inline-block;
+        }
+    }
+    #project-days, #project-amt,#project-prepay{
+        width: 150px;
+        float: left;
+        +span{
+            display: block;
+            margin-left: 160px;
+        }
+    }
+}
+/*payback*/
+.pay-back {
+    width: @payback-preview-width;
+    background-color: @color-white;
+    border: 1px solid @color-border-grey;
+    color: @color-text-grey;
+    margin: @payback-preview-common-margin;
+    .header,.detail{
+        padding:@payback-preview-common-margin;
+    }
+    .header{
+        background-color: @payback-preview-header-bg-color;
+    }
+    .detail{
+        position: relative;
+        .support{
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        > * {
+            margin-bottom: @payback-preview-common-margin;
+        }
+        .amt{
+            span {
+                 font-size: 24px;
+             }
+            color: @color-green;
+            margin-bottom: @payback-preview-common-margin  * 2;
+        }
+        .title, .description{
+            color: @color-black;
+        }
+        .image-preview{
+            width: @payback-preview-image-size;
+            height: @payback-preview-image-size;
+            img{
+                width: @payback-preview-image-size;
+                height: @payback-preview-image-size;
+            }
+        }
+    }
+}
+
+#add_payback{
+    margin: 0 @payback-preview-common-margin;
+}
+#add_payback_modal{
+    .modal-dialog{
+        width: 90%;
+    }
+    .modal-content{
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -o-box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background-color: #f6f6f6;
+    }
+}
+#payback_info{
+    margin: 15px;
+    margin-right: 310px;
+    .buttons{
+        clear: both;
+        text-align: center;
+        button{
+            margin: 20px;
+        }
+    }
+}
+/*payback end*/
+
+#publish_step_3{
+    .owner-preview{
+        width: 300px;
+        .avatar{
+            width: 65px;
+            height: 65px;
+            border: 1px solid #ccc;
+            margin: 5px;
+        }
+    }
+    .left-column{
+        margin-right: 310px;
+        p{
+            margin-left: 20px;
+            margin-bottom: 30px;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+        {% assets "css_from_less" %}
+          <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {% endassets %}
+        {% assets "css_all" %}
+          <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {% endassets %}
+        <title>{{ data.title }} - 全民众酬后台管理</title>
+    </head>
+    <body>
+        {% include 'app/header.html' %}
+        <div id="main_content">
+            {% block content %}
+            {% endblock  content %}
+        </div>
+        <script src="/static/js/jquery-2.0.3.min.js"></script>
+        <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+        {% assets "js_all" %}
+            <script src="{{ ASSET_URL }}"></script>
+        {% endassets %}
+        {% block js_define %}
+        {% endblock  js_define %}
+    </body>
+</html>

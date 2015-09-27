@@ -1,0 +1,130 @@
+<div class="modal fade" id="add_payback_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body clearfix">
+          <div class="pull-right pay-back">
+            <div class="detail">
+                <button class="btn btn-info btn-lg support">支持</button>
+                <div class="amt">
+                    <i class="fa fa-jpy fa-lg"></i>
+                    <span></span>
+                </div>
+                <h4 class="title">
+                    这里是回报标题
+                </h4>
+                <div class="description">
+                    这里是回报内容
+                </div>
+                <div class="image-preview">
+                    <img />
+                </div>
+                <div>
+                    已有<span class="support-num text-danger">99</span>位支持
+                </div>
+                <div class="transport">
+                    全国包邮(港澳台用户不可购买)
+                </div>
+                <div class="payback-time">
+                    预计回报发放时间: 项目筹款成功后的<span>60</span>天内
+                </div>
+            </div>
+          </div>
+          <div id="payback_info" class="left-column box clearfix">
+              <h4>增加回报</h4>
+
+              <div class="form-horizontal pull-left">
+                  <!--金额-->
+                  <div class="form-group">
+                      <label for="payback_amt" class="col-sm-2 control-label required">金额:</label>
+                      <div class="col-sm-10 form-inline">
+                          <input id="payback_amt" class="form-control" type="text"/>
+                          <span>元</span>
+                      </div>
+                  </div>
+                  <!--标题-->
+                  <div class="form-group">
+                      <label for="payback_title" class="col-sm-2 control-label required">标题:</label>
+                      <div class="col-sm-10">
+                          <input id="payback_title" maxlength="25" class="form-control" type="text" placeholder="请用简短文字写明此回报"/>
+                      </div>
+                  </div>
+                  <!--详情-->
+                  <div class="form-group">
+                      <label for="payback_desc" class="col-sm-2 control-label required">回报详情:</label>
+                      <div class="col-sm-10 textarea-group limitText" data-max-number="100">
+                          <textarea id="payback_desc" class="form-control" placeholder="描述一下此内容"></textarea>
+                      </div>
+                  </div>
+                  <!--回报数量-->
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label required">回报数量:</label>
+                      <div class="col-sm-10">
+                          <label class="radio-inline">
+                              <input type="radio" name="paybackNumber" id="payback_unlimit" value="unlimit">不限
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" name="paybackNumber" id="payback_limit" value="limit">限制
+                          </label>
+                      </div>
+                  </div>
+                  <!--个人限购-->
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label required">个人限够:</label>
+                      <div class="col-sm-10">
+                          <label class="radio-inline">
+                              <input type="radio" name="personLimit" id="person_unlimit" value="unlimit">不限
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" name="personLimit" id="person_limit" value="limit">限制
+                          </label>
+                      </div>
+                  </div>
+                  <!--图片-->
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label required">回报图片:</label>
+                      <div class="col-sm-10">
+                          <div id="pay_back_image">
+                            <form action="" method=post enctype=multipart/form-data>
+                                 <a class="btn btn-site input-file">
+                                     <input accept="image/png,image/gif,image/jpeg" type=file name=file>上传图片
+                                 </a>
+                                 <input class="btn btn-site hide" type=submit value="确定上传">
+                             </form>
+                          </div>
+                            <!--<button class="btn btn-site upload-image">上传图片</button>-->
+                      </div>
+                  </div>
+                  <!--shipping-->
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label required">物流方式:</label>
+                      <div class="col-sm-10">
+                          <label class="radio-inline">
+                              <input type="radio" name="shippingType" id="no_shipping" value="1">无需物流
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" name="shippingType" id="free_exception" value="2">全国包邮(港澳台用户不可购买)
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" name="shippingType" id="free_everywhere" value="3">全国包邮(含港澳台)
+                          </label>
+                      </div>
+                  </div>
+                  <!--send time-->
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label required">发放时间:</label>
+                      <div class="col-sm-10 form-inline">
+                          <span>项目预计成功后</span>
+                          <input id="send_time" class="form-control" type="text" />
+                          <span>天发放回报</span>
+                      </div>
+                  </div>
+              </div><!--form-horizental-->
+              <div class="buttons">
+                  <button type="button" class="btn btn-site" id="submit-payback">&nbsp;&nbsp;确定&nbsp;&nbsp;</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+              </div>
+          </div><!--payback-info-->
+      </div><!--modal-body-->
+    </div><!--modal-content-->
+  </div><!--modal-dialog-->
+</div><!--modal-->

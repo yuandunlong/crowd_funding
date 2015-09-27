@@ -14,19 +14,23 @@ from views.api.category_api import category_api
 from views.api.project_api import project_api
 from views.api.payback_api import payback_api
 from views.admin.admin_ctrl import admin_ctrl
+from views.app.project_ctrl import project_ctrl
+from views.app.common import common_ctrl
 from views.admin.admin_project_ctrl import admin_project_ctrl
 from views.admin.admin_user_ctrl import admin_user_ctrl
 from logging.handlers import RotatingFileHandler
 from logging import Formatter
+from flask.ext.assets import Environment, Bundle
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from views.admin.admin_view_models import UserModelView,ProjectModelView,CategoryModelView,TokenModelView,PaybackModelView
 import logging
-from flask.ext.babelex import Babel
+from flask.ext.babel import Babel
 from flask_admin.contrib.fileadmin import FileAdmin
 from views.admin import admin_view_models
 from views.common.upload_ctrl import upload_ctrl
 import os.path as op
+
 
 log_roll_handler=RotatingFileHandler('roll.log',maxBytes=1024*1000*10)
 
@@ -40,18 +44,52 @@ db.init_app(app)
 app.config.from_pyfile('app.cfg')
 log_roll_handler.setLevel(logging.INFO)
 app.logger.addHandler(log_roll_handler)
-app.register_blueprint(user_ctrl)
 
+app.register_blueprint(user_ctrl)
+app.register_blueprint(admin_ctrl,url_prefix='/admin')
 app.register_blueprint(admin_ctrl,url_prefix='/admin2')
 app.register_blueprint(admin_project_ctrl,url_prefix='/admin2')
 app.register_blueprint(admin_user_ctrl,url_prefix='/admin2')
 
 app.register_blueprint(user_api,url_prefix='/api')
 app.register_blueprint(category_api,url_prefix='/api')
-app.register_blueprint(project_api,url_prefix='/api')
+app.register_blueprint(project_ctrl,url_prefix='/project')
+app.register_blueprint(common_ctrl, url_prefix='/comm')
 app.register_blueprint(payback_api,url_prefix='/api')
 
 app.register_blueprint(upload_ctrl)
+#define static res.
+assets = Environment(app)
+css_from_less = Bundle(
+    'less/style.less',
+    filters = 'less',
+    output = 'css/style.css',
+    depends="less/site/*.less"
+)
+css_all = Bundle(
+    'vendor/simditor/styles/simditor.css'
+)
+js_all = Bundle(
+    'js/common.js',
+    'js/dropdown.js',
+    'js/limitTextArea.js',
+    'js/projects_list.js',
+)
+js_publish_project = Bundle(
+    'vendor/simditor/scripts/module.min.js',
+    'vendor/simditor/scripts/hotkeys.min.js',
+    'vendor/simditor/scripts/uploader.min.js',
+    'vendor/simditor/scripts/simditor.min.js',
+    'js/project_publish.js'
+)
+assets.register('css_from_less', css_from_less)
+assets.register('css_all', css_all)
+assets.register('js_all', js_all)
+assets.register('js_publish_project', js_publish_project)
+
+app.config['ASSETS_DEBUG'] = True
+#assets end
+
 
 babel = Babel(app)
 @babel.localeselector

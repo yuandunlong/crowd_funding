@@ -1,0 +1,14 @@
+<div class="box">
+    <div id="paybacks" class="clearfix">
+    <!--{% for item in [1, 2] %}-->
+        <!--{% include 'app/project/payback.html' %}-->
+    <!--{% endfor %}-->
+    </div>
+    <button class="btn btn-site btn-lg" id="add_payback">+新增回报</button>
+</div>
+<div class="row step-buttons">
+    <button type="button" class="btn btn-default btn-lg pull-left">预览</button>
+    <button type="button" data-step-forward="3" class="btn btn-info btn-lg pull-right step-forword-button">下一步</button>
+    <button type="button" data-step-forward="1" class="btn btn-info btn-lg pull-right step-forword-button">上一步</button>
+</div>
+{% include 'app/project/add_payback_modal.html' %}
