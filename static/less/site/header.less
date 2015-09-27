@@ -1,0 +1,26 @@
+header{
+    height: @header-height;
+    width: 100%;
+    border-bottom: 2px solid @color-green;
+    padding: (@header-height - @navbar-height) /2 0;
+    min-width: @header-min-width; /*in case of disorder of elements*/
+}
+
+.qmzc{
+    &-navbar {
+        list-style: none;
+        padding: 0;
+        line-height: @navbar-height;
+        height: @navbar-height;
+        margin: auto 15px;
+        > li {
+            float: left;
+            text-align: center;
+            width: @navbar-element-width;
+            font-size: @font-size-medium;
+            &.active{
+                border-bottom: 2px solid @color-green;
+            }
+        }
+    }
+}

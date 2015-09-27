@@ -1,0 +1,53 @@
+{% extends "app/layout.html" %}
+{% block content%}
+    <div class="layout-2x">
+        <div id="steps_nav" data-current-step="1" class="box steps-nav  clearfix">
+            <div data-step="1" class="steps-nav-item finished col-xs-3">
+                <div class="item-icon img-circle">
+                    <i class="fa fa-lightbulb-o fa-2x"></i>
+                </div>
+                <span class="step-name">1.填写项目信息</span>
+            </div>
+            <div data-step="2" class="steps-nav-item col-xs-3">
+                <div class="connect-line"></div>
+                <div class="item-icon img-circle">
+                    <i class="fa fa-gift fa-2x"></i>
+                </div>
+                <span class="step-name">2.设置回报</span>
+            </div>
+            <div data-step="3" class="steps-nav-item col-xs-3">
+                <div class="connect-line"></div>
+                <div class="item-icon img-circle">
+                    <i class="fa  fa-user fa-2x"></i>
+                </div>
+                <span class="step-name">3.填写发起人信息</span>
+            </div>
+
+            <div  data-step="4" class="steps-nav-item col-xs-3">
+                <div class="connect-line"></div>
+                <div class="item-icon img-circle ">
+                    <i class="fa fa-gavel fa-2x"></i>
+                </div>
+                <span class="step-name">4.等待审核</span>
+            </div>
+        </div>
+        <div id="publish_step_1" class="step-content">
+            {% include 'app/project/publish_step_1.html' %}
+        </div>
+        <div id="publish_step_2" class="hide step-content">
+            {% include 'app/project/publish_step_2.html' %}
+        </div>
+        <div id="publish_step_3" class="hide step-content">
+            {% include 'app/project/publish_step_3.html' %}
+        </div>
+        <div id="publish_step_4" class="hide step-content">
+            {% include 'app/project/publish_step_4.html' %}
+        </div>
+    </div>
+{% endblock content%}
+{% block js_define %}
+    {% assets "js_publish_project" %}
+        <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+{% endblock js_define%}
+

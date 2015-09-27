@@ -1,0 +1,65 @@
+#projects_list{
+    margin-top: 20px;
+}
+.project{
+    border: 1px solid @color-border-grey;
+    margin-bottom: 15px;
+    &:hover{
+        .overlay{
+            background-color: rgba(99,99,99,.3);
+        }
+    }
+    a{
+        &:hover,
+        &:focus{
+            color: @color-black;
+        }
+    }
+    .cover-wrapper{
+        position: relative;
+        img.cover{
+            width: 100%;
+        }
+        div.cover{ /*used in publish project, the preview of a project*/
+            width: 220px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            color: @color-text-grey;
+        }
+        .status-tag{
+            height: 20px;
+            padding: 0 10px;
+            background-color: @color-green;
+            color: @color-white;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    }
+    .title{
+        padding: 10px;
+    }
+    .progress{
+        height: 5px;
+        border-radius: 0;
+        .progress-bar{
+            background-color: @color-green;
+        }
+    }
+    .preview{
+        padding-bottom: 10px;
+        .info{
+            text-align: center;
+            .value{
+                display: block;
+                font-size: @font-size-small;
+            }
+            .name{
+                color: @color-text-grey;
+                font-size: @font-size-small;
+            }
+        }
+    }
+}
+
