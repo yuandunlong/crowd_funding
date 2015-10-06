@@ -64,6 +64,24 @@ class User(BaseModel):
         return self.mobile
    # access_token=db.relationship('token',backref=db.backref('token', lazy='dynamic'))
 
+
+class ArtistProfile(BaseModel):
+    __tablename__='artist_profile'
+    user_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
+    user=db.relationship('User',uselist=False)
+    #0未审核 1审核
+    is_checked=db.Column('is_checked',db.Integer,default=0)
+    real_name=db.Column('real_name',db.String(64))
+    nick_name=db.Column('nick_name',db.String(64))
+    blood=db.Column('blood',db.String(16))
+    photo=db.Column('photo',db.String(128))
+    sina=db.Column('sina',db.String(128))
+    description=db.Column('description',db.Text)
+    height=db.Column('height',db.Integer)
+    weight=db.Column('weight',db.Integer)
+    popularity=db.Column('popularity',db.Integer)
+
+
 class Token(BaseModel):
     __tablename__ = 'token'
     user_id = db.Column('user_id', db.Integer,db.ForeignKey('user.id'))
@@ -127,6 +145,8 @@ class Payback(BaseModel):
     limit = db.Column('limit', db.Integer, default=0)
     status = db.Column('status', db.Integer, default=1)  # 1为支付，2支付成功，3发货，4完成
     cover_image=db.Column('cover_image',db.String(512))
+    total=db.Column('total',db.Integer)
+    sold=db.Column('sold',db.Integer)
     def as_map(self):
         fields=super(Payback,self).as_map()
         if fields['cover_image']:
@@ -155,4 +175,6 @@ class UserSupportProject(BaseModel):
     __tablename__ = 'user_support_project'
     project_id = db.Column('project_id', db.Integer)
     payback_id = db.Column('payback_id', db.Integer)
+
+
 

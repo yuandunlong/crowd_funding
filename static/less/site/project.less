@@ -63,3 +63,40 @@
     }
 }
 
+
+.pagination {
+    clear: both;
+    margin:0 auto;
+    display:block;
+    font-size: 0;
+    text-align: center;
+    padding: 33px 0;
+    .total,.current,.more,.next,.prev,.item{
+        min-width: 30px;
+        height: 30px;
+        line-height: 30px;
+        -wekit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        display: inline-block;
+        font-size: 16px;
+        border: 1px solid #dcdcdc;
+        background: #fff;
+        color: #ff6458;
+        text-decoration: none;
+        margin-left: 3px;
+        margin-right: 3px;
+        &:hover{
+            background-color: #ff6458;
+            border: 1px solid #ff6458;
+            color: #fff;
+        }
+    }
+    .current {
+        background-color: #ff6458;
+        border: 1px solid #ff6458;
+        color: #fff;
+    }
+
+}
+

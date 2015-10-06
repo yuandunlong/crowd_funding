@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-24 22:50:05
+# @Last Modified time: 2015-10-06 14:52:04
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session
@@ -23,7 +23,7 @@ from logging import Formatter
 from flask.ext.assets import Environment, Bundle
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from views.admin.admin_view_models import UserModelView,ProjectModelView,CategoryModelView,TokenModelView,PaybackModelView
+from views.admin.admin_view_models import UserModelView,ProjectModelView,CategoryModelView,TokenModelView,PaybackModelView,ArtistProfileModelView
 import logging
 from flask.ext.babel import Babel
 from flask_admin.contrib.fileadmin import FileAdmin
@@ -40,13 +40,23 @@ log_roll_handler.setFormatter(Formatter(
 ))
 
 app = Flask(__name__)
+#babel = Babel(app)
+#@babel.localeselector
+#def get_locale():
+ #   override = request.args.get('lang')
+  #  if override:
+   #     session['lang'] = override
+
+    #return session.get('lang', 'zh_CN')
+    
+
 db.init_app(app)
 app.config.from_pyfile('app.cfg')
+
 log_roll_handler.setLevel(logging.INFO)
 app.logger.addHandler(log_roll_handler)
 
 app.register_blueprint(user_ctrl)
-app.register_blueprint(admin_ctrl,url_prefix='/admin')
 app.register_blueprint(admin_ctrl,url_prefix='/admin2')
 app.register_blueprint(admin_project_ctrl,url_prefix='/admin2')
 app.register_blueprint(admin_user_ctrl,url_prefix='/admin2')
@@ -91,10 +101,7 @@ app.config['ASSETS_DEBUG'] = True
 #assets end
 
 
-babel = Babel(app)
-@babel.localeselector
-def get_locale():
-    return 'zh_CN'
+
 def has_no_empty_params(rule):
     defaults = rule.defaults if rule.defaults is not None else ()
     arguments = rule.arguments if rule.arguments is not None else ()
@@ -120,10 +127,12 @@ admin_view_models.file_path=path
 
 admin = Admin(app, name=u'乐事电影管理平台',template_mode='bootstrap3')
 admin.add_view(UserModelView(db.session))
+admin.add_view(ArtistProfileModelView(db.session))
 admin.add_view(CategoryModelView(db.session))
 admin.add_view(ProjectModelView(db.session))
 admin.add_view(PaybackModelView(db.session))
 admin.add_view(TokenModelView(db.session))
+
 
 admin.add_view(FileAdmin(path, '/static/upload/', name='上传文件管理'))
 def create_app(config=None):
@@ -135,7 +144,8 @@ def create_app(config=None):
 if __name__ == '__main__':
     import sys
     reload(sys) 
-    sys.setdefaultencoding( "utf-8" )   
+    sys.setdefaultencoding( "utf-8" )  
+    #sys.setrecursionlimit(300) 
     from os import environ
     ##db.create_all(bind='__all__', app=app)
     app.debug=True

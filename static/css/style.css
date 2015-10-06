@@ -14,11 +14,11 @@
 /*steps*/
 /*payback preview*/
 a {
-  color: #000000;
+  color: #000;
 }
 a:hover,
 a:focus {
-  color: #00ccce;
+  color: #00CCCE;
   text-decoration: none;
 }
 .layout {
@@ -49,8 +49,8 @@ a:focus {
   /* Opera */
 }
 .box {
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
+  background-color: #fff;
+  border: 1px solid #ccc;
   padding: 15px 15px;
   box-shadow: 0px 0px 2px 0px rgba(204, 204, 204, 0.5);
   -moz-box-shadow: 0px 0px 2px 0px rgba(204, 204, 204, 0.5);
@@ -71,18 +71,18 @@ label.control-label.required:after {
 }
 /*main btn style*/
 .btn-site {
-  border: 1px solid #00ccce;
+  border: 1px solid #00CCCE;
   background-color: transparent;
-  color: #00ccce;
+  color: #00CCCE;
 }
 .btn-site:hover,
 .btn-site:focus,
 .btn-site:active {
-  background-color: #00ccce;
-  color: #ffffff;
+  background-color: #00CCCE;
+  color: #fff;
 }
 .desc-text {
-  color: #cccccc;
+  color: #ccc;
 }
 .textarea-group.limitText {
   position: relative;
@@ -91,7 +91,7 @@ label.control-label.required:after {
   position: absolute;
   bottom: 2px;
   right: 30px;
-  color: #999999;
+  color: #999;
 }
 .input-file {
   position: relative;
@@ -111,7 +111,7 @@ label.control-label.required:after {
 header {
   height: 80px;
   width: 100%;
-  border-bottom: 2px solid #00ccce;
+  border-bottom: 2px solid #00CCCE;
   padding: 20px 0;
   min-width: 980px;
   /*in case of disorder of elements*/
@@ -130,7 +130,7 @@ header {
   font-size: 16px;
 }
 .qmzc-navbar > li.active {
-  border-bottom: 2px solid #00ccce;
+  border-bottom: 2px solid #00CCCE;
 }
 .category {
   border: 1px solid #8a8a8a;
@@ -159,14 +159,14 @@ header {
 .category:active,
 .category.selected {
   background-color: #ff6458;
-  color: #ffffff;
+  color: #fff;
   border: 1px solid #ff6458;
 }
 .category:hover .icon,
 .category:focus .icon,
 .category:active .icon,
 .category.selected .icon {
-  color: #ffffff;
+  color: #fff;
 }
 @keyframes rollAnimation {
   0% {
@@ -249,12 +249,12 @@ header {
 .dropdown a {
   padding: 10px;
   display: block;
-  color: #000000;
+  color: #000;
 }
 .dropdown a:hover,
 .dropdown a:focus,
 .dropdown a:active {
-  color: #000000;
+  color: #000;
 }
 .dropdown .fa {
   color: #ff6458;
@@ -276,7 +276,7 @@ header {
   list-style: none;
   padding: 0;
   margin: 0;
-  color: #999999;
+  color: #999;
 }
 .dropdown .dropdown-menu ul li {
   width: 130px;
@@ -285,12 +285,12 @@ header {
   text-align: center;
 }
 .dropdown .dropdown-menu ul li:not(:last-child) {
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #ccc;
 }
 .dropdown .dropdown-menu ul li:hover,
 .dropdown .dropdown-menu ul li:focus {
   background-color: #ff6458;
-  color: #ffffff;
+  color: #fff;
 }
 .dropdown .dropdown-menu .top-triangle {
   width: 0;
@@ -300,7 +300,7 @@ header {
   top: -8px;
   left: 60px;
   border-width: 0 5px 8.66025404px 5px;
-  border-color: transparent transparent #ffffff transparent;
+  border-color: transparent transparent #fff transparent;
 }
 .dropdown .dropdown-menu .top-triangle-border {
   width: 0;
@@ -310,13 +310,13 @@ header {
   top: -10px;
   left: 59px;
   border-width: 0 6px 10.39230485px 6px;
-  border-color: transparent transparent #cccccc transparent;
+  border-color: transparent transparent #ccc transparent;
 }
 #projects_list {
   margin-top: 20px;
 }
 .project {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   margin-bottom: 15px;
 }
 .project:hover .overlay {
@@ -324,7 +324,7 @@ header {
 }
 .project a:hover,
 .project a:focus {
-  color: #000000;
+  color: #000;
 }
 .project .cover-wrapper {
   position: relative;
@@ -338,13 +338,13 @@ header {
   height: 150px;
   text-align: center;
   line-height: 150px;
-  color: #999999;
+  color: #999;
 }
 .project .cover-wrapper .status-tag {
   height: 20px;
   padding: 0 10px;
-  background-color: #00ccce;
-  color: #ffffff;
+  background-color: #00CCCE;
+  color: #fff;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -357,7 +357,7 @@ header {
   border-radius: 0;
 }
 .project .progress .progress-bar {
-  background-color: #00ccce;
+  background-color: #00CCCE;
 }
 .project .preview {
   padding-bottom: 10px;
@@ -370,8 +370,52 @@ header {
   font-size: 12px;
 }
 .project .preview .info .name {
-  color: #999999;
+  color: #999;
   font-size: 12px;
+}
+.pagination {
+  clear: both;
+  margin: 0 auto;
+  display: block;
+  font-size: 0;
+  text-align: center;
+  padding: 33px 0;
+}
+.pagination .total,
+.pagination .current,
+.pagination .more,
+.pagination .next,
+.pagination .prev,
+.pagination .item {
+  min-width: 30px;
+  height: 30px;
+  line-height: 30px;
+  -wekit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  display: inline-block;
+  font-size: 16px;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+  color: #ff6458;
+  text-decoration: none;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.pagination .total:hover,
+.pagination .current:hover,
+.pagination .more:hover,
+.pagination .next:hover,
+.pagination .prev:hover,
+.pagination .item:hover {
+  background-color: #ff6458;
+  border: 1px solid #ff6458;
+  color: #fff;
+}
+.pagination .current {
+  background-color: #ff6458;
+  border: 1px solid #ff6458;
+  color: #fff;
 }
 .steps-nav {
   margin: 20px auto;
@@ -395,7 +439,7 @@ header {
   margin: auto;
   line-height: 55px;
   background-color: #cbcbcb;
-  color: #ffffff;
+  color: #fff;
   position: relative;
   z-index: 2;
   box-shadow: 0px 0px 3px 1px #bebebe inset;
@@ -408,11 +452,11 @@ header {
 }
 .steps-nav .steps-nav-item.finished .connect-line,
 .steps-nav .steps-nav-item.finished .item-icon {
-  background-color: #00ccce;
+  background-color: #00CCCE;
   box-shadow: 0px 0px 3px 1px #00b3b5 inset;
 }
 .steps-nav .steps-nav-item.finished .step-name {
-  color: #000000;
+  color: #000;
 }
 /*basic info*/
 .step-content .step-buttons {
@@ -444,9 +488,9 @@ header {
 #publish_step_1 #publish-categories > li:focus,
 #publish_step_1 #publish-categories > li:active,
 #publish_step_1 #publish-categories > li.active {
-  background-color: #00ccce;
-  color: #ffffff;
-  border-color: #00ccce;
+  background-color: #00CCCE;
+  color: #fff;
+  border-color: #00CCCE;
 }
 #publish_step_1 .cover-preview {
   margin-right: 10px;
@@ -474,9 +518,9 @@ header {
 /*payback*/
 .pay-back {
   width: 290px;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  color: #999999;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #999;
   margin: 15px;
 }
 .pay-back .header,
@@ -498,7 +542,7 @@ header {
   margin-bottom: 15px;
 }
 .pay-back .detail .amt {
-  color: #00ccce;
+  color: #00CCCE;
   margin-bottom: 30px;
 }
 .pay-back .detail .amt span {
@@ -506,7 +550,7 @@ header {
 }
 .pay-back .detail .title,
 .pay-back .detail .description {
-  color: #000000;
+  color: #000;
 }
 .pay-back .detail .image-preview {
   width: 60px;

@@ -3,10 +3,10 @@
 # @Author: yuandunlong
 # @Date:   2015-09-21 22:50:38
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-24 19:08:48
+# @Last Modified time: 2015-10-06 15:04:29
 from flask_admin.contrib.sqla import ModelView
 
-from database.models import Token,Project,db,User,Category,Payback
+from database.models import Token,Project,db,User,Category,Payback,ArtistProfile
 from flask.ext.admin.form.upload import ImageUploadField
 from wtforms import fields, widgets
 from flask_admin import form
@@ -121,8 +121,9 @@ class PaybackModelView(ModelView):
 
     page_size=20
     can_view_details=True
-    column_list=('id','project','title','payback_after_days','money','created_time','updated_time')
-    column_labels=dict(id=u'序号',project=u'项目',title=u'标题',money=u'价格',payback_after_days=u'截至日期后',created_time=u'创建时间',updated_time=u'更新时间')
+    column_list=('id','project','title','payback_after_days','money','total','sold','created_time','updated_time')
+    column_labels=dict(id=u'序号',project=u'项目',title=u'标题',money=u'价格',payback_after_days=u'截至日期后',created_time=u'创建时间',updated_time=u'更新时间',total=u'总份数',sold=u'卖出份数',detail=u'详情',delivery_mode=u'配送方式',status=
+        u'状态',cover_image=u'封面',limit=u'每人限制份数')
     column_searchable_list = ('title', Payback.title)
     form_extra_fields = {
         'cover_image': form.ImageUploadField(u'封面',
@@ -131,6 +132,19 @@ class PaybackModelView(ModelView):
     }
     def __init__(self, session):
         super(PaybackModelView,self).__init__(Payback, db.session,name=u'回报')
+
+
+
+class ArtistProfileModelView(ModelView):
+    page_size=20
+    can_view_details=True
+    column_list=('id','user','nick_name','real_name','weight','height','popularity')
+    form_overrides = dict(description=CKTextAreaField)  
+    create_template = 'admin/create.html'
+    edit_template = 'admin/edit.html'
+    def __init__(self, session):
+        super(ArtistProfileModelView,self).__init__(ArtistProfile, db.session,name=u'艺术家')
+
 
    
     
