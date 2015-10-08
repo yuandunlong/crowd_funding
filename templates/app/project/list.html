@@ -3,33 +3,33 @@
     <div class="layout">
         {% include "app/project/filter.html"%}
         <div id="projects_list" class="clearfix">
-            {% for item in [1, 2, 3, 4, 5, 6,7,8,9,10,11,12,13,14,15,16] %}
+            {% for item in data['projects'] %}
                 <div class="col-xs-6 col-sm-4 col-md-3">
                     <div class="project">
                         <a href="#" target="_blank">
                             <div class="cover-wrapper">
                                 <img class="cover" src="/static/images/test_project.jpg" alt="test"/>
-                                <span class="status-tag">筹款中</span>
+                                <span class="status-tag">{%if item.status==1%}筹款中 {%elif item.status==2%}已完成 {%endif%}</span>
                                 <span class="overlay"></span>
                             </div>
-                                <div class="title">【泰国空运直达】全国首家 泰国极品金枕榴莲</div>
+                                <div class="title">{{item.title}}</div>
                             <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: {{item.get_complete_rate()}}%;">
                                 <span class="sr-only">60% Complete</span>
                               </div>
                             </div>
                             <div class="preview">
                                 <div class="infos row">
                                     <span class="info percentage col-xs-4">
-                                        <span class="value">52%</span>
+                                        <span class="value">{{item.get_complete_rate()}}%</span>
                                         <span class="name">达成率</span>
                                     </span>
                                     <span class="info amount col-xs-4">
-                                        <span class="value">1000</span>
+                                        <span class="value">{{item.current_money}}</span>
                                         <span class="name">已筹金额</span>
                                     </span>
                                     <span class="info people col-xs-4">
-                                        <span class="value">270</span>
+                                        <span class="value">{{item.support_times}}</span>
                                         <span class="name">支持人数</span>
                                     </span>
                                 </div>
@@ -41,11 +41,18 @@
         </div>
     </div><!--layout-->
             <p class='pagination'>
-            
-            <span class='current'>1</span>
-            <a class='item' data-page='2' href >2</a>
-            <a class='item' data-page='2' href >3</a>
-            <a class='item' data-page='2' href >4   </a>
-            <a class='next'>下一页</a>
+            {%if data.paginate.has_prev%}
+            <a class='prev' href="/project/list?page={{data.paginate.prev_num}}&page_size={{data.paginate.per_page}}">上一页</a>
+            {%endif%}
+            <span class='current'>{{data.paginate.page}}</span>
+            {%for page_no in range(data.paginate.page+1,data.paginate.pages+1)%}
+
+                {%if loop.index<=5%}
+                                <a class='item' data-page={{page_no}} href="/project/list?page={{page_no}}&page_size={{data.paginate.per_page}}" >{{page_no}}</a>
+                {%endif%}
+            {%endfor%}
+            {%if data.paginate.has_next%}
+            <a class='next' href="/project/list?page={{data.paginate.next_num}}&page_size={{data.paginate.per_page}}">下一页</a>
+            {%endif%}
         </p>
 {% endblock content%}

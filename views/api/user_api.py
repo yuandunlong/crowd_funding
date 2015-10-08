@@ -3,10 +3,10 @@
 # @Author: yuandunlong
 # @Date:   2015-09-10 22:16:29
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-09-25 23:35:11
+# @Last Modified time: 2015-10-07 16:22:21
 from flask import request, Blueprint,json,Response,current_app
 from utils.decorator import json_response,require_token
-from database.models import Token,User,db,Attention,Project
+from database.models import Token,User,db,Attention,Project,ArtistProfile
 from services import user_service
 from hashlib import md5
 from werkzeug.contrib.cache import SimpleCache
@@ -127,6 +127,42 @@ def attention_project(result,user):
     attention=Attention(user_id=user.id,project_id=data['project_id'])
     db.session.add(attention)
     db.session.commit()
+
+@user_api.route('/private/user/apply_artist',methods=['POST'])
+@require_token
+@json_response
+def apply_artist(result,user):
+
+    data=request.get_json()
+    artist=ArtistProfile()  
+    artist.user_id=user.id
+    artist.blood=data.get('blood','')
+    artist.weight=data.get('weight',0)
+    artist.height=data.get('height',0)
+    artist.real_name=data['real_name']
+    artist.nick_name=data['nick_name']
+    artist.sina=data.get('sina','')
+    artist.description=data.get('description',"")
+    artist.popularity=0
+    db.session.add(artist)
+    db.session.commit()
+
+@user_api.route('/public/user/get_artist_by_page',methods=['POST'])
+@json_response
+def get_artist_by_page(result):
+    data=request.get_json()
+    page=data.get('page',1)
+    page_size=data.get('page_size',20)
+    order_by=data.get('order_by','popularity desc')
+    paginate=ArtistProfile.query.order_by(order_by).paginate(page,page_size)
+    result['artists']=result_set_convert.models_2_arr(paginate.items)
+    result['total_pages']=paginate.pages
+
+
+
+
+
+
 
 
 

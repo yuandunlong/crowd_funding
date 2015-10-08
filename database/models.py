@@ -117,6 +117,8 @@ class Project(BaseModel):
     status = db.Column('status', db.Integer, default=1)  # 1为支付，2支付成功，3发货，4完成
     cover_image=db.Column('cover_image',db.String(512))
 
+    def get_complete_rate(self):
+        return int(self.current_money/self.total_money*100)
     def as_map(self):
         fields=super(Project,self).as_map()
         fields['category']=self.category.as_map()

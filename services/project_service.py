@@ -2,6 +2,8 @@
 
 from database.models import Project
 def query_projects_by_page(titlelike=None,page=1,page_size=20,order_by='updated_time desc',querys=None):
+    page=int(page)
+    page_size=int(page_size)
     query=Project.query
     if querys:
         if querys.has_key('status') and querys['status'] != None:
