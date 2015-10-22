@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-10-22 14:15:05
+# @Last Modified time: 2015-10-22 14:17:13
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session
@@ -40,14 +40,14 @@ log_roll_handler.setFormatter(Formatter(
 ))
 
 app = Flask(__name__)
-babel = Babel(app)
-@babel.localeselector
-def get_locale():
-    override = request.args.get('lang')
-    if override:
-        session['lang'] = override
+#babel = Babel(app)
+#@babel.localeselector
+#def get_locale():
+ #   override = request.args.get('lang')
+  #  if override:
+   #     session['lang'] = override
 
-    return session.get('lang', 'zh_CN')
+#    return session.get('lang', 'zh_CN')
     
 
 db.init_app(app)
