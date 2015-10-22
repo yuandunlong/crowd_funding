@@ -3,10 +3,10 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-10-22 19:27:27
+# @Last Modified time: 2015-10-22 19:29:46
 # -*- coding: utf-8 -*-
 
-from flask import Flask,url_for,Response,request,session
+from flask import Flask,url_for,Response,request,session,redirect
 from database.models import db,User,Project,Token,Payback,Category
 from views.user_ctrl import user_ctrl
 from views.api.user_api import user_api
