@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-10-22 14:17:13
+# @Last Modified time: 2015-10-22 19:27:27
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session
@@ -99,8 +99,10 @@ assets.register('js_publish_project', js_publish_project)
 
 app.config['ASSETS_DEBUG'] = True
 #assets end
+@app.route("/")
+def index():
 
-
+    return redirect("/project/list")
 
 def has_no_empty_params(rule):
     defaults = rule.defaults if rule.defaults is not None else ()
