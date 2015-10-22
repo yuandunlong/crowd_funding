@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-10-06 14:52:04
+# @Last Modified time: 2015-10-22 13:55:57
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session
@@ -134,7 +134,7 @@ admin.add_view(PaybackModelView(db.session))
 admin.add_view(TokenModelView(db.session))
 
 
-admin.add_view(FileAdmin(path, '/static/upload/', name='上传文件管理'))
+admin.add_view(FileAdmin(unicode(path), '/static/upload/', name=u'上传文件管理'))
 def create_app(config=None):
     app = Flask(__name__)
     db.init_app(app)
