@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-10-22 19:29:46
+# @Last Modified time: 2015-10-26 17:47:14
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session,redirect
@@ -63,6 +63,7 @@ app.register_blueprint(admin_user_ctrl,url_prefix='/admin2')
 
 app.register_blueprint(user_api,url_prefix='/api')
 app.register_blueprint(category_api,url_prefix='/api')
+app.register_blueprint(project_api,url_prefix="/api")
 app.register_blueprint(project_ctrl,url_prefix='/project')
 app.register_blueprint(common_ctrl, url_prefix='/comm')
 app.register_blueprint(payback_api,url_prefix='/api')
