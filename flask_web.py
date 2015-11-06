@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-10-26 17:47:14
+# @Last Modified time: 2015-10-31 16:30:12
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session,redirect
@@ -91,7 +91,8 @@ js_publish_project = Bundle(
     'vendor/simditor/scripts/hotkeys.min.js',
     'vendor/simditor/scripts/uploader.min.js',
     'vendor/simditor/scripts/simditor.min.js',
-    'js/project_publish.js'
+    'js/project_publish.js',
+    'js/jquery.form.js'
 )
 assets.register('css_from_less', css_from_less)
 assets.register('css_all', css_all)

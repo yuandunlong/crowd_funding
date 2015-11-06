@@ -34,3 +34,8 @@ def createPayBack():
     data=request.form
     return render_template("app/project/payback.html", data = data)
 
+
+@project_ctrl.route('/project/upload_cover',methods='POST')
+def upload_cover():
+    pass
+

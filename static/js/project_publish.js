@@ -68,7 +68,15 @@
 
     //region =====STEP1
     var editor = new Simditor({
-        textarea: $('#project-description')
+        textarea: $('#project-description'),
+        upload:{
+
+            url: '/simeditor_upload',
+            params: null,
+            fileKey: 'upload_file',
+            connectionCount: 3,
+            leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+        }
         //optional options
     });
 
@@ -111,23 +119,23 @@
     });
 
     //select video to upload
-    $(document).on('change','#project-video input[type=file]', function(){
-        var filename= $(this).val();
-        var $currentFile = $('#project-video .current-file');
-        $currentFile.find('.file-name').text(filename);
-        $currentFile.toggleClass('hide',false);
-        $('#project-video input[type=submit]').toggleClass('hide',false);
-        $('#project-video .input-file').toggleClass('hide', true);
-    });
+    // $(document).on('change','#project-video input[type=file]', function(){
+    //     var filename= $(this).val();
+    //     var $currentFile = $('#project-video .current-file');
+    //     $currentFile.find('.file-name').text(filename);
+    //     $currentFile.toggleClass('hide',false);
+    //     $('#project-video input[type=submit]').toggleClass('hide',false);
+    //     $('#project-video .input-file').toggleClass('hide', true);
+    // });
     //delete selected video
-    $(document).on('click', '#project-video .delete-file', function(){
-        var $projectVideo = $('#project-video');
-        $projectVideo.find('input[type=file]').val('');
-        $projectVideo.find('.current-file .file-name').text('');
-        $projectVideo.find('.current-file').toggleClass('hide',true);
-        $projectVideo.find('input[type=submit]').toggleClass('hide',true);
-        $projectVideo.find('.input-file').toggleClass('hide', false);
-    });
+    // $(document).on('click', '#project-video .delete-file', function(){
+    //     var $projectVideo = $('#project-video');
+    //     $projectVideo.find('input[type=file]').val('');
+    //     $projectVideo.find('.current-file .file-name').text('');
+    //     $projectVideo.find('.current-file').toggleClass('hide',true);
+    //     $projectVideo.find('input[type=submit]').toggleClass('hide',true);
+    //     $projectVideo.find('.input-file').toggleClass('hide', false);
+    // });
 
     //select picture to upload
     var html5Reader = function(file, preview){
@@ -168,19 +176,37 @@
 		}
         generateImagePreview(file, preview);
 
-        $('#project-cover input[type=submit]').toggleClass('hide',false);
+        $('#project-cover input[type=button]').toggleClass('hide',false);
+    });
+
+    //点击上传按钮触发长传事件
+
+    $(document).on('click','#project-cover input[type=button]',function(){
+        $('#project_cover_form').ajaxSubmit({success:function(data){
+
+            if(data.success){
+                $('#project_cover_file').attr('data-file-url',data.file_path);
+                alert("文件上传成功");
+
+            }else{
+                alert("文件上传失败");
+            }
+            console.log(data);
+        }});
+
+
     });
 
     stepsOp.validate1 = function(){
         //category
         stepsOp.data = {};
-        var category = $('#publish-categories>li.active');
-        if(!category || category.length == 0){
-            alert("请选择类别!");
-            comm.goToElement($('#publish-categories'));
-            return false;
-        }
-        stepsOp.data["category"] = category;
+        // var category = $('#publish-categories>li.active');
+        // if(!category || category.length == 0){
+        //     alert("请选择类别!");
+        //     comm.goToElement($('#publish-categories'));
+        //     return false;
+        // }
+       // stepsOp.data["category"] = category;
         //title
         var title = $('#project-name').val();
         if(!title || title.length > 25){
@@ -193,13 +219,13 @@
         /* todo, because of not implement the upload backend,
            there's no url, so do this after implement the backend.*/
         //city
-        var city = $('#city').val();
-        if(!city || city == -1){
-            alert("请选择发起城市!");
-            comm.goToElement($('#city'));
-            return false;
-        }
-        stepsOp.data["city"] = city;
+        // var city = $('#city').val();
+        // if(!city || city == -1){
+        //     alert("请选择发起城市!");
+        //     comm.goToElement($('#city'));
+        //     return false;
+        // }
+        // stepsOp.data["city"] = city;
 
         //video
         /*todo, video is as the same as the picture.*/

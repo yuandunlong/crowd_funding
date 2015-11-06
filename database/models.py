@@ -6,7 +6,6 @@ import datetime
 import os
 db = SQLAlchemy()
 
-
 class BaseModel(db.Model):
     __abstract__ = True
     id = db.Column('id', db.Integer, primary_key=True)
@@ -65,10 +64,25 @@ class User(BaseModel):
    # access_token=db.relationship('token',backref=db.backref('token', lazy='dynamic'))
 
 
+
+class Category(BaseModel):
+    __tablename__ = 'catgory'
+    name = db.Column('name', db.String(32))
+    def __unicode__(self):
+        return self.name
+
+class ArtCategory(BaseModel):
+    __tablename__="art_category"
+    name=db.Column('name',db.String(32))
+    def __unicode__(self):
+        return self.name
+
 class ArtistProfile(BaseModel):
     __tablename__='artist_profile'
     user_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
     user=db.relationship('User',uselist=False)
+    art_category_id=db.Column('art_category_id',db.Integer,db.ForeignKey('art_category.id'))
+    art_category=db.relationship('ArtCategory',backref=db.backref('artists',lazy='dynamic'))
     #0未审核 1审核
     is_checked=db.Column('is_checked',db.Integer,default=0)
     real_name=db.Column('real_name',db.String(64))
@@ -91,12 +105,6 @@ class Token(BaseModel):
     # 验证码失效时间
     expires = db.Column('expires', db.Integer)
 
-
-class Category(BaseModel):
-    __tablename__ = 'catgory'
-    name = db.Column('name', db.String(32))
-    def __unicode__(self):
-        return self.name
 
 class Project(BaseModel):
     __tablename__ = 'project'
@@ -139,7 +147,7 @@ class Payback(BaseModel):
     project=db.relationship('Project',backref=db.backref('paybacks',lazy='dynamic'))
     money = db.Column('money', db.DECIMAL)
     title = db.Column('title', db.String(32))
-    detail = db.Column('detail', db.String(128))
+    detail = db.Column('detail', db.String(512))
     payback_after_days = db.Column('payback_after_days', db.Integer)
     # 1无需物流 2 全国包邮（含港澳台）3 全国包邮不含港澳台
     delivery_mode = db.Column('delivery_mode', db.Integer, default=1)
@@ -178,5 +186,7 @@ class UserSupportProject(BaseModel):
     project_id = db.Column('project_id', db.Integer)
     payback_id = db.Column('payback_id', db.Integer)
 
-
+class ProjectPost(BaseModel):
+    __tablename__='project_post'
+    
 
