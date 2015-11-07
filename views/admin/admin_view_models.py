@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-21 22:50:38
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-11-07 10:55:19
+# @Last Modified time: 2015-11-07 14:11:16
 from flask_admin.contrib.sqla import ModelView
 
 from database.models import Token,Project,db,User,Category,Payback,ArtistProfile,ArtCategory,ArtistPhoto,ActivityNotice,ProjectPost,ArtistPost
@@ -149,6 +149,8 @@ class ArtistProfileModelView(ModelView):
 
 class ArtCategoryModelView(ModelView):
     page_size=20
+    column_list=('id','name','display_order','created_time','updated_time')
+    column_labels=dict(id=u'序号',name=u'名称',display_order=u'展示顺序',created_time=u'创建时间',updated_time=u'更新时间')
     def __init__(self):
         super(ArtCategoryModelView,self).__init__(ArtCategory,db.session,name=u"艺术家分类")
 
