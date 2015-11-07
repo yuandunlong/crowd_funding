@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-10-31 16:30:12
+# @Last Modified time: 2015-11-07 13:22:49
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session,redirect
@@ -13,6 +13,7 @@ from views.api.user_api import user_api
 from views.api.category_api import category_api
 from views.api.project_api import project_api
 from views.api.payback_api import payback_api
+from views.api.common_api import common_api
 from views.admin.admin_ctrl import admin_ctrl
 from views.app.project_ctrl import project_ctrl
 from views.app.common import common_ctrl
@@ -23,7 +24,7 @@ from logging import Formatter
 from flask.ext.assets import Environment, Bundle
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from views.admin.admin_view_models import UserModelView,ProjectModelView,CategoryModelView,TokenModelView,PaybackModelView,ArtistProfileModelView
+from views.admin.admin_view_models import UserModelView,ProjectModelView,CategoryModelView,TokenModelView,PaybackModelView,ArtistProfileModelView,ArtCategoryModelView,ArtistPhotoModelView,ActivityNoticeModelView,ProjectPostModelView,ArtistPostModelView
 import logging
 from flask.ext.babel import Babel
 from flask_admin.contrib.fileadmin import FileAdmin
@@ -67,6 +68,7 @@ app.register_blueprint(project_api,url_prefix="/api")
 app.register_blueprint(project_ctrl,url_prefix='/project')
 app.register_blueprint(common_ctrl, url_prefix='/comm')
 app.register_blueprint(payback_api,url_prefix='/api')
+app.register_blueprint(common_api,url_prefix='/api')
 
 app.register_blueprint(upload_ctrl)
 #define static res.
@@ -132,13 +134,16 @@ admin_view_models.file_path=path
 admin = Admin(app, name=u'乐事电影管理平台',template_mode='bootstrap3')
 admin.add_view(UserModelView(db.session))
 admin.add_view(ArtistProfileModelView(db.session))
-admin.add_view(CategoryModelView(db.session))
+#admin.add_view(CategoryModelView(db.session))
 admin.add_view(ProjectModelView(db.session))
 admin.add_view(PaybackModelView(db.session))
 admin.add_view(TokenModelView(db.session))
-
-
-admin.add_view(FileAdmin(unicode(path), '/static/upload/', name=u'上传文件管理'))
+admin.add_view(ArtCategoryModelView())
+admin.add_view(ArtistPhotoModelView())
+admin.add_view(ActivityNoticeModelView())
+admin.add_view(ProjectPostModelView())
+admin.add_view(ArtistPostModelView())
+admin.add_view(FileAdmin(unicode(path), '/static/upload/', name=u'文件管理'))
 def create_app(config=None):
     app = Flask(__name__)
     db.init_app(app)

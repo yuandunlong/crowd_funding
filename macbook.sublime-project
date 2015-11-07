@@ -1,5 +1,14 @@
 {
-		"folders":
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "/Users/yuandunlong/.virtualenvs/crowd_funding/bin/python -u \"$file\""
+		}
+	],
+	"folders":
 	[
 		{
 			"path": "."

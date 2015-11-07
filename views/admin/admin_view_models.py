@@ -3,10 +3,10 @@
 # @Author: yuandunlong
 # @Date:   2015-09-21 22:50:38
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-10-06 15:04:29
+# @Last Modified time: 2015-11-07 10:55:19
 from flask_admin.contrib.sqla import ModelView
 
-from database.models import Token,Project,db,User,Category,Payback,ArtistProfile
+from database.models import Token,Project,db,User,Category,Payback,ArtistProfile,ArtCategory,ArtistPhoto,ActivityNotice,ProjectPost,ArtistPost
 from flask.ext.admin.form.upload import ImageUploadField
 from wtforms import fields, widgets
 from flask_admin import form
@@ -138,6 +138,7 @@ class PaybackModelView(ModelView):
 class ArtistProfileModelView(ModelView):
     page_size=20
     can_view_details=True
+    inline_models=(ArtistPhoto,)
     column_list=('id','user','nick_name','real_name','weight','height','popularity')
     form_overrides = dict(description=CKTextAreaField)  
     create_template = 'admin/create.html'
@@ -146,9 +147,45 @@ class ArtistProfileModelView(ModelView):
         super(ArtistProfileModelView,self).__init__(ArtistProfile, db.session,name=u'艺术家')
 
 
+class ArtCategoryModelView(ModelView):
+    page_size=20
+    def __init__(self):
+        super(ArtCategoryModelView,self).__init__(ArtCategory,db.session,name=u"艺术家分类")
+
+class ArtistPhotoModelView(ModelView):
+    page_size=20
+
+    form_extra_fields = {
+        'path': form.ImageUploadField(u'封面',base_path=file_path,namegen=prefix_name,url_relative_path="upload/")
+    }
+
+    def __init__(self):
+        super(ArtistPhotoModelView,self).__init__(ArtistPhoto,db.session,name=u'艺人照片')
+
+
+class ActivityNoticeModelView(ModelView):
+    page_size=20
+
+    def __init__(self):
+        super(ActivityNoticeModelView,self).__init__(ActivityNotice,db.session,name=u'活动通知')
+
+
+class ProjectPostModelView(ModelView):
+    page_size=20
+
+
+    form_extra_fields = {
+        'image_url': form.ImageUploadField(u'图片', base_path=file_path,namegen=prefix_name,url_relative_path="upload/post")
+    }
+
+    def __init__(self):
+        super(ProjectPostModelView,self).__init__(ProjectPost,db.session,name=u'电影海报')
    
     
+class ArtistPostModelView(ModelView):
+    page_size=20
 
-
+    def __init__(self):
+        super(ArtistPostModelView,self).__init__(ArtistPost,db.session,name=u'艺人海报')
 
     

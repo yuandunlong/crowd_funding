@@ -74,6 +74,7 @@ class Category(BaseModel):
 class ArtCategory(BaseModel):
     __tablename__="art_category"
     name=db.Column('name',db.String(32))
+    display_order=db.Column('display_order',db.Integer)
     def __unicode__(self):
         return self.name
 
@@ -82,7 +83,7 @@ class ArtistProfile(BaseModel):
     user_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
     user=db.relationship('User',uselist=False)
     art_category_id=db.Column('art_category_id',db.Integer,db.ForeignKey('art_category.id'))
-    art_category=db.relationship('ArtCategory',backref=db.backref('artists',lazy='dynamic'))
+    art_category=db.relationship('ArtCategory',backref=db.backref('artist_profiles',lazy='dynamic'))
     #0未审核 1审核
     is_checked=db.Column('is_checked',db.Integer,default=0)
     real_name=db.Column('real_name',db.String(64))
@@ -94,6 +95,14 @@ class ArtistProfile(BaseModel):
     height=db.Column('height',db.Integer)
     weight=db.Column('weight',db.Integer)
     popularity=db.Column('popularity',db.Integer)
+
+class ArtistPhoto(BaseModel):
+    __tablename__='artist_photo'
+    path=db.Column('path',db.String(512))
+    display_order=db.Column('display_order',db.Integer)
+    artist_profile_id=db.Column('artist_profile_id',db.Integer,db.ForeignKey('artist_profile.id'))
+    artist_profile=db.relationship('ArtistProfile',backref=db.backref('photos',lazy='dynamic'))
+
 
 
 class Token(BaseModel):
@@ -183,10 +192,48 @@ class Address(BaseModel):
 
 class UserSupportProject(BaseModel):
     __tablename__ = 'user_support_project'
+    user_id=db.Column('user_id',db.Integer)
     project_id = db.Column('project_id', db.Integer)
     payback_id = db.Column('payback_id', db.Integer)
 
 class ProjectPost(BaseModel):
+    '''用于电影众酬推荐的海报设置，分为两种类型
+        1. 点击之后跳转到一个url连接，外部浏览器打开
+        2. 推荐的是一个众酬项目，点击之后跳转到相应的project详情界面
+        3. 当post_type=1的时候，link必须设置
+        4. 当post_type=2的时候，project_id必须设置
+    '''
     __tablename__='project_post'
-    
+    POST_LINK=1
+    POST_PROJECT=2
+    description=db.Column('description',db.String(512))
+    image_url=db.Column('image_url',db.String(128))
+    post_type=db.Column('post_type',db.Integer)
+    project_id=db.Column('project_id',db.Integer)
+    link=db.Column('link',db.String(128))
+
+
+class ArtistPost(BaseModel):
+    __tablename__='artist_post'
+    POST_LINK=1
+    POST_ARTIST=2
+    description=db.Column('description',db.String(512))
+    image_url=db.Column('image_url',db.String(128))
+    post_type=db.Column('post_type',db.Integer)
+    artist_profile_id=db.Column('project_id',db.Integer)
+    link=db.Column('link',db.String(128))
+
+class ActivityNotice(BaseModel):
+    __tablename__='activity_notice'
+    content=db.Column('content',db.String(512))
+    image_url=db.Column('image_url',db.String(128))
+
+
+
+
+
+
+
+
+
 
