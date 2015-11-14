@@ -16,7 +16,7 @@ from datetime import datetime
 from jinja2 import Markup
 def prefix_name(obj, file_data):
     parts = op.splitext(file_data.filename)
-    return secure_filename('file-'+str(datetime.now())+'-%s%s' % parts)
+    return secure_filename('%s%s' % parts)
 
 
 file_path="static/upload"
@@ -167,7 +167,11 @@ class ArtistPhotoModelView(ModelView):
 
 class ActivityNoticeModelView(ModelView):
     page_size=20
-
+    
+    form_extra_fields = {
+        'image_url': form.ImageUploadField(u'图片', base_path=file_path,namegen=prefix_name,url_relative_path="upload/post")
+    }    
+    
     def __init__(self):
         super(ActivityNoticeModelView,self).__init__(ActivityNotice,db.session,name=u'活动通知')
 
@@ -186,7 +190,10 @@ class ProjectPostModelView(ModelView):
     
 class ArtistPostModelView(ModelView):
     page_size=20
-
+    form_extra_fields = {
+        'image_url': form.ImageUploadField(u'图片', base_path=file_path,namegen=prefix_name,url_relative_path="upload/post")
+    }    
+    
     def __init__(self):
         super(ArtistPostModelView,self).__init__(ArtistPost,db.session,name=u'艺人海报')
 

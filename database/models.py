@@ -248,6 +248,7 @@ class ArtistPost(BaseModel):
 
 class ActivityNotice(BaseModel):
     __tablename__='activity_notice'
+    title=db.Column('title',db.String(256))
     content=db.Column('content',db.String(512))
     image_url=db.Column('image_url',db.String(128))
 

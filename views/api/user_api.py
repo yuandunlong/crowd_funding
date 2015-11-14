@@ -147,16 +147,7 @@ def apply_artist(result,user):
     db.session.add(artist)
     db.session.commit()
 
-@user_api.route('/public/user/get_artist_by_page',methods=['POST'])
-@json_response
-def get_artist_by_page(result):
-    data=request.get_json()
-    page=data.get('page',1)
-    page_size=data.get('page_size',20)
-    order_by=data.get('order_by','popularity desc')
-    paginate=ArtistProfile.query.order_by(order_by).paginate(page,page_size)
-    result['artists']=result_set_convert.models_2_arr(paginate.items)
-    result['total_pages']=paginate.pages
+
 
 
 
