@@ -14,6 +14,8 @@ from views.api.category_api import category_api
 from views.api.project_api import project_api
 from views.api.payback_api import payback_api
 from views.api.common_api import common_api
+from views.api.artist_api import artist_api
+
 from views.admin.admin_ctrl import admin_ctrl
 from views.app.project_ctrl import project_ctrl
 from views.app.common import common_ctrl
@@ -65,6 +67,7 @@ app.register_blueprint(admin_user_ctrl,url_prefix='/admin2')
 app.register_blueprint(user_api,url_prefix='/api')
 app.register_blueprint(category_api,url_prefix='/api')
 app.register_blueprint(project_api,url_prefix="/api")
+app.register_blueprint(artist_api,url_prefix="/api")
 app.register_blueprint(project_ctrl,url_prefix='/project')
 app.register_blueprint(common_ctrl, url_prefix='/comm')
 app.register_blueprint(payback_api,url_prefix='/api')
@@ -157,6 +160,6 @@ if __name__ == '__main__':
     #sys.setrecursionlimit(300) 
     from os import environ
     ##db.create_all(bind='__all__', app=app)
-    app.debug=True
-    app.run(host='0.0.0.0',port=environ.get("PORT", 5000))
+    app.debug=False
+    app.run(host='0.0.0.0',port=environ.get("PORT", 5000),processes=1)
     #app.run('0.0.0.0:5050')

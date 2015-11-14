@@ -2,6 +2,7 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 import inspect
+from utils.result_set_convert import models_2_arr
 import datetime
 import os
 db = SQLAlchemy()
@@ -95,14 +96,22 @@ class ArtistProfile(BaseModel):
     height=db.Column('height',db.Integer)
     weight=db.Column('weight',db.Integer)
     popularity=db.Column('popularity',db.Integer)
+    photos=db.relationship('ArtistPhoto',backref=db.backref('artist_profile',lazy='select'),lazy='select')
+    
+    def as_map(self):
+        fields=super(ArtistProfile,self).as_map()   
+        fields['photos']=models_2_arr(self.photos)
+        return fields
+        
+        
+    
+    
 
 class ArtistPhoto(BaseModel):
     __tablename__='artist_photo'
     path=db.Column('path',db.String(512))
     display_order=db.Column('display_order',db.Integer)
     artist_profile_id=db.Column('artist_profile_id',db.Integer,db.ForeignKey('artist_profile.id'))
-    artist_profile=db.relationship('ArtistProfile',backref=db.backref('photos',lazy='dynamic'))
-
 
 
 class Token(BaseModel):
@@ -175,6 +184,21 @@ class Payback(BaseModel):
             fields['cover_image_thumbnail']=None
         return fields
 
+
+
+class Order(BaseModel):
+    __tablename_='order'
+    order_no=db.Column('order_no',db.String(16))
+    address_id=db.Column('address_id',db.ForeignKey("address.id"))
+    user_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
+    payback_id=db.Column('payback_id',db.Integer,db.ForeignKey('payback.id'))
+    sign_man_name=db.Column('sign_man_name',db.String(32))
+    phone=db.Column('phone',db.String(16))
+    
+    
+    
+
+
 class Attention(BaseModel):
     __tablename__ = 'attention'
     project_id = db.Column('project_id', db.Integer,db.ForeignKey('project.id'))
@@ -185,8 +209,7 @@ class Attention(BaseModel):
 
 class Address(BaseModel):
     __tablename__='address'
-    province_id=db.Column('province_id',db.Integer)
-    city_id=db.Column('city_id',db.Integer)
+    address=db.Column('address',db.String(512))
 
 
 
