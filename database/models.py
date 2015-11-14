@@ -187,7 +187,7 @@ class Payback(BaseModel):
 
 
 class Order(BaseModel):
-    __tablename_='order'
+    __tablename__='order'
     order_no=db.Column('order_no',db.String(16))
     address_id=db.Column('address_id',db.ForeignKey("address.id"))
     user_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
