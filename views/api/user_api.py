@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-10 22:16:29
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-11-18 17:36:43
+# @Last Modified time: 2015-11-18 19:54:38
 from flask import request, Blueprint,json,Response,current_app
 from utils.decorator import json_response,require_token
 from database.models import Token,User,db,Attention,Project,ArtistProfile
@@ -36,6 +36,8 @@ def get_access_token(result):
     m=md5()
     m.update(user.passwd+challenge)
     check_code=m.hexdigest()
+
+    print "check_code:=",check_code,"pass_code:=",pass_code
     if check_code!=pass_code:
         result['code']=1
         result['msg']="password is not correct"
