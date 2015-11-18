@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-10 22:16:29
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-10-07 16:22:21
+# @Last Modified time: 2015-11-18 17:36:43
 from flask import request, Blueprint,json,Response,current_app
 from utils.decorator import json_response,require_token
 from database.models import Token,User,db,Attention,Project,ArtistProfile
@@ -66,7 +66,9 @@ def send_sms_code(result):
         result['msg']='手机号码已经存在'
         return 
     sms_code=stringutil.random_digits(6)
-    status_code=sendTemplateSMS(mobile,[sms_code,'5'],1)
+    (status_code,smsResult)=sendTemplateSMS(mobile,[sms_code,'5'],1)
+    if smsResult:
+        current_app.logger.info(smsResult)
     if status_code=='000000':
         sms_code_cache.set(mobile,sms_code)
         print 'sms_code',sms_code

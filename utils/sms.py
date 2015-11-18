@@ -3,6 +3,7 @@
 from third.CCPRestSDK import REST
 import ConfigParser
 
+
 #主帐号
 accountSid= '8a48b5514ebe1674014ecd5617870f46';
 
@@ -44,7 +45,7 @@ def sendTemplateSMS(to,datas,tempId):
             print '%s:%s+++' % (k, v)
         if k=='statusCode':
           ret=v
-    return ret
+    return ret,result
     
    
 #sendTemplateSMS(手机号码,内容数据,模板Id)
