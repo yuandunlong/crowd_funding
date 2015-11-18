@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-11-07 13:22:49
+# @Last Modified time: 2015-11-18 17:19:11
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session,redirect
@@ -34,7 +34,9 @@ from views.admin import admin_view_models
 from views.common.upload_ctrl import upload_ctrl
 import os.path as op
 
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 log_roll_handler=RotatingFileHandler('roll.log',maxBytes=1024*1000*10)
 
 log_roll_handler.setFormatter(Formatter(

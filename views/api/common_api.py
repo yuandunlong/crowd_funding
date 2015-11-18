@@ -7,7 +7,7 @@
 from flask import request,Blueprint
 from utils.decorator import json_response
 from utils.result_set_convert import models_2_arr
-from database.models import ArtCategory,ProjectPost,ArtistPost
+from database.models import ArtCategory,ProjectPost,ArtistPost,ActivityNotice
 common_api=Blueprint(__name__,'common_api')
 @common_api.route("/public/common/get_artist_category",methods=['GET'])
 @json_response
@@ -31,6 +31,14 @@ def get_project_post(result):
 def get_artist_post(result):
     aps=ArtistPost.query.all()
     result['artist_posts']=models_2_arr(aps)
+    
+@common_api.route('/public/common/get_activity_notice',methods=['GET'])
+@json_response
+def get_activity_notice(result):
+    ans=ActivityNotice.query.all()
+    result['activity_notices']=models_2_arr(ans)
+    
+    
     
     
     
