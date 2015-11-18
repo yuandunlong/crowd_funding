@@ -3,7 +3,7 @@
 # @Author: yuandunlong
 # @Date:   2015-09-18 10:04:17
 # @Last Modified by:   yuandunlong
-# @Last Modified time: 2015-11-18 17:19:11
+# @Last Modified time: 2015-11-18 17:50:38
 # -*- coding: utf-8 -*-
 
 from flask import Flask,url_for,Response,request,session,redirect
@@ -58,7 +58,7 @@ app = Flask(__name__)
 db.init_app(app)
 app.config.from_pyfile('app.cfg')
 
-log_roll_handler.setLevel(logging.INFO)
+log_roll_handler.setLevel(logging.DEBUG)
 app.logger.addHandler(log_roll_handler)
 
 app.register_blueprint(user_ctrl)
