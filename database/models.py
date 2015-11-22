@@ -163,7 +163,7 @@ class Payback(BaseModel):
     __tablename__ = 'payback'
     project_id = db.Column('project_id', db.Integer,db.ForeignKey('project.id'))
     project=db.relationship('Project',backref=db.backref('paybacks',lazy='dynamic'))
-    money = db.Column('money', db.DECIMAL)
+    money = db.Column('money', db.Integer)
     title = db.Column('title', db.String(32))
     detail = db.Column('detail', db.String(512))
     payback_after_days = db.Column('payback_after_days', db.Integer)
@@ -188,12 +188,30 @@ class Payback(BaseModel):
 
 class Order(BaseModel):
     __tablename__='order'
+    
+    STATUS_SUBMIT=1
+    STATUS_CANCEL=2
+    STATUS_PAY=4
+    STATUS_SEND=8
+    STATUS_SUCESS=16
+    STATUS_REBACK=32
+    
+    
     order_no=db.Column('order_no',db.String(16))
     address_id=db.Column('address_id',db.ForeignKey("address.id"))
+    #购买着id
     user_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
+    publisher_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
+    
     payback_id=db.Column('payback_id',db.Integer,db.ForeignKey('payback.id'))
     sign_man_name=db.Column('sign_man_name',db.String(32))
     phone=db.Column('phone',db.String(16))
+    delivery_money=db.Column('delivery_money',db.Integer)
+    total_money=db.Column('total_money',db.Integer)
+    # 1创建订单 未支付 2，取消订单  4支付成功: 8：已发货，16：已确认收货 32：退货
+    status=db.Column('status',db.Integer)
+    
+    money=db.Column('money',db.Integer)
     
     
     

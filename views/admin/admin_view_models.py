@@ -139,7 +139,7 @@ class ArtistProfileModelView(ModelView):
     page_size=20
     can_view_details=True
     inline_models=(ArtistPhoto,)
-    column_list=('id','user','nick_name','real_name','weight','height','popularity')
+    column_list=('id','user','art_category','nick_name','real_name','weight','height','popularity')
     form_overrides = dict(description=CKTextAreaField)  
     create_template = 'admin/create.html'
     edit_template = 'admin/edit.html'
