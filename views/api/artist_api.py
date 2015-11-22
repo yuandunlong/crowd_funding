@@ -16,7 +16,13 @@ def get_artist_by_page(result):
     data=request.get_json()
     page=int(data.get('page',1))
     page_size=int(data.get('page_size',20))    
-    paginate=ArtistProfile.query.paginate(page,page_size)
+    
+    cat_id=data.get('cat_id',None)
+    if cat_id:
+        paginate=ArtistProfile.query.filter_by(art_category_id=cat_id).paginate(page,page_size)
+        
+    else:
+        paginate=ArtistProfile.query.paginate(page,page_size)
     result['artist']=models_2_arr(paginate.items)
     
     
