@@ -139,6 +139,9 @@ class ArtistProfileModelView(ModelView):
     page_size=20
     can_view_details=True
     inline_models=(ArtistPhoto,)
+    form_extra_fields = {
+        'photo': form.ImageUploadField(u'封面',base_path=file_path,namegen=prefix_name,url_relative_path="upload/")
+    }    
     column_list=('id','user','art_category','nick_name','real_name','weight','height','popularity')
     form_overrides = dict(description=CKTextAreaField)  
     create_template = 'admin/create.html'
