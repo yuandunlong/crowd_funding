@@ -35,5 +35,5 @@ def get_project_by_id(result):
     project= Project.query.get(project_id)
     
     if project:
-        result['project']=project
+        result['project']=project.as_map()
     
