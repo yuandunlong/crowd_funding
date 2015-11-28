@@ -25,4 +25,15 @@ def get_projects_by_page(result):
     result['projects']=arr
 
 
-
+@project_api.route('/public/project/get_projects_by_id',methods=['POST'])
+@json_response
+def get_project_by_id(result):
+    data=request.get_json()
+    
+    project_id=data.get('project_id',None)
+    
+    project= Project.query.get(project_id)
+    
+    if project:
+        result['project']=project
+    
