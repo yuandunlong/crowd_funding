@@ -229,6 +229,8 @@ class Attention(BaseModel):
 
 class Address(BaseModel):
     __tablename__='address'
+    recieve_man=db.Column('recieve_name',db.String(32))
+    phone=db.Column('phone',db.String(11))
     user_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
     address=db.Column('address',db.String(512))
 
