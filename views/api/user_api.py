@@ -6,12 +6,13 @@
 # @Last Modified time: 2015-11-18 19:59:27
 from flask import request, Blueprint,json,Response,current_app
 from utils.decorator import json_response,require_token
-from database.models import Token,User,db,Attention,Project,ArtistProfile
+from database.models import Token,User,db,Attention,Project,ArtistProfile,Address
 from services import user_service
 from hashlib import md5
 from werkzeug.contrib.cache import SimpleCache
 from utils.sms import sendTemplateSMS
 from utils import stringutil,result_set_convert
+from utils.result_set_convert import models_2_arr
 user_api=Blueprint("user_api",__name__ )
 sms_code_cache = SimpleCache(threshold=5000, default_timeout=300)
 @user_api.route("/private/user/get_challenge",methods=['POST'])
@@ -152,6 +153,37 @@ def apply_artist(result,user):
     artist.popularity=0
     db.session.add(artist)
     db.session.commit()
+
+@user_api.route('/private/user/get_user_addresses',methods=['GET'])   
+@require_token
+@json_response
+def get_user_addresses(result,user):
+    addresses=Address.query.filter_by(user_id=user.id).all()
+    arr=models_2_arr(addresses)
+    result['addresses']=arr
+    
+@user_api.route('/private/user/add_user_address',methods=['POST'])
+@require_token
+@json_response
+def add_user_address(result,user):
+    
+    data=request.json
+    phone=data['phone']
+    recieve_man=data['recieve_man']
+    address=data['address']
+    
+    add=Address()
+    add.user_id=user.id
+    add.recieve_man=recieve_man
+    add.address=address
+    add.phone=phone
+    db.session.add(add)
+    db.session.commit()
+    
+        
+    
+    
+    
 
 
 

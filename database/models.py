@@ -233,6 +233,8 @@ class Address(BaseModel):
     phone=db.Column('phone',db.String(11))
     user_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
     address=db.Column('address',db.String(512))
+    #0 1默认地址
+    default=db.Column('default',db.Integer,default=0)
 
 
 
