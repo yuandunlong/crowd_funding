@@ -229,6 +229,7 @@ class Attention(BaseModel):
 
 class Address(BaseModel):
     __tablename__='address'
+    user_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
     address=db.Column('address',db.String(512))
 
 
