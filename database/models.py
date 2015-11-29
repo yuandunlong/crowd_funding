@@ -130,8 +130,8 @@ class Project(BaseModel):
     summary = db.Column('summary', db.Text)
     description = db.Column('description', db.Text)
     deadline_time = db.Column('deadline_time', db.DateTime)
-    total_money = db.Column('total_money', db.DECIMAL)
-    current_money = db.Column('current_money', db.DECIMAL)
+    total_money = db.Column('total_money', db.DECIMAL(10,2))
+    current_money = db.Column('current_money', db.DECIMAL(10,2))
     support_times = db.Column('support_times', db.Integer)
 
     category_id = db.Column('category_id', db.Integer,db.ForeignKey('catgory.id'))
@@ -163,7 +163,7 @@ class Payback(BaseModel):
     __tablename__ = 'payback'
     project_id = db.Column('project_id', db.Integer,db.ForeignKey('project.id'))
     project=db.relationship('Project',backref=db.backref('paybacks',lazy='dynamic'))
-    money = db.Column('money', db.Integer)
+    money = db.Column('money', db.DECIMAL(10,2))
     title = db.Column('title', db.String(32))
     detail = db.Column('detail', db.String(512))
     payback_after_days = db.Column('payback_after_days', db.Integer)
@@ -171,7 +171,8 @@ class Payback(BaseModel):
     delivery_mode = db.Column('delivery_mode', db.Integer, default=1)
     # 0 表示不限制 大于0表示具体的限制数量
     limit = db.Column('limit', db.Integer, default=0)
-    status = db.Column('status', db.Integer, default=1)  # 1为支付，2支付成功，3发货，4完成
+    
+    delivery_money=db.Column('delivery_money',db.DECIMAL(10,2),default=0)
     cover_image=db.Column('cover_image',db.String(512))
     total=db.Column('total',db.Integer)
     sold=db.Column('sold',db.Integer)
@@ -206,12 +207,13 @@ class Order(BaseModel):
     payback_id=db.Column('payback_id',db.Integer,db.ForeignKey('payback.id'))
     sign_man_name=db.Column('sign_man_name',db.String(32))
     phone=db.Column('phone',db.String(16))
-    delivery_money=db.Column('delivery_money',db.Integer)
-    total_money=db.Column('total_money',db.Integer)
+    delivery_money=db.Column('delivery_money',db.DECIMAL(10,2))
+    total_money=db.Column('total_money',db.DECIMAL(10,2))
     # 1创建订单 未支付 2，取消订单  4支付成功: 8：已发货，16：已确认收货 32：退货
     status=db.Column('status',db.Integer)
     
-    money=db.Column('money',db.Integer)
+    payback_money=db.Column('payback_money',db.DECIMAL(10,2))
+    amount=db.Column('amount',db.Integer)
     
     
     
