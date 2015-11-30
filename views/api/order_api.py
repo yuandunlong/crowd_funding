@@ -40,7 +40,7 @@ def get_order_by_page(result,user):
     
     
     query=query.filter_by(user_id=user.id)    
-    query=query.paginate(page,page_size)
+    paginate=query.paginate(page,page_size)
     result['orders']=models_2_arr(paginate.items)
 
 
@@ -69,6 +69,7 @@ def submit_order(result,user):
         order.money=payback.money
         db.session.add(order)
         db.session.commit()
+        result['order']=order.as_map()
         
         
         

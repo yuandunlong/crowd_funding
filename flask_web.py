@@ -5,7 +5,6 @@
 # @Last Modified by:   yuandunlong
 # @Last Modified time: 2015-11-18 17:50:38
 # -*- coding: utf-8 -*-
-
 from flask import Flask,url_for,Response,request,session,redirect
 from database.models import db,User,Project,Token,Payback,Category
 from views.user_ctrl import user_ctrl
@@ -16,7 +15,6 @@ from views.api.payback_api import payback_api
 from views.api.common_api import common_api
 from views.api.artist_api import artist_api
 from views.api.order_api import order_api
-
 from views.admin.admin_ctrl import admin_ctrl
 from views.app.project_ctrl import project_ctrl
 from views.app.common import common_ctrl
@@ -34,17 +32,14 @@ from flask_admin.contrib.fileadmin import FileAdmin
 from views.admin import admin_view_models
 from views.common.upload_ctrl import upload_ctrl
 import os.path as op
-
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 log_roll_handler=RotatingFileHandler('roll.log',maxBytes=1024*1000*10)
-
 log_roll_handler.setFormatter(Formatter(
         '%(asctime)s %(levelname)s: %(message)s '
         '[in %(pathname)s:%(lineno)d]'
 ))
-
 app = Flask(__name__)
 #babel = Babel(app)
 #@babel.localeselector
@@ -52,21 +47,15 @@ app = Flask(__name__)
  #   override = request.args.get('lang')
   #  if override:
    #     session['lang'] = override
-
 #    return session.get('lang', 'zh_CN')
-    
-
 db.init_app(app)
 app.config.from_pyfile('app.cfg')
-
 log_roll_handler.setLevel(logging.DEBUG)
 app.logger.addHandler(log_roll_handler)
-
 app.register_blueprint(user_ctrl)
 app.register_blueprint(admin_ctrl,url_prefix='/admin2')
 app.register_blueprint(admin_project_ctrl,url_prefix='/admin2')
 app.register_blueprint(admin_user_ctrl,url_prefix='/admin2')
-
 app.register_blueprint(user_api,url_prefix='/api')
 app.register_blueprint(category_api,url_prefix='/api')
 app.register_blueprint(project_api,url_prefix="/api")
@@ -76,7 +65,6 @@ app.register_blueprint(common_ctrl, url_prefix='/comm')
 app.register_blueprint(payback_api,url_prefix='/api')
 app.register_blueprint(common_api,url_prefix='/api')
 app.register_blueprint(order_api,url_prefix="/api")
-
 app.register_blueprint(upload_ctrl)
 #define static res.
 assets = Environment(app)
@@ -107,19 +95,15 @@ assets.register('css_from_less', css_from_less)
 assets.register('css_all', css_all)
 assets.register('js_all', js_all)
 assets.register('js_publish_project', js_publish_project)
-
 app.config['ASSETS_DEBUG'] = True
 #assets end
 @app.route("/")
 def index():
-
     return redirect("/project/list")
-
 def has_no_empty_params(rule):
     defaults = rule.defaults if rule.defaults is not None else ()
     arguments = rule.arguments if rule.arguments is not None else ()
     return len(defaults) >= len(arguments)
-
 @app.route("/site-map")
 def site_map():
     links = []
@@ -132,12 +116,9 @@ def site_map():
     result=''
     for link in links:
         result=(result+link[0]+'&nbsp : &nbsp'+link[1]+'<br>')
-    
     return Response(result)
-
 path = op.join(op.dirname(__file__), 'static/upload')
 admin_view_models.file_path=path
-
 admin = Admin(app, name=u'乐事电影管理平台',template_mode='bootstrap3')
 admin.add_view(UserModelView(db.session))
 admin.add_view(ArtistProfileModelView(db.session))
