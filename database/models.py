@@ -205,7 +205,7 @@ class Order(BaseModel):
     #购买着id
     buyer_id=db.Column('buyer_id',db.Integer,db.ForeignKey('user.id'))
 
-    publisher_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
+    publisher_id=db.Column('publisher_id',db.Integer,db.ForeignKey('user.id'))
     
     payback_id=db.Column('payback_id',db.Integer,db.ForeignKey('payback.id'))
     delivery_money=db.Column('delivery_money',db.DECIMAL(10,2))
