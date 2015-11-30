@@ -63,7 +63,7 @@ def submit_order(result,user):
         order=Order()
         order.order_no=build_order_no()
         order.payback_id=payback_id
-        order.user_id=3
+        order.buyer_id=int(user.id)
         order.delivery_money=delivery_money
         order.status=Order.STATUS_SUBMIT
         order.total_money=payback.money*amount+delivery_money
