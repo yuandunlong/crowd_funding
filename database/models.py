@@ -143,6 +143,8 @@ class Project(BaseModel):
     status = db.Column('status', db.Integer, default=1)  # 1为支付，2支付成功，3发货，4完成
     cover_image=db.Column('cover_image',db.String(512))
 
+    publisher_id=db.Column('publisher_id',db.Integer,db.ForeignKey('user.id'))
+
     def get_complete_rate(self):
         return int(self.current_money/self.total_money*100)
     def as_map(self):
@@ -202,6 +204,7 @@ class Order(BaseModel):
     address_id=db.Column('address_id',db.ForeignKey("address.id"))
     #购买着id
     user_id=db.Column('user_id',db.Integer)
+
     publisher_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
     
     payback_id=db.Column('payback_id',db.Integer,db.ForeignKey('payback.id'))
