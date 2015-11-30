@@ -44,7 +44,7 @@ def get_order_by_page(result,user):
     result['orders']=models_2_arr(paginate.items)
 
 
-@order_api.route('/private/order/submit_order')
+@order_api.route('/private/order/submit_order',methods=['POST'])
 @require_token
 @json_response
 def submit_order(result,user):
@@ -55,7 +55,6 @@ def submit_order(result,user):
     project_id=int(data['project_id'])    
     amount=int(data['amount'])    
     project=Project.query.get(project_id)
-    phone=data['phone']
     delivery_money=data.get('delivery_money',0)
     if project and payback:
         
