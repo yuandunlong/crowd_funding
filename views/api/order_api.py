@@ -58,7 +58,8 @@ def submit_order(result,user):
     delivery_money=data.get('delivery_money',0)
     address_id=data['address_id']
     if project and payback:
-        
+        print user.id
+        print user
         order=Order()
         order.order_no=build_order_no()
         order.payback_id=payback_id
