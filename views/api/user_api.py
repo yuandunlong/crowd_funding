@@ -162,6 +162,15 @@ def get_user_addresses(result,user):
     arr=models_2_arr(addresses)
     result['addresses']=arr
     
+@user_api.route('/private/user/get_user_default_address',methods=['GET'])   
+@require_token
+@json_response    
+def get_user_default_address(result,user):
+    address=Address.query.filter_by(user_id=user.id,default=1).first()
+    if address:
+        result['address']=address.as_map()
+        
+    
 @user_api.route('/private/user/add_user_address',methods=['POST'])
 @require_token
 @json_response
