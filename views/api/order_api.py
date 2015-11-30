@@ -5,7 +5,7 @@
 # @Last Modified by:   yuandunlong
 # @Last Modified time: 2015-11-07 13:21:40
 
-from flask import Blueprint,request
+from flask import Blueprint,request,current_app
 from database.models import Order,Project,Payback,db
 from utils.decorator import json_response,require_token
 from utils.stringutil import build_order_no
@@ -62,7 +62,6 @@ def submit_order(result,user):
         order=Order()
         order.order_no=build_order_no()
         order.payback_id=payback_id
-        print user.id
         order.user_id=user.id
         order.delivery_money=delivery_money
         order.status=Order.STATUS_SUBMIT

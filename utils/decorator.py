@@ -4,6 +4,7 @@ from database.models import User,Token
 from utils.json_encode import DateTimeEncoder
 import traceback
 import simplejson as json
+import string
 def json_response(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
@@ -25,6 +26,7 @@ def require_token(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
         access_token=request.args.get('token','')
+        access_token=string.strip(access_token)
         result={'code':0,'msg':'ok'}
         if access_token=='':
             result['code']=1
