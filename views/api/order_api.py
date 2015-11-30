@@ -73,6 +73,7 @@ def submit_order(result,user):
         db.session.add(order)
         db.session.commit()
         print order.id
+        order=Order.query.get(order.id)
         result['order']=order.as_map()
         
         
