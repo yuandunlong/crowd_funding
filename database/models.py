@@ -201,7 +201,7 @@ class Order(BaseModel):
     order_no=db.Column('order_no',db.String(16))
     address_id=db.Column('address_id',db.ForeignKey("address.id"))
     #购买着id
-    user_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
+    user_id=db.Column('user_id',db.Integer)
     publisher_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
     
     payback_id=db.Column('payback_id',db.Integer,db.ForeignKey('payback.id'))
