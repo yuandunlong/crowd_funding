@@ -69,6 +69,7 @@ def submit_order(result,user):
         order.total_money=payback.money*amount+delivery_money
         order.money=payback.money
         order.address_id=address_id
+        order.amount=amount
         db.session.add(order)
         db.session.commit()
         result['order']=order.as_map()

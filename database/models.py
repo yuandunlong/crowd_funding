@@ -205,8 +205,6 @@ class Order(BaseModel):
     publisher_id=db.Column('user_id',db.Integer,db.ForeignKey('user.id'))
     
     payback_id=db.Column('payback_id',db.Integer,db.ForeignKey('payback.id'))
-    sign_man_name=db.Column('sign_man_name',db.String(32))
-    phone=db.Column('phone',db.String(16))
     delivery_money=db.Column('delivery_money',db.DECIMAL(10,2))
     total_money=db.Column('total_money',db.DECIMAL(10,2))
     # 1创建订单 未支付 2，取消订单  4支付成功: 8：已发货，16：已确认收货 32：退货
