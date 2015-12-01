@@ -24,10 +24,10 @@ def callback():
     # 验证签名
     if thissign == sign:
         # 处理业务逻辑
-        channel_type = data['channelType']
-        transaction_type = data['transactionType']
-        trade_success = data['tradeSuccess']
-        message_detail = data['messageDetail']
+        #channel_type = data['channelType']
+        #transaction_type = data['transactionType']
+        #trade_success = data['tradeSuccess']
+        #message_detail = data['messageDetail']
         print data
         return Response('success')
 
