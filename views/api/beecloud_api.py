@@ -19,6 +19,7 @@ def callback():
     timestamp = data['timestamp']
     sign = data['sign']
     thissign = hashlib.md5(appid+appsecret+str(timestamp))
+    thissign=thissign.hexdigest()
     print thissign,sign
     # 验证签名
     if thissign == sign:
