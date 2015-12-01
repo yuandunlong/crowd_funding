@@ -14,7 +14,7 @@ beecloud_api=Blueprint("beecloud_api",__name__)
 def callback():
     data=request.json
     appid = current_app.config.get("BEECLOUD_APP_ID")
-    appsecret = current_app.config.get("BEECLOUD_APP_Secret")
+    appsecret = current_app.config.get("BEECLOUD_APP_SECRET")
     print appsecret,appid
     timestamp = data['timestamp']
     sign = data['sign']
