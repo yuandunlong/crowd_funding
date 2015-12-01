@@ -66,7 +66,7 @@ app.register_blueprint(common_ctrl, url_prefix='/comm')
 app.register_blueprint(payback_api,url_prefix='/api')
 app.register_blueprint(common_api,url_prefix='/api')
 app.register_blueprint(order_api,url_prefix="/api")
-app.register_blueprint(beecloud_api,url_prefix="api")
+app.register_blueprint(beecloud_api,url_prefix="/api")
 
 app.register_blueprint(upload_ctrl)
 #define static res.
