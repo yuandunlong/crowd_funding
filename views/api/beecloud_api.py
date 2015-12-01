@@ -10,7 +10,7 @@ import  hashlib
 from flask import  request,Blueprint,Response,current_app
 
 beecloud_api=Blueprint("beecloud_api",__name__)
-@beecloud_api.route("/private/beecloud/callback")
+@beecloud_api.route("/private/beecloud/callback",methods=["POST"])
 def callback():
     data=request.json
     appid = current_app.config.get("BEECLOUD_APP_ID")
