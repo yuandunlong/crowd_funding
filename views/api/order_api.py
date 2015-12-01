@@ -67,7 +67,7 @@ def submit_order(result,user):
         order.delivery_money=delivery_money
         order.status=Order.STATUS_SUBMIT
         order.total_money=payback.money*amount+delivery_money
-        order.money=payback.money
+        order.payback_money=payback.money
         order.address_id=address_id
         order.amount=amount
         db.session.add(order)
