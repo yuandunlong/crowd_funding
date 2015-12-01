@@ -28,7 +28,7 @@ def callback():
         transaction_type = data['transactionType']
         trade_success = data['tradeSuccess']
         message_detail = data['messageDetail']
-
+        print data
         return Response('success')
 
     else:
