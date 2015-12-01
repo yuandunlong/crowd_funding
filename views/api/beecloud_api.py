@@ -15,6 +15,7 @@ def callback():
     data=request.json
     appid = current_app.config.get("BEECLOUD_APP_ID")
     appsecret = current_app.config.get("BEECLOUD_APP_Secret")
+    print appsecret,appid
     timestamp = data['timestamp']
     sign = data['sign']
     thissign = hashlib.md5(appid+appsecret+str(timestamp))
