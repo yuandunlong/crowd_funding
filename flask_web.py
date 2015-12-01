@@ -15,6 +15,7 @@ from views.api.payback_api import payback_api
 from views.api.common_api import common_api
 from views.api.artist_api import artist_api
 from views.api.order_api import order_api
+from views.api.beecloud_api import  beecloud_api
 from views.admin.admin_ctrl import admin_ctrl
 from views.app.project_ctrl import project_ctrl
 from views.app.common import common_ctrl
@@ -65,6 +66,8 @@ app.register_blueprint(common_ctrl, url_prefix='/comm')
 app.register_blueprint(payback_api,url_prefix='/api')
 app.register_blueprint(common_api,url_prefix='/api')
 app.register_blueprint(order_api,url_prefix="/api")
+app.register_blueprint(beecloud_api,url_prefix="api")
+
 app.register_blueprint(upload_ctrl)
 #define static res.
 assets = Environment(app)
