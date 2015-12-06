@@ -23,6 +23,8 @@ class BaseModel(db.Model):
                 continue
             elif isinstance(data, datetime.datetime):
                 fields[field]=str(data)
+            elif isinstance(data,BaseModel):
+                fields[field]=data.as_map()
             else:
                 fields[field] = data
         print fields
@@ -144,6 +146,8 @@ class Project(BaseModel):
     cover_image=db.Column('cover_image',db.String(512))
 
     publisher_id=db.Column('publisher_id',db.Integer,db.ForeignKey('user.id'))
+
+    publisher=db.relationship('User',backref=db.backref('projects',lazy='dynamic'))
 
     def get_complete_rate(self):
         return int(self.current_money/self.total_money*100)

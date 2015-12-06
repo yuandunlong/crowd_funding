@@ -70,6 +70,8 @@ def submit_order(result,user):
         order.payback_money=payback.money
         order.address_id=address_id
         order.amount=amount
+        order.project_id=payback.project_id
+        order.publisher_id=payback.project.publisher_id
         db.session.add(order)
         db.session.commit()
         print order.id
