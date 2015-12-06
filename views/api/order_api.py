@@ -76,7 +76,7 @@ def submit_order(result,user):
             db.session.commit()
             print order.id
             order=Order.query.get(order.id)
-            result['order']=order.as_map()
+            result['order']=order.as_map2()
 
         except Exception as e:
             current_app.logger.exception(e)
