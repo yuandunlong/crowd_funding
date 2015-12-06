@@ -58,26 +58,30 @@ def submit_order(result,user):
     delivery_money=data.get('delivery_money',0)
     address_id=data['address_id']
     if project and payback:
-        print user.id
-        print user
-        order=Order()
-        order.order_no=build_order_no()
-        order.payback_id=payback_id
-        order.buyer_id=int(user.id)
-        order.delivery_money=delivery_money
-        order.status=Order.STATUS_SUBMIT
-        order.total_money=payback.money*amount+delivery_money
-        order.payback_money=payback.money
-        order.address_id=address_id
-        order.amount=amount
-        order.project_id=payback.project_id
-        order.publisher_id=payback.project.publisher_id
-        db.session.add(order)
-        db.session.commit()
-        print order.id
-        order=Order.query.get(order.id)
-        result['order']=order.as_map()
-        
+        try:
+            #自动开启事务
+            order=Order()
+            order.order_no=build_order_no()
+            order.payback_id=payback_id
+            order.buyer_id=int(user.id)
+            order.delivery_money=delivery_money
+            order.status=Order.STATUS_SUBMIT
+            order.total_money=payback.money*amount+delivery_money
+            order.payback_money=payback.money
+            order.address_id=address_id
+            order.amount=amount
+            order.project_id=payback.project_id
+            order.publisher_id=payback.project.publisher_id
+            db.session.add(order)
+            db.session.commit()
+            print order.id
+            order=Order.query.get(order.id)
+            result['order']=order.as_map()
+
+        except Exception as e:
+            current_app.logger.exception(e)
+            db.session.rollback()
+
         
         
         
