@@ -23,12 +23,12 @@ from views.admin.admin_project_ctrl import admin_project_ctrl
 from views.admin.admin_user_ctrl import admin_user_ctrl
 from logging.handlers import RotatingFileHandler
 from logging import Formatter
-from flask.ext.assets import Environment, Bundle
+from flask_assets import Environment, Bundle
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from views.admin.admin_view_models import UserModelView,ProjectModelView,CategoryModelView,TokenModelView,PaybackModelView,ArtistProfileModelView,ArtCategoryModelView,ArtistPhotoModelView,ActivityNoticeModelView,ProjectPostModelView,ArtistPostModelView
+from views.admin.admin_view_models import UserModelView,ProjectModelView,CategoryModelView,TokenModelView,PaybackModelView,ArtistProfileModelView,ArtCategoryModelView,ArtistPhotoModelView,ActivityNoticeModelView,ProjectPostModelView,ArtistPostModelView,OrderModelView
 import logging
-from flask.ext.babel import Babel
+from flask_babel import Babel
 from flask_admin.contrib.fileadmin import FileAdmin
 from views.admin import admin_view_models
 from views.common.upload_ctrl import upload_ctrl
@@ -122,7 +122,7 @@ def site_map():
     return Response(result)
 path = op.join(op.dirname(__file__), 'static/upload')
 admin_view_models.file_path=path
-admin = Admin(app, name=u'乐事电影管理平台',template_mode='bootstrap3')
+admin = Admin(app, name=u'乐事后台',template_mode='bootstrap3')
 admin.add_view(UserModelView(db.session))
 admin.add_view(ArtistProfileModelView(db.session))
 #admin.add_view(CategoryModelView(db.session))
@@ -134,6 +134,7 @@ admin.add_view(ArtistPhotoModelView())
 admin.add_view(ActivityNoticeModelView())
 admin.add_view(ProjectPostModelView())
 admin.add_view(ArtistPostModelView())
+admin.add_view(OrderModelView())
 admin.add_view(FileAdmin(unicode(path), '/static/upload/', name=u'文件管理'))
 def create_app(config=None):
     app = Flask(__name__)

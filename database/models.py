@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 import inspect
 from utils.result_set_convert import models_2_arr

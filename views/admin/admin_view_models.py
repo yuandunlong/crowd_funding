@@ -6,7 +6,7 @@
 # @Last Modified time: 2015-11-07 14:11:16
 from flask_admin.contrib.sqla import ModelView
 
-from database.models import Token,Project,db,User,Category,Payback,ArtistProfile,ArtCategory,ArtistPhoto,ActivityNotice,ProjectPost,ArtistPost
+from database.models import Token,Project,db,User,Category,Payback,ArtistProfile,ArtCategory,ArtistPhoto,ActivityNotice,ProjectPost,ArtistPost,Order
 from flask.ext.admin.form.upload import ImageUploadField
 from wtforms import fields, widgets
 from flask_admin import form
@@ -200,4 +200,8 @@ class ArtistPostModelView(ModelView):
     def __init__(self):
         super(ArtistPostModelView,self).__init__(ArtistPost,db.session,name=u'艺人海报')
 
-    
+class OrderModelView(ModelView):
+    page_size = 20
+
+    def __init__(self):
+        super(OrderModelView,self).__init__(Order,db.session,name=u'订单')
