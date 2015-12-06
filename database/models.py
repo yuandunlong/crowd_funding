@@ -202,12 +202,22 @@ class Order(BaseModel):
     
     order_no=db.Column('order_no',db.String(16))
     address_id=db.Column('address_id',db.ForeignKey("address.id"))
+    address=db.relationship('Address',backref=db.backref('orders',lazy='dynamic'))
+
     #购买着id
     buyer_id=db.Column('buyer_id',db.Integer,db.ForeignKey('user.id'))
-
     publisher_id=db.Column('publisher_id',db.Integer,db.ForeignKey('user.id'))
+
+    buyer=db.relationship('User',foreign_keys=[buyer_id])
+    publisher=db.relationship('User',foreign_keys=[publisher_id])
     
     payback_id=db.Column('payback_id',db.Integer,db.ForeignKey('payback.id'))
+    payback=db.relationship('Payback',backref=db.backref('orders',lazy='dynamic'))
+
+    project_id=db.Column('project_id',db.Integer,db.ForeignKey('project.id'))
+
+    project=db.relationship('Project',backref=db.backref('orders',lazy='dynamic'))
+
     delivery_money=db.Column('delivery_money',db.DECIMAL(10,2))
     total_money=db.Column('total_money',db.DECIMAL(10,2))
     # 1创建订单 未支付 2，取消订单  4支付成功: 8：已发货，16：已确认收货 32：退货
@@ -215,6 +225,8 @@ class Order(BaseModel):
     
     payback_money=db.Column('payback_money',db.DECIMAL(10,2))
     amount=db.Column('amount',db.Integer)
+
+
     
     
     
