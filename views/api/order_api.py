@@ -41,7 +41,11 @@ def get_order_by_page(result,user):
     
     query=query.filter_by(user_id=user.id)    
     paginate=query.paginate(page,page_size)
-    result['orders']=models_2_arr(paginate.items)
+    arr=[]
+    items=paginate.items
+    for item in items:
+        arr.append(item.as_map2())
+    result['orders']=arr
 
 
 @order_api.route('/private/order/submit_order',methods=['POST'])
