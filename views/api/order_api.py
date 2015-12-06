@@ -39,7 +39,7 @@ def get_order_by_page(result,user):
         query=query.filter_by(project_id=project_id)
     
     
-    query=query.filter_by(user_id=user.id)    
+    query=query.filter_by(buyer_id=user.id)
     paginate=query.paginate(page,page_size)
     arr=[]
     items=paginate.items
