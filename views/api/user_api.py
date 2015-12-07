@@ -190,9 +190,6 @@ def add_user_address(result,user):
     db.session.commit()
     
         
-    
-    
-    
 
 
 

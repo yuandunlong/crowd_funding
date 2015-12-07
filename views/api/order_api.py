@@ -86,8 +86,21 @@ def submit_order(result,user):
             current_app.logger.exception(e)
             db.session.rollback()
 
-        
-        
+
+
+@order_api.route('/private/order/get_my_publish_projects_by_page',methods=['POST'])
+@require_token
+@json_response
+def get_my_publish_projects_by_page(result,user):
+    data=request.get_json()
+    page=int(data.get('page',1))
+    page_size=int(data.get('page_size',20))
+    paginate=Project.query.filter_by(publisher_id=user.id).paginate(page,page_size)
+    result['projects']=models_2_arr(paginate.items)
+
+
+
+
         
    
     
