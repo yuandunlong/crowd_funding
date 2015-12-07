@@ -29,7 +29,7 @@ def get_order_by_page(result,user):
     
     
     query=Order.query
-    if status:
+    if status and int(status)>0:
         query=query.filter_by(status=status)
         
     if payback_id:

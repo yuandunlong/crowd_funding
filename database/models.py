@@ -224,7 +224,6 @@ class Order(BaseModel):
 
     delivery_money=db.Column('delivery_money',db.DECIMAL(10,2))
     total_money=db.Column('total_money',db.DECIMAL(10,2))
-    # 1创建订单 未支付 2，取消订单  4支付成功: 8：已发货，16：已确认收货 32：退货
     status=db.Column('status',db.Integer)
     
     payback_money=db.Column('payback_money',db.DECIMAL(10,2))
