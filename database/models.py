@@ -27,7 +27,6 @@ class BaseModel(db.Model):
                 fields[field]=data.as_map()
             else:
                 fields[field] = data
-        print fields
         return fields
     def as_map(self):
 
