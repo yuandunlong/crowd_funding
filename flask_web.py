@@ -32,6 +32,8 @@ from flask_babel import Babel
 from flask_admin.contrib.fileadmin import FileAdmin
 from views.admin import admin_view_models
 from views.common.upload_ctrl import upload_ctrl
+
+from views.app.index_ctrl import  index_ctrl
 import os.path as op
 import sys
 reload(sys)
@@ -68,6 +70,8 @@ app.register_blueprint(common_api,url_prefix='/api')
 app.register_blueprint(order_api,url_prefix="/api")
 app.register_blueprint(beecloud_api,url_prefix="/api")
 
+app.register_blueprint(index_ctrl)
+
 app.register_blueprint(upload_ctrl)
 #define static res.
 assets = Environment(app)
@@ -94,10 +98,15 @@ js_publish_project = Bundle(
     'js/project_publish.js',
     'js/jquery.form.js'
 )
+
+css_index=Bundle(
+    'css/index.css'
+)
 assets.register('css_from_less', css_from_less)
 assets.register('css_all', css_all)
 assets.register('js_all', js_all)
 assets.register('js_publish_project', js_publish_project)
+assets.register("css_index",css_index)
 app.config['ASSETS_DEBUG'] = True
 #assets end
 @app.route("/")

@@ -10,10 +10,11 @@ from flask_script import Shell, Manager
 from flask_web import app,create_app
 from database import models
 from database.models import db
+from views import api
 from flask_migrate import Migrate, MigrateCommand
 from flask import current_app
 def _make_context():
-    return dict(app=app, db=db, models=models,current_app=current_app)
+    return dict(app=app, db=db,api=api, models=models,current_app=current_app)
 
 migrate = Migrate(app, db)
 manager = Manager(app)
