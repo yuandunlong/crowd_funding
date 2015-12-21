@@ -163,7 +163,7 @@
 	background: url('/static/images/bg3.jpg') repeat-x ;
  	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
     -moz-background-size:100% 100%;
-	background-size:contain;
+	background-size:cover;
 	text-align: center;
 	color: #fff;
 }
