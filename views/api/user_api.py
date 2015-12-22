@@ -109,7 +109,7 @@ def sign_up(result):
             result['code']=1
             result['msg']='验证码不正确'
 
-@user_api.route('/private/user/get_user_info',methods=['GET '])
+@user_api.route('/private/user/get_user_info',methods=['GET'])
 @require_token
 @json_response
 def get_user_info(result,user):
