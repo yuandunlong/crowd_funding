@@ -205,7 +205,7 @@ class OrderModelView(ModelView):
     column_list=('payback','buyer','order_no','status','created_time','updated_time')
     column_labels=dict(address=u"地址",buyer=u'购买者',project=u'项目',payback=u'回报')
     def payback_image_f(v,c,m,p):
-        return Markup('<img src=static/upload/'+m.payback.cover_image+'></img>')
+        return Markup('<img src=/static/upload/'+m.payback.cover_image+'></img>')
     column_formatters=dict(payback=payback_image_f)
     def __init__(self):
         super(OrderModelView,self).__init__(Order,db.session,name=u'订单')
