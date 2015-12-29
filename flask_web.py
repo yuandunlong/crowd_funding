@@ -158,6 +158,6 @@ if __name__ == '__main__':
     #sys.setrecursionlimit(300) 
     from os import environ
     ##db.create_all(bind='__all__', app=app)
-    app.debug=False
+    app.debug=True
     app.run(host='0.0.0.0',port=environ.get("PORT", 5000),processes=1)
     #app.run('0.0.0.0:5050')

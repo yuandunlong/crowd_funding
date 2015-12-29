@@ -104,9 +104,9 @@ class ProjectModelView(ModelView):
         if m.status==1:
             return Markup(u'<font color="blue">进行中 </font>')
         if m.status==2:
-            return Markup(u'<font color="yellow">进行中 </font>')
+            return Markup(u'<font color="green">已完成 </font>')
         if m.status==3:
-            return Markup(u'<font color="blue">失败 </font>')
+            return Markup(u'<font color="red">失败 </font>')
         return u'未知'
     column_formatters=dict(status=status_f)
     create_template = 'admin/create.html'
@@ -202,6 +202,10 @@ class ArtistPostModelView(ModelView):
 
 class OrderModelView(ModelView):
     page_size = 20
-
+    column_list=('payback','buyer','order_no','status','created_time','updated_time')
+    column_labels=dict(address=u"地址",buyer=u'购买者',project=u'项目',payback=u'回报')
+    def payback_image_f(v,c,m,p):
+        return Markup('<img src=static/upload/'+m.payback.cover_image+'></img>')
+    column_formatters=dict(payback=payback_image_f)
     def __init__(self):
         super(OrderModelView,self).__init__(Order,db.session,name=u'订单')
