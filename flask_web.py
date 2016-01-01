@@ -146,7 +146,7 @@ admin.add_view(OrderModelView())
 admin.add_view(FileAdmin(unicode(path), '/static/upload/', name=u'文件管理'))
 
 
-#@app.before_request
+@app.before_request
 def app_before_request():
     if request.path.startswith('/admin/') and request.path!='/admin2/do_login' and session.get('admin_id',None) is None:
         return redirect('/admin2/login')
