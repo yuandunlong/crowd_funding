@@ -227,7 +227,9 @@ class ArtistPostModelView(BaseModelView):
             return u"外链"
 
     def link_formater(v,c,m,p):
-        return Markup('<a href="'+m.link+'"></a>')
+        if m.link:
+            return Markup('<a href="'+m.link+'"></a>')
+        return ""
 
     column_formatters = dict(post_type=post_type_formater,image_url=BaseModelView.image_formater,link=link_formater)
     form_extra_fields = {
