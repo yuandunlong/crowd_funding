@@ -45,6 +45,8 @@ class BaseModel(db.Model):
         return fields
 
 
+
+
 class Admin(BaseModel):
     __tablename__ = 'admin'
     TYPE_SUPER = 1

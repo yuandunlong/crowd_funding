@@ -1,0 +1,32 @@
+{% extends 'admin/master.html' %}
+{% import 'admin/my_lib.html' as lib with context %}
+
+{% macro extra() %}
+  <input name="_add_another" type="submit" class="btn btn-default" value="{{ _gettext('保存继续添加') }}" />
+  <input name="_continue_editing" type="submit" class="btn btn-default" value="{{ _gettext('保存并编辑') }}" />
+{% endmacro %}
+
+{% block head %}
+  {{ super() }}
+  {{ lib.form_css() }}
+{% endblock %}
+
+{% block body %}
+  {% block navlinks %}
+  <ul class="nav nav-tabs">
+    <li>
+        <a href="{{ return_url }}">{{ _gettext('列表') }}</a>
+    </li>
+    <li class="active">
+        <a href="javascript:void(0)">{{ _gettext('创建') }}</a>
+    </li>
+  </ul>
+  {% endblock %}
+
+  {{ lib.render_form(form, return_url, extra(), form_opts) }}
+{% endblock %}
+
+{% block tail %}
+  {{ super() }}
+  {{ lib.form_js() }}
+{% endblock %}

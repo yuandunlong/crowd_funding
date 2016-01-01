@@ -188,6 +188,18 @@ def add_user_address(result,user):
     add.phone=phone
     db.session.add(add)
     db.session.commit()
+
+@user_api.route('/private/user/del_user_address',methods=['POST'])
+@require_token
+@json_response
+def del_user_address(result,user):
+    data=request.json
+    address_id=data['address_id']
+    Address.query.filter_by(id=address_id).delete()
+    db.session.commit()
+
+
+
     
         
 

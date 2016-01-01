@@ -30,9 +30,9 @@ def do_admin_login():
     passwd=request.form.get('password','')
     print url_for('.admin_index')
     if admin_service.authentic(account,passwd):
-        return redirect(url_for('.admin_index'))
+        return redirect("/admin/")
     else:
-        return redirect(url_for('.admin_login'))
+        return redirect('/admin2/login')
 
 @admin_ctrl.route('/category/list',methods=['GET'])
 def category_list():

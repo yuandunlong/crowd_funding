@@ -6,7 +6,7 @@
 # @Last Modified time: 2015-11-18 17:50:38
 # -*- coding: utf-8 -*-
 from flask import Flask,url_for,Response,request,session,redirect
-from database.models import db,User,Project,Token,Payback,Category
+from database.models import db
 from views.user_ctrl import user_ctrl
 from views.api.user_api import user_api
 from views.api.category_api import category_api
@@ -25,8 +25,7 @@ from logging.handlers import RotatingFileHandler
 from logging import Formatter
 from flask_assets import Environment, Bundle
 from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
-from views.admin.admin_view_models import UserModelView,ProjectModelView,CategoryModelView,TokenModelView,PaybackModelView,ArtistProfileModelView,ArtCategoryModelView,ArtistPhotoModelView,ActivityNoticeModelView,ProjectPostModelView,ArtistPostModelView,OrderModelView
+from views.admin.admin_view_models import UserModelView,ProjectModelView,TokenModelView,PaybackModelView,ArtistProfileModelView,ArtCategoryModelView,ArtistPhotoModelView,ActivityNoticeModelView,ProjectPostModelView,ArtistPostModelView,OrderModelView
 import logging
 from flask_babel import Babel
 from flask_admin.contrib.fileadmin import FileAdmin
@@ -44,12 +43,12 @@ log_roll_handler.setFormatter(Formatter(
         '[in %(pathname)s:%(lineno)d]'
 ))
 app = Flask(__name__)
-#babel = Babel(app)
-#@babel.localeselector
-#def get_locale():
- #   override = request.args.get('lang')
-  #  if override:
-   #     session['lang'] = override
+# babel = Babel(app)
+# @babel.localeselector
+# def get_locale():
+#    override = request.args.get('lang')
+#    if override:
+#        session['lang'] = override
 #    return session.get('lang', 'zh_CN')
 db.init_app(app)
 app.config.from_pyfile('app.cfg')
@@ -145,6 +144,14 @@ admin.add_view(ProjectPostModelView())
 admin.add_view(ArtistPostModelView())
 admin.add_view(OrderModelView())
 admin.add_view(FileAdmin(unicode(path), '/static/upload/', name=u'文件管理'))
+
+
+#@app.before_request
+def app_before_request():
+    if request.path.startswith('/admin/') and request.path!='/admin2/do_login' and session.get('admin_id',None) is None:
+        return redirect('/admin2/login')
+
+
 def create_app(config=None):
     app = Flask(__name__)
     db.init_app(app)

@@ -1,0 +1,41 @@
+{% extends 'admin/master.html' %}
+{% import 'admin/my_lib.html' as lib with context %}
+
+{% macro extra() %}
+
+{% endmacro %}
+
+{% block head %}
+  {{ super() }}
+  {{ lib.form_css() }}
+{% endblock %}
+
+{% block body %}
+  {% block navlinks %}
+  <ul class="nav nav-tabs">
+    <li>
+        <a href="{{ return_url }}">{{ _gettext('列表') }}</a>
+    </li>
+    {%- if admin_view.can_create -%}
+    <li>
+        <a href="{{ get_url('.create_view', url=return_url) }}">{{ _gettext('创建') }}</a>
+    </li>
+    {%- endif -%}
+    <li class="active">
+        <a href="javascript:void(0)">{{ _gettext('编辑') }}</a>
+    </li>
+    {%- if admin_view.can_view_details -%}
+    <li>
+        <a href="{{ get_url('.details_view', id=model.id, url=return_url) }}">{{ _gettext('详情') }}</a>
+    </li>
+    {%- endif -%}
+  </ul>
+  {% endblock %}
+
+  {{ lib.render_form(form, return_url, extra(), form_opts) }}
+{% endblock %}
+
+{% block tail %}
+  {{ super() }}
+  {{ lib.form_js() }}
+{% endblock %}
