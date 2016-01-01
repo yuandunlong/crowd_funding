@@ -220,7 +220,12 @@ class ArtistPostModelView(BaseModelView):
 
     column_list = ('id','post_type','artist_profile_id','link','image_url','created_time','updated_time')
     column_labels = dict(id=u'序号',post_type=u'类型',image_url=u"图片",created_time=u'创建时间',updated_time=u'更新时间',link=u'外链',artist_profile_id=u'艺人编号')
-
+    def post_type_formater(v,c,m,p):
+        if m.post_type==1:
+            return u"众筹"
+        if m.post_type==2:
+            return u"外链"
+    column_formatters = dict(post_type=post_type_formater,image_url=BaseModelView.image_formater)
     form_extra_fields = {
         'image_url': form.ImageUploadField(u'图片', base_path=file_path,namegen=prefix_name,url_relative_path="upload/post")
     }    
