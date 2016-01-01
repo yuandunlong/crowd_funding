@@ -225,7 +225,11 @@ class ArtistPostModelView(BaseModelView):
             return u"众筹"
         if m.post_type==2:
             return u"外链"
-    column_formatters = dict(post_type=post_type_formater,image_url=BaseModelView.image_formater)
+
+    def link_formater(v,c,m,p):
+        return Markup('<a href="'+m.link+'"></a>')
+
+    column_formatters = dict(post_type=post_type_formater,image_url=BaseModelView.image_formater,link=link_formater)
     form_extra_fields = {
         'image_url': form.ImageUploadField(u'图片', base_path=file_path,namegen=prefix_name,url_relative_path="upload/post")
     }    
