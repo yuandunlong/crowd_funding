@@ -134,6 +134,14 @@ def attention_project(result,user):
     attention=Attention(user_id=user.id,project_id=data['project_id'])
     db.session.add(attention)
     db.session.commit()
+@user_api.route('/private/user/del_attention_project',methods=['POST'])
+@require_token
+@json_response
+def del_attention_project(result,user):
+    data=request.json
+    Attention.query.filter_by(user_id=user.id,project_id=data['project_id']).delete()
+    db.session.commit()
+
 
 @user_api.route('/private/user/apply_artist',methods=['POST'])
 @require_token
