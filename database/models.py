@@ -101,6 +101,8 @@ class ArtistProfile(BaseModel):
     blood = db.Column('blood', db.String(16))
     photo = db.Column('photo', db.String(128))
     sina = db.Column('sina', db.String(128))
+    qq=db.Column('qq',db.String(16))
+    wexin=db.Column('wexin',db.String(16))
     description = db.Column('description', db.Text)
     height = db.Column('height', db.Integer)
     weight = db.Column('weight', db.Integer)
@@ -110,6 +112,7 @@ class ArtistProfile(BaseModel):
     def as_map(self):
         fields = super(ArtistProfile, self).as_map()
         fields['photos'] = models_2_arr(self.photos)
+        fields['works']=models_2_arr(self.works)
         return fields
 
 
@@ -290,6 +293,28 @@ class ArtistPost(BaseModel):
     post_type = db.Column('post_type', db.Integer)
     artist_profile_id = db.Column('project_id', db.Integer)
     link = db.Column('link', db.String(128))
+
+class Work(BaseModel):
+
+    def __init__(self,title='',actor='',main_actor='',director='',artist_profile_id=0,image_url=''):
+        self.title=title
+        self.actor=actor
+        self.main_actor=main_actor
+        self.director=director
+        self.artist_profile_id=artist_profile_id
+        self.image_url=image_url
+
+    title=db.Column('title',db.String(512))
+    actor=db.Column("actor",db.String(512))
+    main_actor=db.Column('main_actor',db.String(512))
+    director=db.Column('director',db.String(512))
+    artist_profile_id = db.Column('artist_profile_id', db.Integer, db.ForeignKey('artist_profile.id'))
+    artist = db.relationship('ArtistProfile', backref=db.backref('works', lazy='dynamic'))
+    image_url=db.Column('image_url',db.String(512))
+
+
+
+
 
 
 class ActivityNotice(BaseModel):

@@ -6,7 +6,7 @@
 # @Last Modified time: 2015-11-18 19:59:27
 from flask import request, Blueprint,json,Response,current_app
 from utils.decorator import json_response,require_token
-from database.models import Token,User,db,Attention,Project,ArtistProfile,Address
+from database.models import Token,User,db,Attention,Project,ArtistProfile,Address,Work
 from services import user_service
 from hashlib import md5
 from werkzeug.contrib.cache import SimpleCache
@@ -146,13 +146,24 @@ def apply_artist(result,user):
     artist.blood=data.get('blood','')
     artist.weight=data.get('weight',0)
     artist.height=data.get('height',0)
-    artist.real_name=data['real_name']
-    artist.nick_name=data['nick_name']
+    artist.real_name=data.get('real_name','')
+    artist.nick_name=data.get('nick_name','')
     artist.sina=data.get('sina','')
+    artist.qq=data.get('qq','')
+    artist.wexin=data.get('wexin','')
     artist.description=data.get('description',"")
     artist.popularity=0
     db.session.add(artist)
     db.session.commit()
+
+    works=data.get('works',None)
+    if works:
+        for work in works:
+            work_model=Work(title=work.get('title',''),actor=work.get('actor',''),main_actor=work.get('main_actor'),director=work.get('director',''),image_url=work.get('image_url',''))
+            db.session.add(work_model)
+            db.session.commit()
+
+
 
 @user_api.route('/private/user/get_user_addresses',methods=['GET'])   
 @require_token
