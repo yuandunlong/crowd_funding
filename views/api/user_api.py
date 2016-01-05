@@ -19,7 +19,6 @@ sms_code_cache = SimpleCache(threshold=5000, default_timeout=300)
 @json_response
 def get_challenge(result):
     data=request.get_json()
-    account=data['account']
     result['challenge']=user_service.get_challenge()
     
 @user_api.route('/private/user/get_access_token',methods=['POST'])
@@ -162,6 +161,7 @@ def apply_artist(result,user):
     artist.wexin=data.get('wexin','')
     artist.description=data.get('description',"")
     artist.popularity=0
+    artist.life_experience=data.get('life_experience','')
     artist.photo=data.get('photo','')
     db.session.add(artist)
     db.session.commit()
