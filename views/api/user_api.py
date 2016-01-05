@@ -6,7 +6,7 @@
 # @Last Modified time: 2015-11-18 19:59:27
 from flask import request, Blueprint,json,Response,current_app
 from utils.decorator import json_response,require_token
-from database.models import Token,User,db,Attention,Project,ArtistProfile,Address,Work
+from database.models import Token,User,db,Attention,Project,ArtistProfile,Address,Work,ArtistPhoto
 from services import user_service
 from hashlib import md5
 from werkzeug.contrib.cache import SimpleCache
@@ -134,6 +134,7 @@ def attention_project(result,user):
     attention=Attention(user_id=user.id,project_id=data['project_id'])
     db.session.add(attention)
     db.session.commit()
+
 @user_api.route('/private/user/del_attention_project',methods=['POST'])
 @require_token
 @json_response
@@ -161,6 +162,7 @@ def apply_artist(result,user):
     artist.wexin=data.get('wexin','')
     artist.description=data.get('description',"")
     artist.popularity=0
+    artist.photo=data.get('photo','')
     db.session.add(artist)
     db.session.commit()
 
@@ -168,8 +170,20 @@ def apply_artist(result,user):
     if works:
         for work in works:
             work_model=Work(title=work.get('title',''),actor=work.get('actor',''),main_actor=work.get('main_actor'),director=work.get('director',''),image_url=work.get('image_url',''))
+            work_model.artist_profile_id=artist.id
             db.session.add(work_model)
             db.session.commit()
+
+    photos=data.get('photos',None)
+    if photos:
+        for photo in photos:
+            artist_photo=ArtistPhoto()
+            artist_photo.artist_profile_id=artist.id
+            artist_photo.display_order=1
+            artist_photo.path=photo['path']
+            db.session.add(artist_photo)
+            db.session.commit()
+
 
 
 

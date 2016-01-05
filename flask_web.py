@@ -34,6 +34,8 @@ from views.common.upload_ctrl import upload_ctrl
 
 from views.app.index_ctrl import  index_ctrl
 import os.path as op
+
+from views.home.home_ctrl import home_ctrl
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -72,6 +74,8 @@ app.register_blueprint(beecloud_api,url_prefix="/api")
 app.register_blueprint(index_ctrl)
 
 app.register_blueprint(upload_ctrl)
+
+app.register_blueprint(home_ctrl)
 #define static res.
 assets = Environment(app)
 css_from_less = Bundle(
@@ -101,11 +105,15 @@ js_publish_project = Bundle(
 css_index=Bundle(
     'css/index.css'
 )
+home_css_index=Bundle(
+    'home/index.css'
+)
 assets.register('css_from_less', css_from_less)
 assets.register('css_all', css_all)
 assets.register('js_all', js_all)
 assets.register('js_publish_project', js_publish_project)
 assets.register("css_index",css_index)
+assets.register("home_css_index",home_css_index)
 app.config['ASSETS_DEBUG'] = True
 #assets end
 @app.route("/")

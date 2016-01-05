@@ -6,7 +6,7 @@
 # @Last Modified time: 2015-11-07 13:21:40
 
 from flask import Blueprint,request
-from database.models import ArtistProfile,User
+from database.models import ArtistProfile,User,ArtistPhoto
 from utils.decorator import json_response
 from utils.result_set_convert import models_2_arr
 artist_api=Blueprint("artist_api",__name__)
@@ -24,6 +24,12 @@ def get_artist_by_page(result):
     else:
         paginate=ArtistProfile.query.paginate(page,page_size)
     result['artist']=models_2_arr(paginate.items)
+
+
+def upload_artist_photo(result,user):
+    data=request.json
+
+
     
     
 

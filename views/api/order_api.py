@@ -84,6 +84,7 @@ def submit_order(result,user):
 
         except Exception as e:
             current_app.logger.exception(e)
+            result['msg']=e.message
             db.session.rollback()
 
 
