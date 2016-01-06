@@ -17,7 +17,7 @@ def gen_rnd_filename():
     filename_prefix = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     return '%s%s' % (filename_prefix, str(random.randrange(1000, 10000)))
 
-@upload_ctrl.route('/simeditor_upload',methods=['GET','POST'])
+@upload_ctrl.route('/simeditor_upload/',methods=['GET','POST'])
 def simeditor_upload():
     error = ''
     url = ''
