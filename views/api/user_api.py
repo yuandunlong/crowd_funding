@@ -163,6 +163,7 @@ def apply_artist(result,user):
     artist.popularity=0
     artist.life_experience=data.get('life_experience','')
     artist.photo=data.get('photo','')
+    artist.art_category_id=data['art_category_id']
     db.session.add(artist)
     db.session.commit()
 
