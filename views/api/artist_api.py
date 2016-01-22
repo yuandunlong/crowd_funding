@@ -26,6 +26,7 @@ def get_artist_by_page(result):
     result['artist']=models_2_arr(paginate.items)
 
 
+
 def upload_artist_photo(result,user):
     data=request.json
 

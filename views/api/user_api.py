@@ -154,6 +154,18 @@ def del_attention_project(result, user):
     db.session.commit()
 
 
+@user_api.route('/private/user/can_apply_artist', methods=['GET'])
+@require_token
+@json_response
+def can_apply_artist(result, user):
+    apply_artist = ArtistProfile.query.filter_by(user_id=user.id).first()
+
+    if apply_artist:
+        result['can'] = False
+    else:
+        result['can'] = True
+
+
 @user_api.route('/private/user/apply_artist', methods=['POST'])
 @require_token
 @json_response
@@ -238,23 +250,23 @@ def add_user_address(result, user):
     db.session.add(add)
     db.session.commit()
 
+
 @user_api.route('/private/user/update_user_address', methods=['POST'])
 @require_token
 @json_response
-def update_user_address(result,user):
-    data=request.json
+def update_user_address(result, user):
+    data = request.json
     phone = data['phone']
     recieve_man = data['recieve_man']
     address_q = data['address']
-    address_id=data['address_id']
+    address_id = data['address_id']
 
-    address=Address.query.get(address_id)
+    address = Address.query.get(address_id)
     if address:
-        address.phone=phone
-        address.recieve_man=recieve_man
-        address.address=address_q
+        address.phone = phone
+        address.recieve_man = recieve_man
+        address.address = address_q
         db.session.commit()
-
 
 
 @user_api.route('/private/user/del_user_address', methods=['POST'])
