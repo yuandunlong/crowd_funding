@@ -4,22 +4,26 @@
             <div id="logo" class="logo pull-left">
             </div>
         </a>
-        <ul id="qmzc_nav" class="qmzc-navbar pull-left">
+        <ul id="qmzc_nav" class="qmzc-navbar pull-right">
             <li class="home {% if data.active== 'home' %}active{% endif %}"><a class="" href="/project/list">首页</a></li>
-            <li class="projects {% if data.active== 'projects' %}active{% endif %}"><a class="" href="/project/list">浏览项目</a></li>
-            <li class="my {% if data.active== 'my' %}active{% endif %}"><a class="" href="#">我的众筹</a></li>
-            <li class="publish {% if data.active== 'publish' %}active{% endif %}"><a class="" href="/project">发起众筹</a></li>
-            <li class="help {% if data.active== 'help' %}active{% endif %}"><a class="" href="#" target="_blank">新手帮助</a></li>
+            <li class="home {% if data.active== 'home' %}active{% endif %}"><a class="" href="/project/list">新闻动态</a></li>
+
+            <li class="projects {% if data.active== 'projects' %}active{% endif %}"><a class="" href="/project/list">影视众筹</a>
+            </li>
+            <li class="publish {% if data.active== 'publish' %}active{% endif %}"><a class="" href="/project">众筹发布</a>
+            </li>
+            <li class="help {% if data.active== 'help' %}active{% endif %}"><a class="" href="#"
+                                                                               target="_blank">会员中心</a></li>
         </ul>
 
-        <form  id="search_form" class="form-inline pull-right">
-          <div class="form-group">
-            <div class="input-group">
-              <input type="text" class="form-control" id="search_input" placeholder="搜索">
-              <div class="input-group-addon"><i class="fa fa-search"></i></div>
-            </div>
-          </div>
-        </form>
+        <!--<form  id="search_form" class="form-inline pull-right">-->
+        <!--<div class="form-group">-->
+        <!--<div class="input-group">-->
+        <!--<input type="text" class="form-control" id="search_input" placeholder="搜索">-->
+        <!--<div class="input-group-addon"><i class="fa fa-search"></i></div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</form>-->
 
     </div>
 </header>

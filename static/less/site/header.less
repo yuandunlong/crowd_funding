@@ -2,7 +2,8 @@ header{
     height: @header-height;
     width: 100%;
     border-bottom: 2px solid @color-green;
-    padding: (@header-height - @navbar-height) /2 0;
+    padding:  0;
+    background-color: rgba(0,0,0,0.7);
     min-width: @header-min-width; /*in case of disorder of elements*/
 }
 
@@ -10,9 +11,9 @@ header{
     &-navbar {
         list-style: none;
         padding: 0;
+        margin-top: 25px;
         line-height: @navbar-height;
         height: @navbar-height;
-        margin: auto 15px;
         > li {
             float: left;
             text-align: center;
@@ -22,5 +23,8 @@ header{
                 border-bottom: 2px solid @color-green;
             }
         }
+    }
+    a{
+        color:#FFFFFF;
     }
 }

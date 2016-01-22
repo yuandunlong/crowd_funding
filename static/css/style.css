@@ -14,7 +14,7 @@
 /*steps*/
 /*payback preview*/
 a {
-  color: #000;
+  color: #FFFFFF;
 }
 a:hover,
 a:focus {
@@ -28,9 +28,10 @@ a:focus {
   margin: 0 100px;
 }
 .logo {
-  width: 130px;
-  height: 40px;
-  background-image: url('/static/images/logo.png');
+  margin-top: 10px;
+  width: 410px;
+  height: 50px;
+  background-image: url('/static/images/logo_index.png');
 }
 .overlay {
   width: 100%;
@@ -112,16 +113,17 @@ header {
   height: 80px;
   width: 100%;
   border-bottom: 2px solid #00CCCE;
-  padding: 20px 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.7);
   min-width: 980px;
   /*in case of disorder of elements*/
 }
 .qmzc-navbar {
   list-style: none;
   padding: 0;
+  margin-top: 25px;
   line-height: 40px;
   height: 40px;
-  margin: auto 15px;
 }
 .qmzc-navbar > li {
   float: left;
@@ -131,6 +133,9 @@ header {
 }
 .qmzc-navbar > li.active {
   border-bottom: 2px solid #00CCCE;
+}
+.qmzc a {
+  color: #FFFFFF;
 }
 .category {
   border: 1px solid #8a8a8a;
