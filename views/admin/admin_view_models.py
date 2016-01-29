@@ -6,7 +6,7 @@
 # @Last Modified time: 2015-11-07 14:11:16
 from flask_admin.contrib.sqla import ModelView
 
-from database.models import Token,Project,db,User,Category,Payback,ArtistProfile,ArtCategory,ArtistPhoto,ActivityNotice,ProjectPost,ArtistPost,Order
+from database.models import Token,Project,db,User,Category,Payback,ArtistProfile,ArtCategory,ArtistPhoto,ActivityNotice,ProjectPost,ArtistPost,Order,Work
 from wtforms import fields, widgets
 from flask_admin import form
 import os.path as op
@@ -144,7 +144,7 @@ class PaybackModelView(BaseModelView):
 class ArtistProfileModelView(BaseModelView):
     page_size=20
     can_view_details=True
-    inline_models=(ArtistPhoto,)
+    inline_models=(ArtistPhoto,Work)
     form_extra_fields = {
         'photo': form.ImageUploadField(u'封面',base_path=file_path,namegen=prefix_name,url_relative_path="upload/")
     }    
