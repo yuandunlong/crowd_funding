@@ -13,9 +13,9 @@ class BaseModel(db.Model):
     __abstract__ = True
     id = db.Column('id', db.Integer, primary_key=True)
     created_time = db.Column(
-        'created_time', db.TIMESTAMP, server_default=func.now())
+            'created_time', db.TIMESTAMP, server_default=func.now())
     updated_time = db.Column(
-        'updated_time', db.TIMESTAMP, server_default=func.now())
+            'updated_time', db.TIMESTAMP, server_default=func.now())
 
     def as_map2(self):
         fields = {}
@@ -43,8 +43,6 @@ class BaseModel(db.Model):
             else:
                 fields[key] = value
         return fields
-
-
 
 
 class Admin(BaseModel):
@@ -100,21 +98,21 @@ class ArtistProfile(BaseModel):
     nick_name = db.Column('nick_name', db.String(64))
     blood = db.Column('blood', db.String(16))
     photo = db.Column('photo', db.String(128))
-    life_experience = db.Column("life_experience",db.String(1024))
+    life_experience = db.Column("life_experience", db.String(1024))
     sina = db.Column('sina', db.String(128))
-    qq = db.Column('qq',db.String(16))
-    wexin = db.Column('wexin',db.String(16))
+    qq = db.Column('qq', db.String(16))
+    wexin = db.Column('wexin', db.String(16))
     description = db.Column('description', db.Text)
     height = db.Column('height', db.Integer)
     weight = db.Column('weight', db.Integer)
     popularity = db.Column('popularity', db.Integer)
     photos = db.relationship('ArtistPhoto', backref=db.backref('artist_profile', lazy='select'), lazy='select')
-    works=db.relationship('Work',backref=db.backref('artist_profile',lazy="select"),lazy='select')
+    works = db.relationship('Work', backref=db.backref('artist_profile', lazy="select"), lazy='select')
 
     def as_map(self):
         fields = super(ArtistProfile, self).as_map()
         fields['photos'] = models_2_arr(self.photos)
-        fields['works']=models_2_arr(self.works)
+        fields['works'] = models_2_arr(self.works)
         return fields
 
 
@@ -261,7 +259,6 @@ class Address(BaseModel):
         return self.address
 
 
-
 class UserSupportProject(BaseModel):
     __tablename__ = 'user_support_project'
     user_id = db.Column('user_id', db.Integer)
@@ -296,27 +293,25 @@ class ArtistPost(BaseModel):
     artist_profile_id = db.Column('project_id', db.Integer)
     link = db.Column('link', db.String(128))
 
+
 class Work(BaseModel):
+    __tablename__ = "work"
 
-    def __init__(self,title='',actor='',main_actor='',director='',artist_profile_id=0,image_url=''):
-        self.title=title
-        self.actor=actor
-        self.main_actor=main_actor
-        self.director=director
-        self.artist_profile_id=artist_profile_id
-        self.image_url=image_url
+    def __init__(self, title='', actor='', main_actor='', director='', artist_profile_id=0, image_url=''):
+        self.title = title
+        self.actor = actor
+        self.main_actor = main_actor
+        self.director = director
+        self.artist_profile_id = artist_profile_id
+        self.image_url = image_url
 
-    title=db.Column('title',db.String(512))
-    actor=db.Column("actor",db.String(512))
-    main_actor=db.Column('main_actor',db.String(512))
-    director=db.Column('director',db.String(512))
+    title = db.Column('title', db.String(512))
+    actor = db.Column("actor", db.String(512))
+    main_actor = db.Column('main_actor', db.String(512))
+    director = db.Column('director', db.String(512))
     artist_profile_id = db.Column('artist_profile_id', db.Integer, db.ForeignKey('artist_profile.id'))
     # artist = db.relationship('ArtistProfile', backref=db.backref('works', lazy='dynamic'))
-    image_url=db.Column('image_url',db.String(512))
-
-
-
-
+    image_url = db.Column('image_url', db.String(512))
 
 
 class ActivityNotice(BaseModel):
