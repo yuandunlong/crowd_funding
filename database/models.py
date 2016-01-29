@@ -109,6 +109,7 @@ class ArtistProfile(BaseModel):
     weight = db.Column('weight', db.Integer)
     popularity = db.Column('popularity', db.Integer)
     photos = db.relationship('ArtistPhoto', backref=db.backref('artist_profile', lazy='select'), lazy='select')
+    works=db.relationship('Work',backref=db.backref('artist_profile',lazy="select"),lazy='select')
 
     def as_map(self):
         fields = super(ArtistProfile, self).as_map()
@@ -310,7 +311,7 @@ class Work(BaseModel):
     main_actor=db.Column('main_actor',db.String(512))
     director=db.Column('director',db.String(512))
     artist_profile_id = db.Column('artist_profile_id', db.Integer, db.ForeignKey('artist_profile.id'))
-    artist = db.relationship('ArtistProfile', backref=db.backref('works', lazy='dynamic'))
+    # artist = db.relationship('ArtistProfile', backref=db.backref('works', lazy='dynamic'))
     image_url=db.Column('image_url',db.String(512))
 
 
