@@ -1,13 +1,93 @@
-<html>
-    <head><title>全民众筹</title>
-        {% assets "home_css_index" %}
-        <link rel="stylesheet" href="{{ ASSET_URL }}">
-        {% endassets %}
-</head>
+{% extends "home/layout.html" %}
+{% block css%}
+    <link rel="stylesheet" type="text/css" href="/static/home/css/index.css"/>
 
-<body>
+{% endblock css%}
 
-</body>
+{% block content%}
 
-
-</html>
+<div class="scope">
+    <div class="scope_box box">
+        <h2>业务范围</h2>
+        <ul class="scope_list">
+            <li>
+                <div class="scope_icon scope_icon1"></div>
+                <h3>影视投资</h3>
+                <p>包括技术开发、技术服务、技术咨询、成果转让；计算机软硬件，数码产品；服务；文化艺术策划（除演出及演出中介），投资管理咨询（除证券、期货），广告设计、制作、代理。</p>
+            </li>
+            <li>
+                <div class="scope_icon scope_icon2"></div>
+                <h3>影视投资</h3>
+                <p>包括技术开发、技术服务、技术咨询、成果转让；计算机软硬件，数码产品；服务；文化艺术策划（除演出及演出中介），投资管理咨询（除证券、期货），广告设计、制作、代理。</p>
+            </li>
+            <li>
+                <div class="scope_icon scope_icon3"></div>
+                <h3>影视投资</h3>
+                <p>包括技术开发、技术服务、技术咨询、成果转让；计算机软硬件，数码产品；服务；文化艺术策划（除演出及演出中介），投资管理咨询（除证券、期货），广告设计、制作、代理。</p>
+            </li>
+            <li>
+                <div class="scope_icon scope_icon4"></div>
+                <h3>影视投资</h3>
+                <p>包括技术开发、技术服务、技术咨询、成果转让；计算机软硬件，数码产品；服务；文化艺术策划（除演出及演出中介），投资管理咨询（除证券、期货），广告设计、制作、代理。</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="aboutus">
+    <div class="aboutus_box box">
+        <h2>关于我们</h2>
+        <div class="about_content">
+            <p>
+                杭州鸿古科技有限公司位于杭州经济开发区世茂江滨花园骏景湾，以壹佰万元整的注册资金注册于2015年3月25日，类型属于科技型公司，作为新成立公司，鸿古具有更加新锐的理念思想，不拘泥于传统，不被繁琐的框架所制约，大胆创新，勇于尝试，转变固定视角，更加善于发现市场空缺和契机，不仅要抓住机遇，更要创造机遇，一家具有新锐理念的公司将具有广阔的发展空间，相信其发展壮大的速度也是迅速客观的。<br>公司的经营理念为：丰富人民业余生活，一起全民玩影视，目标群体更为广泛，但同时也分种类集中，可集中管理，公司着重投入手机移动应用“乐影”项目，使其成为公司代表性项目。
+            </p>
+            <div class="readmore"><a href="">READ MORE</a></div>
+        </div>
+    </div>
+</div>
+<div class="connect">
+    <div class="connect_box box">
+        <h2>联系我们</h2>
+        <strong>好吧，这里有各种各样我们的联系方式</strong>
+        <div class="to_connect">
+            <div class="connect_left">
+                <strong>助力影视发展，带动全民参与！</strong>
+                <p>杭州市经济开发区世茂江滨花园骏景湾10栋1单元1104室</p>
+                <p>15558000118&nbsp;&nbsp;0571-86752003<br>1747458510@qq.com</p>
+            </div>
+            <div class="connect_right">
+                <strong>留言</strong>
+                <div class="your_inf">
+                    <input type="text" id="your_name" name="your_name" value="姓名" placeholder="姓名"/>
+                    <input type="text" id="your_connect" name="your_connect" value="邮箱或电话" placeholder="邮箱或电话"
+                           style="margin-right: 0px;"/>
+                </div>
+                <div class="note"><input type="text" name="your_note" rows="" cols="" placeholder="你想说的话"
+                                         value="你想说的话"/><input type="submit" name="submit" id="submit" value="发送"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--公用footer-->
+<div class="footer">
+    <div class="footer_box box">
+        <div class="footer_left">
+            <a href="">
+                <h1>杭州鸿古科技有限公司</h1>
+                <h6>Hangzhou HongGu Science and Technology Co Ltd</h6>
+            </a>
+        </div>
+        <div class="footer_right">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">新闻动态</a></li>
+                <li><a href="">影视众筹</a></li>
+                <li><a href="">众筹发布</a></li>
+                <li><a href="">会员中心</a></li>
+                <li><a href="">app展示</a></li>
+            </ul>
+            <p>京ICP备11017824号-4/京ICP证130164号Copyright&nbsp;&copy;&nbsp;2006-2015ZCOOL</p>
+        </div>
+    </div>
+</div>
+{% endblock content%}

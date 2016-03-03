@@ -25,7 +25,7 @@ from logging.handlers import RotatingFileHandler
 from logging import Formatter
 from flask_assets import Environment, Bundle
 from flask_admin import Admin
-from views.admin.admin_view_models import UserModelView,ProjectModelView,TokenModelView,PaybackModelView,ArtistProfileModelView,ArtCategoryModelView,ArtistPhotoModelView,ActivityNoticeModelView,ProjectPostModelView,ArtistPostModelView,OrderModelView
+from views.admin.admin_view_models import UserModelView,ProjectModelView,TokenModelView,PaybackModelView,ArtistProfileModelView,ArtCategoryModelView,ArtistPhotoModelView,ActivityNoticeModelView,ProjectPostModelView,ArtistPostModelView,OrderModelView,NewsModelView
 import logging
 from flask_babel import Babel
 from flask_admin.contrib.fileadmin import FileAdmin
@@ -151,6 +151,7 @@ admin.add_view(ActivityNoticeModelView())
 admin.add_view(ProjectPostModelView())
 admin.add_view(ArtistPostModelView())
 admin.add_view(OrderModelView())
+admin.add_view(NewsModelView())
 admin.add_view(FileAdmin(unicode(path), '/static/upload/', name=u'文件管理'))
 
 

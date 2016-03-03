@@ -13,9 +13,9 @@ class BaseModel(db.Model):
     __abstract__ = True
     id = db.Column('id', db.Integer, primary_key=True)
     created_time = db.Column(
-            'created_time', db.TIMESTAMP, server_default=func.now())
+        'created_time', db.TIMESTAMP, server_default=func.now())
     updated_time = db.Column(
-            'updated_time', db.TIMESTAMP, server_default=func.now())
+        'updated_time', db.TIMESTAMP, server_default=func.now())
 
     def as_map2(self):
         fields = {}
@@ -319,3 +319,13 @@ class ActivityNotice(BaseModel):
     title = db.Column('title', db.String(256))
     content = db.Column('content', db.String(512))
     image_url = db.Column('image_url', db.String(128))
+
+
+class News(BaseModel):
+    """
+    新闻model
+    """
+    __tablename__ = "news"
+    content = db.Column('content', db.String(2048))
+    title = db.Column('title', db.String(128))
+

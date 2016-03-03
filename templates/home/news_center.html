@@ -1,0 +1,69 @@
+{% extends "home/layout.html" %}
+{% block css%}
+<link rel="stylesheet" type="text/css" href="/static/home/css/news.css"/>
+
+{% endblock css%}
+
+{% block content%}
+<div class="news">
+    <div class="nwes_box box">
+        <div class="news_title">今天是&nbsp;<span>2015年11月18日</span>&nbsp;星期三</div>
+        <div class="news_container">
+            <ul>
+                {% for _new in news.items %}
+
+
+                <li>
+                    <a href="news_detail.html" target="_blank">
+                        <img class="new_img" src="/static/home/images/news_img1.png" alt=""/>
+                        <div class="news_artcle">
+                            <div><h3>{{ _new.title }}<span class="news_time"><i>22:00&nbsp;</i>2015.11.15</span>
+                            </h3></div>
+                            {% autoescape false %}
+                            <p>{{ _new.content }}</p>
+                            {% endautoescape %}
+
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+
+            </ul>
+        </div>
+        <div class="page_turn">
+            <ul>
+                <li><a class="cur" href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">6</a></li>
+                <li><a href="">...</a></li>
+                <li><a href="">25</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--公用footer-->
+<div class="footer">
+    <div class="footer_box box">
+        <div class="footer_left">
+            <a href="">
+                <h1>杭州鸿古科技有限公司</h1>
+                <h6>Hangzhou HongGu Science and Technology Co Ltd</h6>
+            </a>
+        </div>
+        <div class="footer_right">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">新闻动态</a></li>
+                <li><a href="">影视众筹</a></li>
+                <li><a href="">众筹发布</a></li>
+                <li><a href="">会员中心</a></li>
+                <li><a href="">app展示</a></li>
+            </ul>
+            <p>京ICP备11017824号-4/京ICP证130164号Copyright&nbsp;&copy;&nbsp;2006-2015ZCOOL</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

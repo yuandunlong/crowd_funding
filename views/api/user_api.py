@@ -277,3 +277,13 @@ def del_user_address(result, user):
     address_id = data['address_id']
     Address.query.filter_by(id=address_id).delete()
     db.session.commit()
+
+@user_api.route('/private/user/update_user_info', methods=['POST'])
+@require_token
+@json_response
+def update_user_info(result,user):
+    data=request.json
+    user.email=data.get("email",None)
+    user.sex=data.get('sex',0)
+    user.name=data.get('name',None)
+    db.session.commit()
